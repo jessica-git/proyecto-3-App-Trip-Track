@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
 import Service from '../../service/Auth.service'
+import SearchBar from "./SearchBar"
 
 class Navigation extends Component {
     constructor(props) {
         super(props)
         this._service = new Service()
+    }
+
+    logoutUser = () => {
+        this._service.logout()
+        .then(x => this.props.setUser(false))
+        .catch(err => console.log(err))
     }
 
     render() {
@@ -19,8 +27,9 @@ class Navigation extends Component {
                 <Navbar bg="dark" variant="dark" expand="md">
                     <Navbar.Brand>LOGOO</Navbar.Brand>
                     <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
+                        {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                        <Button variant="outline-success">Search</Button> */}
+                        <SearchBar />
                     </Form>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse>
@@ -42,8 +51,9 @@ class Navigation extends Component {
                 <Navbar bg="dark" variant="dark" expand="md">
                     <Navbar.Brand>LOGOO</Navbar.Brand>
                     <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
+                        {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                        <Button variant="outline-success">Search</Button> */}
+                        <SearchBar />
                     </Form>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse>

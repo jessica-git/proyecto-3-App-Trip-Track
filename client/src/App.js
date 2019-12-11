@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Service from './service/Auth.service'
-import Navbar from './components/ui/Navbar'
 
+import AllTravelsCard from './components/pages/AllTravelsCard'
+import Navbar from './components/ui/Navbar'
 import Index from './components/pages/Index'
 import Profile from './components/pages/Profile'
-
 import Signup from './components/auth/Signup'
 import Login from './components/auth/Login'
+
 
 class App extends Component {
 
@@ -50,6 +51,8 @@ class App extends Component {
           <Route path="/profile" render={() =>
             this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
+          <Route exact path="/search/:place" component={AllTravelsCard } />
+
         </Switch>
 
       </>

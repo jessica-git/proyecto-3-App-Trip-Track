@@ -2,7 +2,7 @@ const express = require('express');
 const authRoutes = express.Router();
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
-const uploadCloud = require("../configs/cloudinary.config")
+// const uploadCloud = require("../configs/cloudinary.config")
 
 const User = require('../models/User.model');
 
@@ -82,8 +82,9 @@ authRoutes.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
-authRoutes.post('/logout', (req, res, next) => {
+authRoutes.post('/logout', (req, res) => {
     req.logout();
+    // res.redirect("/");
     res.status(200).json({ message: 'Log out success!' });
 });
 

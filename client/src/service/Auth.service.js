@@ -13,5 +13,7 @@ export default class Services {
     login = (username, password) => this._service.post('/login', { username, password})
     logout = () => this._service.post('/logout')
     loggedin = () => this._service.get('/loggedin')
+
+    // handleUpload = theFile => this.service.post('/upload', theFile)
     
 }

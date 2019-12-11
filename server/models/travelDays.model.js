@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const detailsSchema = new Schema({
-    title: String,
+    place: String,
     day: Date,
     lodgings: [{ description: String, price: Number }],
     placeToVisit: [{ description: String, price: Number }],
@@ -17,5 +17,6 @@ const detailsSchema = new Schema({
 })
 
 
-const TravelDetails = mongoose.model('TravelDetails', detailsSchema)
-module.exports = TravelDetails 
+const TravelDays = mongoose.model('TravelDays', detailsSchema)
+module.exports = TravelDays 
+

@@ -1,12 +1,15 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const TravelDays = require("./travelDays.model")
 
 const travelSchema = new Schema({
-    title: String,
-    days: Date,  
+    place: String,
+    user: String,
+    days: Date,
     people: Number,
     totalPrice: Number,
-    day: [{ type: Schema.Types.ObjectId, ref: 'TravelDetails'}]
+    day: [{ type: Schema.Types.ObjectId, ref: 'TravelDays' }],
+    // rating: Number
 }, {
     timestamps: true
 })
