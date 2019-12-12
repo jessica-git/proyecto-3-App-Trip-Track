@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+
 const Travel = require("../models/travel.model");
 const TravelDays = require("../models/travelDays.model")
 
 require("dotenv").config();
 
-mongoose.connect(`${process.env.DB}`);
+mongoose.connect(`mongodb://localhost/proyectoTravel`);
 
 
 Travel.collection.drop()
@@ -13,11 +14,11 @@ TravelDays.collection.drop()
 const travel = [
     {
         place: "Granada",
+        user: "Jessica",
         days: 3,
         people: 2,
         totalPrice: 350,
-        day: [{ objectId: "5dee78954115fe95592e6949" }]
-
+        day: ["5dee78954115fe95592e6949"]
     }
 ]
 

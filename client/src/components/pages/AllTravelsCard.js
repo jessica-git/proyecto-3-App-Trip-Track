@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import service from "../../service/Travel.service"
+import TravelCard from './TravelCard'
 
 
 class AllTravelsCard extends Component {
@@ -12,7 +13,7 @@ class AllTravelsCard extends Component {
         this.state = {
             place: "",
             user: "",
-
+            days: "",
             // rating: 0
         }
     }
@@ -24,7 +25,6 @@ class AllTravelsCard extends Component {
         this.travelAPI.getTravelByCity(place)
             .then(apiResponse => {
                 const filteredCities = apiResponse.data
-                console.log(filteredCities, "la city de alltravels")
                 this.setState({ filteredCities })
 
             })
@@ -44,23 +44,19 @@ class AllTravelsCard extends Component {
 
         const arrayCities = this.state.filteredCities
         return arrayCities ? arrayCities.map(city => {
-
-            // console.log("console de place:", city.user)
             return (
-                <>
-                    <Col md={4} >
-                        <Row>
-                            <h3>{city.place}</h3>
-                        </Row>
-                        <Row>
-                            <p>{city.user}</p>
-                        </Row>
-                        <div>
-                            <p>aqui va el mapaaaaaaaaaaa</p>
-                        </div>
-                        <Link className="btn btn-sm btn-dark" to={`/travel/${this.props._id}`}>Ver detalles</Link>
-                    </Col >
-                </>
+
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src="holder.js/100px180" alt="maps" />
+                    <Card.Body>
+                        <Card.Title>{city.place}</Card.Title>
+                        <Card.Text>{city.user}</Card.Text>
+                        <Card.Text>{city.days}</Card.Text>
+                        {/* <Card.Text>rating</Card.Text> */}
+                        <Link className="btn btn-sm btn-dark" to={`/travel/${city.place}/${city._id}`}>Ver detalles</Link>
+                    </Card.Body>
+                </Card>
+
             )
         }) : "Esperando los datos..."
 

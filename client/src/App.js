@@ -3,12 +3,14 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Service from './service/Auth.service'
 
-import AllTravelsCard from './components/pages/AllTravelsCard'
 import Navbar from './components/ui/Navbar'
 import Index from './components/pages/Index'
 import Profile from './components/pages/Profile'
 import Signup from './components/auth/Signup'
 import Login from './components/auth/Login'
+import AllTravelsCard from './components/pages/AllTravelsCard'
+import TravelCard from "./components/pages/TravelCard"
+import TravelDays from "./components/pages/TravelDays"
 
 
 class App extends Component {
@@ -52,6 +54,8 @@ class App extends Component {
             this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
           <Route exact path="/search/:place" component={AllTravelsCard } />
+          <Route exact path="/travel/:place/:id" component={TravelCard} />
+          <Route exact path="/detailsTravel/:day" component={TravelDays} />
 
         </Switch>
 
