@@ -10,6 +10,7 @@ const detailsSchema = new Schema({
     transport: [{ description: String, price: Number }],
     restaurantsMeals: [{ description: String, price: Number }],
     tips: String,
+    imageUrl: String,
     cords: { type: { type: String }, coordinates: [Number] }
 
 }, {

@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import Service from '../../service/Auth.service'
+import AuthService from '../../service/Auth.service'
 import SearchBar from "./SearchBar"
 
 class Navigation extends Component {
     constructor(props) {
         super(props)
-        this._service = new Service()
+        this._service = new AuthService ()
     }
 
     logoutUser = () => {
@@ -25,7 +25,7 @@ class Navigation extends Component {
             this.props.loggedInUser ?
 
                 <Navbar bg="dark" variant="dark" expand="md">
-                    <Navbar.Brand>LOGOO</Navbar.Brand>
+                    <Navbar.Brand><Link to="/">LOGOOOO</Link></Navbar.Brand>
                     <Form inline>
                         {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                         <Button variant="outline-success">Search</Button> */}

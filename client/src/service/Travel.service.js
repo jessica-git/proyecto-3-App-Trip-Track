@@ -10,15 +10,13 @@ export default class Services {
 
     }
 
-    getAllTravels = () => this._service.get('/all')
+    getAllTravels = () => this._service.get("/all")
     getOneTravelByID = id => this._service.get(`/travel/${id}`)
     getTravelByCity = (place) => this._service.get(`/searchPlace/${place}`)
-    // getTravelByIDCity = (place, id) => this._service.get(`/${place}/${id}`)
+    newTravel = travel => this._service.post('/new', travel)
+    getMyTravels = (user) => this._service.get("/myTravels")
 
-
-
-    // handleUpload = theFile => this.service.post('/upload', theFile)
-
+    handleUpload = theFile => this.service.post('/upload', theFile)
 
 
 }

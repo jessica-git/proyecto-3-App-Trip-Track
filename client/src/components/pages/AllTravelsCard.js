@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import service from "../../service/Travel.service"
+import TravelService from "../../service/Travel.service"
 import TravelCard from './TravelCard'
 
 
 class AllTravelsCard extends Component {
     constructor(props) {
         super(props)
-        this.travelAPI = new service()
+        this.travelAPI = new TravelService()
         this.state = {
             place: "",
             user: "",
@@ -28,7 +28,7 @@ class AllTravelsCard extends Component {
                 this.setState({ filteredCities })
 
             })
-            .catch(err => console.log("Error", err))
+            .catch(err => console.log("Error get travel by city", err))
     }
 
     printTravels() {

@@ -19,9 +19,8 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <>
+          
                 <div >
-
                     <input
                         className="input"
                         type="text"
@@ -34,7 +33,6 @@ class SearchBar extends Component {
                         <Link to={`/search/${this.state.searchValue}`}>Search</Link>
                     </p>
                 </div>
-            </>
         );
     }
 }

@@ -8,13 +8,15 @@ const User = require("../models/User.model")
 
 router.get("/", ensureLogin.ensureLoggedIn('/auth/login'), (req, res) => res.render("profile", { user: req.user }));
 
-router.get('/', (req, res) => {
-    User.findById(req.user._id)
-        .then(theUser => res.render('profile', { user: theUser }))
-        .catch(err => console.log("error!!", err));
-});
-
-router.post("/profile", (req, res, next) => res.render("profile"))
+router.get("/profile", (req, res) => {
+    userId = req.user._id
+    userId.findById(userId)
+        .then(profile => {
+            console.log(profile)
+            res.json(profile)
+        })
+        .catch(err => { res.json(err) })
+})
 
 
 

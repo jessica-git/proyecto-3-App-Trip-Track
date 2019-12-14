@@ -1,14 +1,25 @@
 const express = require('express');
 const authRoutes = express.Router();
+
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
-// const uploadCloud = require("../configs/cloudinary.config")
+const uploader = require('../configs/cloudinary.config');
 
 const User = require('../models/User.model');
 
 
+authRoutes.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
+
+    if (!req.file) {
+        next(new Error('No file uploaded!'));
+        return;
+    }
+    res.json({ secure_url: req.file.secure_url });
+})
+
+
 authRoutes.post('/signup', (req, res, next) => {
-    const { username, password } = req.body
+    const { username, password, email, imageUrl, travelsInspirationList } = req.body
 
     if (!username || !password) {
         res.status(400).json({ message: 'Provide username and password' });
@@ -38,6 +49,9 @@ authRoutes.post('/signup', (req, res, next) => {
         const aNewUser = new User({
             username,
             password: hashPass,
+            email, 
+            imageUrl, 
+            travelsInspirationList 
         });
 
         aNewUser.save(err => {
@@ -84,7 +98,6 @@ authRoutes.post('/login', (req, res, next) => {
 
 authRoutes.post('/logout', (req, res) => {
     req.logout();
-    // res.redirect("/");
     res.status(200).json({ message: 'Log out success!' });
 });
 
