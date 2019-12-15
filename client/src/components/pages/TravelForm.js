@@ -18,7 +18,8 @@ class TravelForm extends Component {
                 days: "",
                 people: 0,
                 totalPrice: 0,
-                day: [{
+                day: [
+                    // {
                     // place: "",
                     // day: "",
                     // lodgings: [{ description: "", price: 0 }],
@@ -28,7 +29,8 @@ class TravelForm extends Component {
                     // restaurantsMeals: [{ description: "", price: 0 }],
                     // tips: "String",
                     // imageUrl: "String",
-                }]
+                    // }
+                ]
             }
         }
     }
@@ -36,7 +38,7 @@ class TravelForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         this.TravelService.newTravel(this.state.travel)
-            .then(x => this.props.updateTravelList())
+            .then(apiResponse => this.setState({ travel: { ...this.state.travel } }))
             .catch(err => console.log(err))
     }
 
