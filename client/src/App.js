@@ -59,11 +59,15 @@ class App extends Component {
           } />
 
           <Route exact path="/search/:place" component={AllTravelsCard} />
-          <Route exact path="/travel/:place/:id" component={TravelCard} />
+          <Route exact path="/travel/:place/:id" render={(props) =>
+            <TravelCard {...props} loggedInUser={this.state.loggedInUser} />
+          } />
           <Route exact path="/detailsTravel/:day" component={TravelDays} />
-          <Route exact path="/myTravels" component={MyTravelList} />
+          <Route exact path="/myTravels" render={() =>
+            this.state.loggedInUser ? <MyTravelList loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
+          } />
           <Route exact path="/new" render={() =>
-            this.state.loggedInUser ? < TravelForm loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
+            this.state.loggedInUser ? <TravelForm loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
 
 

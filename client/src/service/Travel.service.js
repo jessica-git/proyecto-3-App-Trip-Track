@@ -14,7 +14,7 @@ export default class TravelService {
     getOneTravelByID = id => this._service.get(`/travel/${id}`)
     getTravelByCity = (place) => this._service.get(`/searchPlace/${place}`)
     newTravel = travel => this._service.post('/new', travel)
-    getMyTravels = (user) => this._service.get("/myTravels")
+    getTravelsByUser = (userId) => this._service.get(`/myTravels/${userId}`)
 
     updateTravel = (place, duration, people, totalPrice, day, id) => this._service.post(`/edit/${id}`, { place, duration, people, totalPrice, day })
 

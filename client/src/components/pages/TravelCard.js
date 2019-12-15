@@ -35,6 +35,13 @@ class TravelCard extends Component {
 
     render() {
         const city = this.state.travel
+        const travelUserId = this.state.travel.user
+        const loggedInUser = this.props.loggedInUser
+        let saveButton;
+
+        if (loggedInUser && travelUserId != loggedInUser._id) {
+            saveButton = <Link className="btn btn-sm btn-dark">Guardar</Link>
+        }
         return (
             < Card style={{ width: '18rem' }}>
                 <Card.Text>Viaje creado por: {city.user}</Card.Text>
@@ -67,7 +74,7 @@ class TravelCard extends Component {
 
 
                 <Card.Body>
-                    <Link className="btn btn-sm btn-dark" to={`/travel/${this.props._id}`}>Guardar</Link>
+                    {saveButton}
                     <Link to={`/search/${city.place}`} className="btn btn-sm btn-dark">Volver</Link>
                 </Card.Body>
             </Card >

@@ -16,7 +16,7 @@ class MyTravelList extends Component {
     }
 
     updateTravelList = () => {
-        this.travelAPI.getAllTravels()
+        this.travelAPI.getTravelsByUser(this.props.loggedInUser._id)
             .then(apiResponse => {
                 const travelList = apiResponse.data
                 this.setState({ travelList })
@@ -29,6 +29,7 @@ class MyTravelList extends Component {
 
 
     render() {
+        const travels = this.state.travelList
         return (
             <>
                 <Row>
@@ -51,8 +52,11 @@ class MyTravelList extends Component {
                         <Row>
                             <Col sm={4}>
                                 <ListGroup>
-                                    <ListGroup.Item action href="#link1">GRANADA</ListGroup.Item>
-                                    <ListGroup.Item action href="#link2">viaje 2</ListGroup.Item>
+                                    {travels.map((travel, idx) => {
+                                        return (
+                                            <ListGroup.Item key={idx} action href={`travel/${travel.place}/${travel._id}`}>{travel.place}</ListGroup.Item>
+                                        )
+                                    })}
                                 </ListGroup>
                             </Col>
                             <Col sm={8}>

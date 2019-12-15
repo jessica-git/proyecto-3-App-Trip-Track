@@ -54,8 +54,8 @@ router.get("/travel/:id", (req, res) => {
 })
 
 //Devolver vijes de usuario
-router.get("/myTravels", (req, res) => {
-    userModel.find({ user: req.user._id })
+router.get("/myTravels/:userId", (req, res) => {
+    travelModel.find({ user: req.params.userId })
         .then(allTravels => res.json(allTravels))
         .catch(err => res.json(err))
 })
