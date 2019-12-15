@@ -58,10 +58,10 @@ class TravelCard extends Component {
                     return (<Accordion>
                         <Card>
                             <Card.Header>
-                                <Accordion.Toggle as={Button} variant="link" eventKey="0">{idx + 1}</Accordion.Toggle>
+                                <Accordion.Toggle as={Button} variant="link" eventKey="0">Día {idx + 1}</Accordion.Toggle>
                             </Card.Header>
                             <Accordion.Collapse eventKey="0">
-                                <Card.Body>detalles dia {idx + 1}
+                                <Card.Body>
                                     <TravelDays key={day._bbid} {...day} />
                                 </Card.Body>
                             </Accordion.Collapse>

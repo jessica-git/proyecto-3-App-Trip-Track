@@ -1,10 +1,19 @@
 import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
 
-import { Link } from 'react-router-dom'
+const Day = (
+    { _id,
+        place,
+        day,
+        lodgings,
+        placeToVisit,
+        paidExcursions,
+        transport,
+        restaurantsMeals,
+        tips,
+        imageUrl }
 
-
-const Day = ({ _id, place, day, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imageUrl }) => {
+) => {
 
     return (
         <Container className="coaster-details">
@@ -45,11 +54,3 @@ const Day = ({ _id, place, day, lodgings, placeToVisit, paidExcursions, transpor
 export default Day
 
 
-
-
-{/* <Form.Group>
-    <Form.Label>Imagen URL (archivo)</Form.Label>
-    <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
-</Form.Group>
-
-import FilesService from '../../service/Files.service' */}

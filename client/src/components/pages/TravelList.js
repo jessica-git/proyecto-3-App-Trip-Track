@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ListGroup, Row, Col, Tab, Container, Image} from 'react-bootstrap'
 import imgCreate from "../../images/button-create.png"
+import { Link } from 'react-router-dom'
 
 import TravelService from "../../service/Travel.service"
 
@@ -28,7 +29,8 @@ class TravelList extends Component {
             <Container>
                 <Row>
                     <Col xs={6} md={4}>
-                            <Image src={imgCreate} style={{width: "50px"}} roundedCircle />
+                            <Link to={`/new`} ><Image src={imgCreate} style={{ width: "50px" }} roundedCircle />Crear</Link>
+                            
                             <p>Aqui va el mapaaaa</p>
                     </Col>
                 </Row>

@@ -19,7 +19,7 @@ authRoutes.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
 
 
 authRoutes.post('/signup', (req, res, next) => {
-    const { username, password, email, imageUrl, travelsInspirationList } = req.body
+    const { username, password, email, imageUrl } = req.body
 
     if (!username || !password) {
         res.status(400).json({ message: 'Provide username and password' });
@@ -49,9 +49,9 @@ authRoutes.post('/signup', (req, res, next) => {
         const aNewUser = new User({
             username,
             password: hashPass,
-            email, 
-            imageUrl, 
-            travelsInspirationList 
+            email,
+            imageUrl,
+
         });
 
         aNewUser.save(err => {

@@ -14,12 +14,12 @@ router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
         next(new Error('No file uploaded!'));
         return;
     }
-
     res.json({ secure_url: req.file.secure_url });
 })
 
 
 //todas estas rutas comienzan por /api/travels/
+
 //devuelve todo
 router.get("/all", (req, res) => {
     travelModel.find()
@@ -31,7 +31,7 @@ router.get("/all", (req, res) => {
         .catch(err => { res.json(err) })
 })
 
-//Get para buscar por ciudad
+//Buscar por ciudad
 router.get("/searchPlace/:place", (req, res) => {
     const place = req.params.place
     travelModel.find({ place: { '$regex': place, $options: 'i' } })
@@ -40,7 +40,7 @@ router.get("/searchPlace/:place", (req, res) => {
 
 })
 
-// UN LUGAR CON DÍAS SIN DETALLE CON POPULATE
+// Vista general de Travel sin detalle de días con Populate
 router.get("/travel/:id", (req, res) => {
     travelId = req.params.id
     travelModel.findById(travelId)
@@ -52,7 +52,7 @@ router.get("/travel/:id", (req, res) => {
         .catch(err => { res.json(err) })
 })
 
-//DEVOLVER VIAJES DE UN USUARIO 
+//Devolver vijes de usuario
 router.get("/myTravels", (req, res) => {
     userModel.find({ user: req.user._id })
         .then(response => res.json(response))
@@ -60,15 +60,11 @@ router.get("/myTravels", (req, res) => {
 })
 
 
-
-//CREAR NUEVO TRAVEL
+//Crear nuevo Travel
 router.post("/new", (req, res) => {
     const travel = req.body
     travelModel.create(travel)
-        .then(theNewTravel => {
-            console.log(theNewTravel)
-            res.json(theNewTravel)
-        })
+        .then(theNewTravel => res.json(theNewTravel))
         .catch(err => { res.json(err) })
 })
 

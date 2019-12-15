@@ -27,8 +27,6 @@ class Navigation extends Component {
                 <Navbar bg="dark" variant="dark" expand="md">
                     <Navbar.Brand><Link to="/">LOGOOOO</Link></Navbar.Brand>
                     <Form inline>
-                        {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button> */}
                         <SearchBar />
                     </Form>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -51,8 +49,6 @@ class Navigation extends Component {
                 <Navbar bg="dark" variant="dark" expand="md">
                     <Navbar.Brand>LOGOO</Navbar.Brand>
                     <Form inline>
-                        {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button> */}
                         <SearchBar />
                     </Form>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
