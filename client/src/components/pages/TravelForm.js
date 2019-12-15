@@ -14,7 +14,7 @@ class TravelForm extends Component {
         this.state = {
             travel: {
                 place: "",
-                user: "",
+                user: this.props.loggedInUser._id,
                 days: "",
                 people: 0,
                 totalPrice: 0,
@@ -37,6 +37,7 @@ class TravelForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
+
         this.TravelService.newTravel(this.state.travel)
             .then(apiResponse => this.setState({ travel: { ...this.state.travel } }))
             .catch(err => console.log(err))
@@ -67,6 +68,7 @@ class TravelForm extends Component {
 
     render() {
         return (
+
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group>
                     <Form.Label>Viaje</Form.Label>

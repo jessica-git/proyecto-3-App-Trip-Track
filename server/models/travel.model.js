@@ -3,9 +3,9 @@ const Schema = mongoose.Schema
 const TravelDays = require("./travelDays.model")
 
 const travelSchema = new Schema({
-    place: String,
-    user: String,
-    days: Date,
+    place: { type: String, required: true },
+    user: { type: String, required: true },
+    days: { type: Number, required: true },
     people: Number,
     totalPrice: Number,
     day: [{ type: Schema.Types.ObjectId, ref: 'TravelDays' }],

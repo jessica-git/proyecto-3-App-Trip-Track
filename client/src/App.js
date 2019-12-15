@@ -32,7 +32,7 @@ class App extends Component {
 
   fetchUser = () => {
     if (this.state.loggedInUser === null) {
-      this.AuthService .loggedin()
+      this.AuthService.loggedin()
         .then(theLoggedInUserFromTheServer => this.setState({ loggedInUser: theLoggedInUserFromTheServer.data }))
         .catch(err => {
           this.setState({ loggedInUser: false })
@@ -57,12 +57,14 @@ class App extends Component {
           <Route path="/profile" render={() =>
             this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
-          
-          <Route exact path="/search/:place" component={AllTravelsCard } />
+
+          <Route exact path="/search/:place" component={AllTravelsCard} />
           <Route exact path="/travel/:place/:id" component={TravelCard} />
           <Route exact path="/detailsTravel/:day" component={TravelDays} />
-          <Route exact path="/myTravels" component={TravelList} />  
-          <Route exact path="/new" component={TravelForm} />
+          <Route exact path="/myTravels" component={TravelList} />
+          <Route exact path="/new" render={() =>
+            this.state.loggedInUser ? < TravelForm loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
+          } />
 
 
         </Switch>
