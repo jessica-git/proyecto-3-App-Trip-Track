@@ -70,20 +70,20 @@ class TravelForm extends Component {
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group>
                     <Form.Label>Viaje</Form.Label>
-                    <Form.Control type="text" name="title" onChange={this.handleInputChange} value={this.state.travel.place} />
+                    <Form.Control type="text" name="place" onChange={this.handleInputChange} value={this.state.travel.place} />
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Días</Form.Label>
-                    <Form.Control type="text" name="description" onChange={this.handleInputChange} value={this.state.travel.days} />
+                    <Form.Control type="text" name="days" onChange={this.handleInputChange} value={this.state.travel.days} />
                     {/* <DateRange onInit={this.handleSelect} onChange={this.handleSelect} /> */}
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Personas que han viajado</Form.Label>
-                    <Form.Control type="text" name="title" onChange={this.handleInputChange} value={this.state.travel.people} />
+                    <Form.Control type="number" name="people" onChange={this.handleInputChange} value={this.state.travel.people} />
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Precio total del viaje</Form.Label>
-                    <Form.Control type="text" name="description" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
+                    <Form.Control type="number" name="totalPrice" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
                 </Form.Group>
                 <hr />
                 <Form.Group>
