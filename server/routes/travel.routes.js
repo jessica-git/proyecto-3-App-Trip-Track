@@ -4,8 +4,8 @@ const router = express.Router()
 const uploader = require('../configs/cloudinary.config');
 
 const travelModel = require("../models/travel.model")
-const day = require("../models/travelDays.model")  //necesario para populate
-const userModel = require("../models/User.model")
+const dayModel = require("../models/travelDays.model")  //necesario para populate
+const userModel = require("../models/user.model")
 
 
 router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
@@ -24,6 +24,7 @@ router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
 router.get("/all", (req, res) => {
     travelModel.find()
         .populate("day")
+        .populate("user")
         .then(allTheTravels => {
             console.log(allTheTravels)
             res.json(allTheTravels)
@@ -55,7 +56,7 @@ router.get("/travel/:id", (req, res) => {
 //Devolver vijes de usuario
 router.get("/myTravels", (req, res) => {
     userModel.find({ user: req.user._id })
-        .then(response => res.json(response))
+        .then(allTravels => res.json(allTravels))
         .catch(err => res.json(err))
 })
 
@@ -67,6 +68,19 @@ router.post("/new", (req, res) => {
         .then(theNewTravel => res.json(theNewTravel))
         .catch(err => { res.json(err) })
 })
+
+//Editar travel
+router.post("/edit/:id", (req, res) => {
+    const { place, duration, people, totalPrice, day } = req.body
+    travelId = req.params.id
+    travelModel.findByIdAndUpdate(travelId, {           //findOneAndReplace()
+        place, duration, people, totalPrice, day
+    })
+        .then(theTravelUpdate => res.json(theTravelUpdate))
+        .catch(err => { res.json(err) })
+})
+
+
 
 
 

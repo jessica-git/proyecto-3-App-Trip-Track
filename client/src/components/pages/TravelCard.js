@@ -20,12 +20,9 @@ class TravelCard extends Component {
 
         this.travelAPI.getOneTravelByID(cityId)
             .then(apiResponse => {
-                // console.log("soy la respuesta del back", apiResponse.data)
-
                 this.setState({ travel: apiResponse.data })
-                // console.log("es el this.state", this.state)
             })
-            .catch(err => console.log("Errorrrrrr", { err }))
+            .catch(err => console.log("Error details info", { err }))
     }
 
     printCity() {
@@ -37,10 +34,7 @@ class TravelCard extends Component {
     }
 
     render() {
-
-        console.log(this.state.travel)
         const city = this.state.travel
-        console.log(city)
         return (
             < Card style={{ width: '18rem' }}>
                 <Card.Text>Viaje creado por: {city.user}</Card.Text>
@@ -51,18 +45,18 @@ class TravelCard extends Component {
                     {/* <Card.Text>rating</Card.Text> */}
                     <Card.Text>PEOPLE: {city.people}</Card.Text>
                     <Card.Text>PRICE: {city.totalPrice} €</Card.Text>
-                    <Card.Text>Duration: {city.days}</Card.Text>
+                    <Card.Text>Duration: {city.duration}</Card.Text>
                 </Card.Body>
 
                 {city.day && city.day.map((day, idx) => {
-                    return (<Accordion>
+                    return (<Accordion key={idx}>
                         <Card>
                             <Card.Header>
                                 <Accordion.Toggle as={Button} variant="link" eventKey="0">Día {idx + 1}</Accordion.Toggle>
                             </Card.Header>
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body>
-                                    <TravelDays key={day._bbid} {...day} />
+                                    <TravelDays key={day._id} {...day} />
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>

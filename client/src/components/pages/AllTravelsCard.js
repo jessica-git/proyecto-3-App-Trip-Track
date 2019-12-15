@@ -13,7 +13,7 @@ class AllTravelsCard extends Component {
         this.state = {
             place: "",
             user: "",
-            days: "",
+            duration: "",
             // rating: 0
         }
     }
@@ -51,7 +51,7 @@ class AllTravelsCard extends Component {
                     <Card.Body>
                         <Card.Title>{city.place}</Card.Title>
                         <Card.Text>{city.user}</Card.Text>
-                        <Card.Text>{city.days}</Card.Text>
+                        <Card.Text>{city.duration}</Card.Text>
                         {/* <Card.Text>rating</Card.Text> */}
                         <Link className="btn btn-sm btn-dark" to={`/travel/${city.place}/${city._id}`}>Ver detalles</Link>
                     </Card.Body>

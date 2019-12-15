@@ -5,7 +5,7 @@ const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const uploader = require('../configs/cloudinary.config');
 
-const User = require('../models/User.model');
+const User = require('../models/user.model');
 
 
 authRoutes.post('/upload', uploader.single("imageUrl"), (req, res, next) => {

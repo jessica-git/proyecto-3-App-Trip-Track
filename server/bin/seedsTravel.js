@@ -1,30 +1,44 @@
 const mongoose = require("mongoose");
-
-const Travel = require("../models/travel.model");
-const TravelDays = require("../models/travelDays.model")
-
-require("dotenv").config();
+const bcrypt = require('bcryptjs');
 
 mongoose.connect(`mongodb://localhost/proyectoTravel`);
 
+//importante el orden de requerimiento para que aparezca en la DB
+const User = require("../models/user.model");
+const TravelDays = require("../models/travelDays.model");
+const Travel = require("../models/travel.model");
 
+require("dotenv").config();
+
+const salt = bcrypt.genSaltSync(10);
+
+User.collection.drop()
 Travel.collection.drop()
 TravelDays.collection.drop()
 
-const travel = [
-    {
-        place: "Granada",
-        user: "Jessica",
-        days: 3,
-        people: 2,
-        totalPrice: 350,
-        day: ["5dee78954115fe95592e6949"]
-    }
-]
+const user = {
+    _id: mongoose.Types.ObjectId(),
+    username: "Jessica",
+    email: "jess@jess.com",
+    password: bcrypt.hashSync('1234', salt)
+}
+
+const day1Id = mongoose.Types.ObjectId()
+const day2Id = mongoose.Types.ObjectId()
+const day3Id = mongoose.Types.ObjectId()
+
+const travel = {
+    place: "Granada",
+    user: user._id,
+    duration: 3,
+    people: 2,
+    totalPrice: 350,
+    day: [day1Id, day2Id, day3Id]
+}
 
 const days = [{
+    _id: day1Id,
     place: "Albaicín",
-    user: "Jéssica",
     day: Date.now(),
     lodgings: [{
         description: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
@@ -47,16 +61,13 @@ const days = [{
         price: 20,
     }],
     tips: "aconsejo calzado cómodo para andar porque las calles están hechas de piedras y muy empinadas",
-    imageUrl: String,
     cords: {
         coordinates: [37.184953, -3.589973]
     }
 },
-
-
 {
+    _id: day2Id,
     place: "Sacromonte",
-    user: "Jéssica",
     day: Date.now(),
     lodgings: [{
         description: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
@@ -79,16 +90,13 @@ const days = [{
         price: 10,
     }],
     tips: "aconsejo calzado cómodo para andar porque las calles están hechas de piedras y muy empinadas",
-    imageUrl: String,
     cords: {
         coordinates: [37.183166, -3.576771]
     }
 },
-
-
 {
+    _id: day3Id,
     place: "Alpujarra",
-    user: "Jéssica",
     day: Date.now(),
     lodgings: [{
         description: "Casa rural nuevo campo, direccion calle San Jose, numero 11, 18098",
@@ -111,16 +119,19 @@ const days = [{
         price: 15,
     }],
     tips: "aconsejo calzado cómodo para andar porque las calles están hechas de piedras y muy empinadas",
-    imageUrl: String,
     cords: {
         coordinates: [36.961629, -3.358844]
     }
 }]
 
-Travel.create(travel)
+User.create(user)
     .then(result => console.log(result))
     .catch(err => console.log(err))
 
 TravelDays.create(days)
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+
+Travel.create(travel)
     .then(result => console.log(result))
     .catch(err => console.log(err))

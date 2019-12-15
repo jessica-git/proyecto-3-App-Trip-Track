@@ -4,7 +4,7 @@ export default class TravelService {
 
     constructor() {
         this._service = axios.create({
-            baseURL: 'http://localhost:5000/api/travels', 
+            baseURL: 'http://localhost:5000/api/travels',
             withCredentials: true
         })
 
@@ -15,6 +15,8 @@ export default class TravelService {
     getTravelByCity = (place) => this._service.get(`/searchPlace/${place}`)
     newTravel = travel => this._service.post('/new', travel)
     getMyTravels = (user) => this._service.get("/myTravels")
+
+    updateTravel = (place, duration, people, totalPrice, day, id) => this._service.post(`/edit/${id}`, { place, duration, people, totalPrice, day })
 
     handleUpload = theFile => this.service.post('/upload', theFile)
 

@@ -12,12 +12,10 @@ const detailsSchema = new Schema({
     tips: String,
     imageUrl: String,
     cords: { type: { type: String }, coordinates: [Number] }
-
 }, {
     timestamps: true
 })
 
-
 const TravelDays = mongoose.model('TravelDays', detailsSchema)
-module.exports = TravelDays 
+module.exports = TravelDays
 

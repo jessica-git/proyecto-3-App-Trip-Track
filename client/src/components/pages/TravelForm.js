@@ -15,22 +15,10 @@ class TravelForm extends Component {
             travel: {
                 place: "",
                 user: this.props.loggedInUser._id,
-                days: "",
+                duration: "",
                 people: 0,
                 totalPrice: 0,
-                day: [
-                    // {
-                    // place: "",
-                    // day: "",
-                    // lodgings: [{ description: "", price: 0 }],
-                    // placeToVisit: [{ description: "", price: 0 }],
-                    // paidExcursions: [{ description: "", price: 0 }],
-                    // transport: [{ description: "", price: 0 }],
-                    // restaurantsMeals: [{ description: "", price: 0 }],
-                    // tips: "String",
-                    // imageUrl: "String",
-                    // }
-                ]
+                day: []
             }
         }
     }
@@ -76,7 +64,7 @@ class TravelForm extends Component {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Días</Form.Label>
-                    <Form.Control type="text" name="days" onChange={this.handleInputChange} value={this.state.travel.days} />
+                    <Form.Control type="text" name="duration" onChange={this.handleInputChange} value={this.state.travel.duration} />
                     {/* <DateRange onInit={this.handleSelect} onChange={this.handleSelect} /> */}
                 </Form.Group>
                 <Form.Group>

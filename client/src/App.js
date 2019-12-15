@@ -12,7 +12,7 @@ import Login from './components/auth/Login'
 import AllTravelsCard from './components/pages/AllTravelsCard'
 import TravelCard from "./components/pages/TravelCard"
 import TravelDays from "./components/pages/TravelDays"
-import TravelList from "./components/pages/TravelList"
+import MyTravelList from "./components/pages/MyTravelList"
 import TravelForm from "./components/pages/TravelForm"
 
 
@@ -61,7 +61,7 @@ class App extends Component {
           <Route exact path="/search/:place" component={AllTravelsCard} />
           <Route exact path="/travel/:place/:id" component={TravelCard} />
           <Route exact path="/detailsTravel/:day" component={TravelDays} />
-          <Route exact path="/myTravels" component={TravelList} />
+          <Route exact path="/myTravels" component={MyTravelList} />
           <Route exact path="/new" render={() =>
             this.state.loggedInUser ? < TravelForm loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
