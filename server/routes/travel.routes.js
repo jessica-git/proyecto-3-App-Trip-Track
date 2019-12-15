@@ -63,8 +63,17 @@ router.get("/myTravels/:userId", (req, res) => {
 
 //Crear nuevo Travel
 router.post("/new", (req, res) => {
-    const travel = req.body
-    travelModel.create(travel)
+    const travelData = req.body
+
+    dayModel.create(travelData.day)
+        .then(newTravelDays => {
+            let travelDaysIds = newTravelDays.map(travelDay => {
+                return travelDay._id
+            })
+
+            travelData.day = travelDaysIds
+        })
+        .then(() => travelModel.create(travelData))
         .then(theNewTravel => res.json(theNewTravel))
         .catch(err => { res.json(err) })
 })

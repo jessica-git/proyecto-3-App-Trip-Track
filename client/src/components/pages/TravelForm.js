@@ -18,7 +18,14 @@ class TravelForm extends Component {
                 duration: "",
                 people: 0,
                 totalPrice: 0,
-                day: []
+                day: [
+                    {
+                        place: "Plaza de españa",               //pruebaaaaaa
+                    },
+                    {
+                        place: "Rotonda",
+                    }
+                ]
             }
         }
     }
