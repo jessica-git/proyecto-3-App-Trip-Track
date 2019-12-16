@@ -39,9 +39,10 @@ class TravelForm extends Component {
 
 
     addDays = (dayID) => {
-        const daysCopy = [...this.state.travel.day]
-        daysCopy.push(dayID)
-        this.setState({day: daysCopy})
+        let dayCopy = [...this.state.travel.day]
+        dayCopy.push(dayID)
+
+        this.setState({ travel: { ...this.state.travel, day: dayCopy } })
     }
 
     handleShow = () => this.setState({ showModalWindow: true })

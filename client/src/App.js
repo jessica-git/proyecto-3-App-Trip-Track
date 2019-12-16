@@ -14,6 +14,7 @@ import TravelCard from "./components/pages/TravelCard"
 import TravelDays from "./components/pages/TravelDays"
 import MyTravelList from "./components/pages/MyTravelList"
 import TravelForm from "./components/pages/TravelForm"
+import TravelFormDays from "./components/pages/TravelFormDays"
 
 
 
@@ -68,6 +69,9 @@ class App extends Component {
           } />
           <Route exact path="/new" render={() =>
             this.state.loggedInUser ? <TravelForm loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
+          } />
+          <Route exact path="/newDay" render={() =>
+            this.state.loggedInUser ? <TravelFormDays loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
 
 

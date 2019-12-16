@@ -4,7 +4,7 @@ const router = express.Router()
 const uploader = require('../configs/cloudinary.config');
 
 const travelModel = require("../models/travel.model")
-const dayModel = require("../models/travelDays.model")  //necesario para populate
+const dayModel = require("../models/travelDays.model")  //necessary for populate
 const userModel = require("../models/user.model")
 
 
@@ -18,9 +18,9 @@ router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
 })
 
 
-//todas estas rutas comienzan por /api/travels/
+//All these routes begin with /api/travels/
 
-//devuelve todo
+//Return all
 router.get("/all", (req, res) => {
     travelModel.find()
         .populate("day")
@@ -32,7 +32,7 @@ router.get("/all", (req, res) => {
         .catch(err => { res.json(err) })
 })
 
-//Buscar por ciudad
+//Search by city
 router.get("/searchPlace/:place", (req, res) => {
     const place = req.params.place
     travelModel.find({ place: { '$regex': place, $options: 'i' } })
@@ -41,7 +41,7 @@ router.get("/searchPlace/:place", (req, res) => {
 
 })
 
-// Vista general de Travel sin detalle de días con Populate
+//Overview of Travel without days detail with Populate
 router.get("/travel/:id", (req, res) => {
     travelId = req.params.id
     travelModel.findById(travelId)
@@ -53,7 +53,7 @@ router.get("/travel/:id", (req, res) => {
         .catch(err => { res.json(err) })
 })
 
-//Devolver vijes de usuario
+//Travels by user
 router.get("/myTravels/:userId", (req, res) => {
     travelModel.find({ user: req.params.userId })
         .then(allTravels => res.json(allTravels))
@@ -62,10 +62,9 @@ router.get("/myTravels/:userId", (req, res) => {
 
 
 
-//Crear nuevo Travel
+//Create a new travel
 router.post("/new", (req, res) => {
     const travelData = req.body
-    console.log(travelData)
     travelModel.create(travelData)
         .then(newTravel => {
             console.log(newTravel)
@@ -74,27 +73,35 @@ router.post("/new", (req, res) => {
         .catch(err => { res.json(err) })
 })
 
-//Crear nuevo día
+//Create a new day
 router.post("/newDay", (req, res) => {
     const dayData = req.body
-    console.log(dayData)
     dayModel.create(dayData)
         .then(newDay => res.json(newDay._id))
         .catch(err => { res.json(err) })
 })
 
-//Editar travel
-router.post("/edit/:id", (req, res) => {
-    const { place, duration, people, totalPrice, day } = req.body
+//Edit travel
+router.post("/edit/travel/:id", (req, res) => {
+    const { place, duration, people, totalPrice } = req.body
     travelId = req.params.id
-    travelModel.findByIdAndUpdate(travelId, {           //findOneAndReplace()
+    travelModel.findByIdAndUpdate(travelId, {
         place, duration, people, totalPrice, day
     })
-        .then(theTravelUpdate => res.json(theTravelUpdate))
+        .then(updateTravel => res.json(updateTravel))
         .catch(err => { res.json(err) })
 })
 
-
+//Edit day
+router.post("/edit/day/:id", (req, res) => {
+    const { place, day, people, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imageUrl } = req.body
+    dayId = req.params.id
+    dayModel.findByIdAndUpdate(dayId, {
+        place, day, people, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imageUrl
+    })
+        .then(updateDay => res.json(updateDay))
+        .catch(err => { res.json(err) })
+})
 
 
 

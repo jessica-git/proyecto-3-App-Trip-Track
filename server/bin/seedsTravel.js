@@ -40,10 +40,16 @@ const days = [{
     _id: day1Id,
     place: "Albaicín",
     day: Date.now(),
-    lodgings: [{
-        description: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
-        price: 150
-    }],
+    lodgings: [
+        {
+            description: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
+            price: 150
+        },
+        {
+            description: "Hostal en la calle mariposas",
+            price: 324.32
+        }
+    ],
     placeToVisit: [{
         description: "barrio del Albaicín y vista al mirados de San Nicolás",
         price: 0
