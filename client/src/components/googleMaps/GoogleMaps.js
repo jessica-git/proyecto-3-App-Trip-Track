@@ -9,4 +9,18 @@ import {
     InfoWindow
 } from "react-google-maps";
 
-Geocode.setApiKey({ env.process.{CLAVE_API_MAPS}}) //cambiar a correcto!
+Geocode.setApiKey(`${process.env.CLAVE_API_MAPS }`)
+
+class Map extends Component {
+    constructor() {
+        super();
+        this._service = new Service();
+        this.state = {
+           
+        };
+    }
+}
+
+const WrappedMap = withScriptjs(withGoogleMap(Map));
+
+export default WrappedMap;

@@ -61,20 +61,25 @@ router.get("/myTravels/:userId", (req, res) => {
 })
 
 
+
 //Crear nuevo Travel
 router.post("/new", (req, res) => {
     const travelData = req.body
-
-    dayModel.create(travelData.day)
-        .then(newTravelDays => {
-            let travelDaysIds = newTravelDays.map(travelDay => {
-                return travelDay._id
-            })
-
-            travelData.day = travelDaysIds
+    console.log(travelData)
+    travelModel.create(travelData)
+        .then(newTravel => {
+            console.log(newTravel)
+            res.json(newTravel)
         })
-        .then(() => travelModel.create(travelData))
-        .then(theNewTravel => res.json(theNewTravel))
+        .catch(err => { res.json(err) })
+})
+
+//Crear nuevo día
+router.post("/newDay", (req, res) => {
+    const dayData = req.body
+    console.log(dayData)
+    dayModel.create(dayData)
+        .then(newDay => res.json(newDay._id))
         .catch(err => { res.json(err) })
 })
 

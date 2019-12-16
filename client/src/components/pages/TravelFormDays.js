@@ -11,14 +11,15 @@ class TravelFormDays extends Component {
         this.TravelService = new TravelService()
         this.FilesService = new FilesService()
         this.state = {
+
             days: {
                 place: "",
                 day: 0,
-                lodgings: { description: "", price: 0 },
-                placeToVisit: { description: "", price: 0 },
-                paidExcursions: { description: "", price: 0 },
-                transport: { description: "", price: 0 },
-                restaurantsMeals: { description: "", price: 0 },
+                lodgings: { lodgingsDescription: "", lodgingsPrice: 0 },
+                placeToVisit: { placeToVisitDescription: "", placeToVisitPrice: 0 },
+                paidExcursions: { paidExcursionsDescription: "", paidExcursionsPrice: 0 },
+                transport: { transportDescription: "", transportPrice: 0 },
+                restaurantsMeals: { restaurantsMealsDescription: "", restaurantsMealsPrice: 0 },
                 tips: "",
                 imageUrl: "",
             }
@@ -28,22 +29,34 @@ class TravelFormDays extends Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        this.TravelService.newTravel(this.state.days)
+        this.TravelService.newDay(this.state.days)
             .then(apiResponse => {
-                this.props.addDays("elid")
+                console.log(apiResponse)
+                this.props.addDays(apiResponse.data)
                 this.setState({ days: { ...this.state.days } })
             })
             .catch(err => console.log(err))
-
-
 
     }
 
     handleInputChange = e => {
         let { name, value } = e.target
-        this.setState({
-            days: { ...this.state.days, [name]: value }
-        })
+        console.log(e.target.className)
+        let subName = e.target.getAttribute("subName")
+        let index = e.target.className.indexOf(" ")
+        let classInput = e.target.className.slice(0, index)
+
+        console.log(classInput, name, value)
+
+        if (classInput === "lodgings" || classInput === "placeToVisit" || classInput === "paidExcursions" || classInput === "transport" || classInput === "restaurantsMeals") {
+            this.setState({
+                days: { ...this.state.days, [classInput]: { ...this.state.days[classInput], [name]: value } }
+            })
+        } else {
+            this.setState({
+                days: { ...this.state.days, [name]: value }
+            })
+        }
     }
 
     handleFileUpload = e => {
@@ -58,6 +71,7 @@ class TravelFormDays extends Component {
 
     render() {
         const day = this.state.days
+
         return (
 
             <Form onSubmit={this.props.handleSubmit}>
@@ -75,37 +89,37 @@ class TravelFormDays extends Component {
 
                 <Form.Group>
                     <Form.Label>Alojamiento</Form.Label>
-                    <Form.Control type="text" name="lodgings" size="lg" onChange={this.handleInputChange} value={day.lodgings.description} />
+                    <Form.Control className="lodgings" type="text" name="lodgingsDescription" size="lg" onChange={this.handleInputChange} value={day.lodgings.lodgingsDescription} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control size="sm" type="text" placeholder="Small text" name="lodgings" onChange={this.handleInputChange} value={day.lodgings.price} />
+                    <Form.Control className="lodgings" size="sm" type="text" placeholder="Small text" name="lodgingsPrice" onChange={this.handleInputChange} value={day.lodgings.lodgingsPrice} />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Lugares para visitar</Form.Label>
-                    <Form.Control type="text" name="placeToVisit" size="lg" onChange={this.handleInputChange} value={day.placeToVisit.description} />
+                    <Form.Control className="placeToVisit" type="text" name="placeToVisitDescription" size="lg" onChange={this.handleInputChange} value={day.placeToVisit.description} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control size="sm" type="text" placeholder="Small text" name="placeToVisit"  onChange={this.handleInputChange} value={day.placeToVisit.price} />
+                    <Form.Control className="placeToVisit" size="sm" type="text" placeholder="Small text" name="placeToVisitPrice" onChange={this.handleInputChange} value={day.placeToVisit.price} />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Excursiones pagadas</Form.Label>
-                    <Form.Control type="text" name="paidExcursions" size="lg" onChange={this.handleInputChange} value={day.paidExcursions.description} />
+                    <Form.Control className="paidExcursions" type="text" name="paidExcursionsDescription" size="lg" onChange={this.handleInputChange} value={day.paidExcursions.description} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control size="sm" type="text" placeholder="Small text" name="paidExcursions" onChange={this.handleInputChange} value={day.paidExcursions.price} />
+                    <Form.Control className="paidExcursions" size="sm" type="text" placeholder="Small text" name="paidExcursionsPrice" onChange={this.handleInputChange} value={day.paidExcursions.price} />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Transporte</Form.Label>
-                    <Form.Control type="text" name="transport" size="lg" onChange={this.handleInputChange} value={day.transport.description} />
+                    <Form.Control className="transport" type="text" name="transportDescription" size="lg" onChange={this.handleInputChange} value={day.transport.description} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control size="sm" type="text" placeholder="Small text" name="transport" onChange={this.handleInputChange} value={day.transport.price} />
+                    <Form.Control className="transport" size="sm" type="text" placeholder="Small text" name="transportPrice" onChange={this.handleInputChange} value={day.transport.price} />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Comidas y restaurantes</Form.Label>
-                    <Form.Control type="text" name="restaurantsMeals" size="lg" onChange={this.handleInputChange} value={day.restaurantsMeals.description} />
+                    <Form.Control className="restaurantsMeals" type="text" name="restaurantsMealsDescription" size="lg" onChange={this.handleInputChange} value={day.restaurantsMeals.description} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control size="sm" type="text" placeholder="Small text" name="restaurantsMeals" onChange={this.handleInputChange} value={day.restaurantsMeals.price} />
+                    <Form.Control className="restaurantsMeals" size="sm" type="text" placeholder="Small text" name="restaurantsMealsPrice" onChange={this.handleInputChange} value={day.restaurantsMeals.price} />
                 </Form.Group>
 
                 <Form.Group>
@@ -115,8 +129,8 @@ class TravelFormDays extends Component {
 
                 < Form.Label > Sube tus mejores fotos</Form.Label >
                 {/* <MDBFileInput multiple btnColor="info" /> */}
-                < Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
-                <Button variant="dark" size="sm" type="submit" onClick={this.props.addDays} >Añadir</Button>
+                < Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} /> 
+                <Button variant="dark" size="sm" type="submit" onClick={this.handleSubmit} >Añadir</Button>
             </Form>
 
         )
