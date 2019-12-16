@@ -1,31 +1,23 @@
 import React, { Component } from 'react'
-import { Button, Form } from 'react-bootstrap'
 // import { MDBFileInput } from "mdbreact";
 // import { DateRange } from 'react-date-range';
+import { Container, Form, Row, Button, Modal } from 'react-bootstrap'
 
 import TravelService from "../../service/Travel.service"
-import FilesService from "../../service/Files.service"
-
+import TravelFormDays from './TravelFormDays'
 class TravelForm extends Component {
     constructor(props) {
         super(props)
         this.TravelService = new TravelService()
-        this.FilesService = new FilesService()
         this.state = {
             travel: {
+                showModalWindow: false,
                 place: "",
                 user: this.props.loggedInUser._id,
                 duration: "",
                 people: 0,
                 totalPrice: 0,
-                day: [
-                    {
-                        place: "Plaza de españa",               //pruebaaaaaa
-                    },
-                    {
-                        place: "Rotonda",
-                    }
-                ]
+                day: []
             }
         }
     }
@@ -46,14 +38,14 @@ class TravelForm extends Component {
     }
 
 
-    handleFileUpload = e => {
-        const uploadData = new FormData()
-        uploadData.append("imageUrl", e.target.files[0])
-
-        this.FilesService.handleUpload(uploadData)
-            .then(response => this.setState({ travel: { ...this.state.travel, imageUrl: response.data.secure_url } }))
-            .catch(err => console.log(err))
+    addDays = (dayID) => {
+        const daysCopy = [...this.state.travel.day]
+        daysCopy.push(dayID)
+        this.setState({day: daysCopy})
     }
+
+    handleShow = () => this.setState({ showModalWindow: true })
+    handleClose = () => this.setState({ showModalWindow: false })
 
     // handleSelect(range) {
     //     console.log(range);
@@ -84,8 +76,17 @@ class TravelForm extends Component {
                 </Form.Group>
                 <hr />
                 <Form.Group>
-                    <Button variant="dark" size="sm" type="submit">Añadir día</Button>
+                    <Button variant="dark" size="sm" type="submit" onClick={this.handleShow}>Añadir día</Button>
                 </Form.Group>
+
+                <Modal show={this.state.showModalWindow} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Nuevo día</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <TravelFormDays closeModalWindow={this.handleClose} addDays={this.addDays} />
+                    </Modal.Body>
+                </Modal>
 
                 <Form.Group>
                     <Button variant="dark" size="sm" type="submit">Guardar</Button>
