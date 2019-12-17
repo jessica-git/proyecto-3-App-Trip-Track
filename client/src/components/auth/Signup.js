@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Button, Form, Container, InputGroup } from 'react-bootstrap'
-// import FormControl from 'react-bootstrap/FormControl'
 
 import AuthService from '../../service/Auth.service'
 import FileService from '../../service/Files.service'
