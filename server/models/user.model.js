@@ -10,6 +10,6 @@ const userSchema = new Schema({
     timestamps: true
 })
 
-
+//asdas
 const UserModel = mongoose.model('User', userSchema)
 module.exports = UserModel
