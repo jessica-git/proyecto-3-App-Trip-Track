@@ -27,7 +27,7 @@ class LoginForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const { username, password } = this.state.user
-        this.AuthService .login(username, password)
+        this.AuthService.login(username, password)
             .then(theLoggedUser => {
                 this.props.setUser(theLoggedUser.data)
                 this.setState({ username: '', password: '' })

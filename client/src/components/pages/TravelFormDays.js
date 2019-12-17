@@ -91,35 +91,35 @@ class TravelFormDays extends Component {
                     <Form.Label>Alojamiento</Form.Label>
                     <Form.Control className="lodgings" type="text" name="lodgingsDescription" size="lg" onChange={this.handleInputChange} value={day.lodgings.lodgingsDescription} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control className="lodgings" size="sm" type="text" placeholder="Small text" name="lodgingsPrice" onChange={this.handleInputChange} value={day.lodgings.lodgingsPrice} />
+                    <Form.Control className="lodgings" size="sm" type="text" placeholder="€" name="lodgingsPrice" onChange={this.handleInputChange} value={day.lodgings.lodgingsPrice} />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Lugares para visitar</Form.Label>
                     <Form.Control className="placeToVisit" type="text" name="placeToVisitDescription" size="lg" onChange={this.handleInputChange} value={day.placeToVisit.description} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control className="placeToVisit" size="sm" type="text" placeholder="Small text" name="placeToVisitPrice" onChange={this.handleInputChange} value={day.placeToVisit.price} />
+                    <Form.Control className="placeToVisit" size="sm" type="text" placeholder="€" name="placeToVisitPrice" onChange={this.handleInputChange} value={day.placeToVisit.price} />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Excursiones pagadas</Form.Label>
                     <Form.Control className="paidExcursions" type="text" name="paidExcursionsDescription" size="lg" onChange={this.handleInputChange} value={day.paidExcursions.description} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control className="paidExcursions" size="sm" type="text" placeholder="Small text" name="paidExcursionsPrice" onChange={this.handleInputChange} value={day.paidExcursions.price} />
+                    <Form.Control className="paidExcursions" size="sm" type="text" placeholder="€" name="paidExcursionsPrice" onChange={this.handleInputChange} value={day.paidExcursions.price} />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Transporte</Form.Label>
                     <Form.Control className="transport" type="text" name="transportDescription" size="lg" onChange={this.handleInputChange} value={day.transport.description} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control className="transport" size="sm" type="text" placeholder="Small text" name="transportPrice" onChange={this.handleInputChange} value={day.transport.price} />
+                    <Form.Control className="transport" size="sm" type="text" placeholder="€" name="transportPrice" onChange={this.handleInputChange} value={day.transport.price} />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Comidas y restaurantes</Form.Label>
                     <Form.Control className="restaurantsMeals" type="text" name="restaurantsMealsDescription" size="lg" onChange={this.handleInputChange} value={day.restaurantsMeals.description} />
                     <Form.Text className="text-muted">Precio</Form.Text>
-                    <Form.Control className="restaurantsMeals" size="sm" type="text" placeholder="Small text" name="restaurantsMealsPrice" onChange={this.handleInputChange} value={day.restaurantsMeals.price} />
+                    <Form.Control className="restaurantsMeals" size="sm" type="text" placeholder="€" name="restaurantsMealsPrice" onChange={this.handleInputChange} value={day.restaurantsMeals.price} />
                 </Form.Group>
 
                 <Form.Group>
@@ -129,7 +129,7 @@ class TravelFormDays extends Component {
 
                 < Form.Label > Sube tus mejores fotos</Form.Label >
                 {/* <MDBFileInput multiple btnColor="info" /> */}
-                < Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} /> 
+                < Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
                 <Button variant="dark" size="sm" type="submit" onClick={this.handleSubmit} >Añadir</Button>
             </Form>
 

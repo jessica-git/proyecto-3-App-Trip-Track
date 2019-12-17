@@ -73,6 +73,12 @@ class App extends Component {
           <Route exact path="/newDay" render={() =>
             this.state.loggedInUser ? <TravelFormDays loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
+          {/* <Route exact path="/profile" render={() =>
+            this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
+          } />
+          <Route exact path="/profile/edit/:id" render={() =>
+            this.state.loggedInUser ? <ProfileEdit loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
+          } /> */}
 
 
         </Switch>

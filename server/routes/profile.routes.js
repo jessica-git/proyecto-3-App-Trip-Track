@@ -19,18 +19,15 @@ router.get("/profile", (req, res) => {
         .catch(err => { res.json(err) })
 })
 
-//Editar perfil de usuario
-// routes.post('/profile/edit', (req, res, next) => {
-//     const { username, imageUrl } = req.body.edit
+//Edit profile
+// routes.post('/profile/edit/:id', (req, res, next) => {
+//     const { username, imageUrl } = req.body
 
-//     User.findById(req.user._id, { $set: { username, imageUrl } }, { new: true })   //$set sustituye el valor de un campo por el valor especificado
-//         .then(user => res.json({ user }))
-//         .catch(err => {
-//             console.log('Error Edit Profile', err)
-//             next()
-//         })
+//     User.findByIdAndUpdate(req.params.id, { username, imageUrl},{ new: true })
+//         .then(() => res.json({ message: "User has been updated" }))
+//         .catch(err => console.log(err));
+// });
 
-// })
 
 
 
