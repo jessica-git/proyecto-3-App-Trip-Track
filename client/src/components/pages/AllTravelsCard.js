@@ -19,7 +19,6 @@ class AllTravelsCard extends Component {
     }
 
     getTravelByCity() {
-        // console.log(this.props.match.params.place, "props de allTravelsCard")
         const place = this.props.match.params.place
 
         this.travelAPI.getTravelByCity(place)
@@ -40,7 +39,6 @@ class AllTravelsCard extends Component {
     }
 
     render() {
-        // console.log("datos que vamos a renderizar para travelCards", this.state.filteredCities)
 
         const arrayCities = this.state.filteredCities
         return arrayCities ? arrayCities.map(city => {

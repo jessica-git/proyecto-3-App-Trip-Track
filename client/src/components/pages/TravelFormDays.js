@@ -11,7 +11,6 @@ class TravelFormDays extends Component {
         this.TravelService = new TravelService()
         this.FilesService = new FilesService()
         this.state = {
-
             days: {
                 place: "",
                 day: 0,
@@ -28,10 +27,10 @@ class TravelFormDays extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-
+        console.log("submit de days")
         this.TravelService.newDay(this.state.days)
             .then(apiResponse => {
-                console.log(apiResponse)
+
                 this.props.addDays(apiResponse.data)
                 this.setState({ days: { ...this.state.days } })
             })

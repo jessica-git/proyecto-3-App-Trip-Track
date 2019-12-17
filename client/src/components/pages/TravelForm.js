@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import { MDBFileInput } from "mdbreact";
 // import { DateRange } from 'react-date-range';
-import { Form, Button, Modal } from 'react-bootstrap'
+import { Form, Button, Modal, Toast } from 'react-bootstrap'
 
 import TravelService from "../../service/Travel.service"
 import TravelFormDays from './TravelFormDays'
@@ -10,6 +10,9 @@ class TravelForm extends Component {
         super(props)
         this.TravelService = new TravelService()
         this.state = {
+            // message: "",
+            showToast: false,
+            toastText: '',
             travel: {
                 showModalWindow: false,
                 place: "",
@@ -24,6 +27,8 @@ class TravelForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
+      
+        if (!this.state.travel.duration || !this.state.travel.place || !this.state.travel.people) { this.handleToastOpen() }
 
         this.TravelService.newTravel(this.state.travel)
             .then(apiResponse => this.setState({ travel: { ...this.state.travel } }))
@@ -42,8 +47,14 @@ class TravelForm extends Component {
         let dayCopy = [...this.state.travel.day]
         dayCopy.push(dayID)
 
-        this.setState({ travel: { ...this.state.travel, day: dayCopy } })
+        this.setState({
+            travel: { ...this.state.travel, day: dayCopy },
+            showModalWindow: false
+        })
     }
+
+    handleToastClose = () => this.setState({ showToast: false, toastText: '' })
+    handleToastOpen = text => this.setState({ showToast: true, toastText: text })
 
     handleShow = () => this.setState({ showModalWindow: true })
     handleClose = () => this.setState({ showModalWindow: false })
@@ -77,7 +88,7 @@ class TravelForm extends Component {
                 </Form.Group>
                 <hr />
                 <Form.Group>
-                    <Button variant="dark" size="sm" type="submit" onClick={this.handleShow}>Añadir día</Button>
+                    <Button variant="dark" size="sm" onClick={this.handleShow}>Añadir día</Button>
                 </Form.Group>
 
                 <Modal show={this.state.showModalWindow} onHide={this.handleClose}>
@@ -92,7 +103,22 @@ class TravelForm extends Component {
                 <Form.Group>
                     <Button variant="dark" size="sm" type="submit">Guardar</Button>
                 </Form.Group>
-
+                <Toast
+                    onClose={this.handleToastClose}
+                    show={this.state.showToast}
+                    delay={3000}
+                    autohide
+                    style={{
+                        position: 'fixed',
+                        right: '10px',
+                        bottom: '10px',
+                        minWidth: '250px'
+                    }}>
+                    <Toast.Header>
+                        <strong className="mr-auto">Campos requeridos para crear viaje</strong>
+                    </Toast.Header>
+                    <Toast.Body>{this.state.toastText}</Toast.Body>
+                </Toast>
             </Form>
         )
     }

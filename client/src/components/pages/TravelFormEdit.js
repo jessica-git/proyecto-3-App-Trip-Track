@@ -8,13 +8,15 @@ class TravelForm extends Component {
         this.state = {
             travel: {
                 showModalWindow: false,
-                place: "",
+                place: this.props,
                 user: this.props.loggedInUser._id,
-                duration: "",
-                people: 0,
-                totalPrice: 0,
+                duration: this.props,
+                people: this.props,
+                totalPrice: this.props,
                 day: []
             }
         }
     }
+
+    
 }

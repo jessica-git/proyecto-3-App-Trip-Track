@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   setTheUser = user => {
+    console.log(user)
     this.setState({ loggedInUser: user })
     console.log(this.state.loggedInUser)
   }

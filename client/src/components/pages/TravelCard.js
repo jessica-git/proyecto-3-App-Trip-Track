@@ -11,7 +11,9 @@ class TravelCard extends Component {
     constructor(props) {
         super(props)
         this.travelAPI = new TravelService()
-        this.state = { travel: {} }
+        this.state = { 
+            travel: {} 
+        }
 
     }
 

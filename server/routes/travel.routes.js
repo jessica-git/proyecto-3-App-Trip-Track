@@ -70,7 +70,10 @@ router.post("/new", (req, res) => {
             console.log(newTravel)
             res.json(newTravel)
         })
-        .catch(err => { res.json(err) })
+        .catch(err => {
+            console.log(err)
+            res.json(err)
+        })
 })
 
 //Create a new day

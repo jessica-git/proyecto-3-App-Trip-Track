@@ -4,7 +4,7 @@ export default class TravelService {
 
     constructor() {
         this._service = axios.create({
-            baseURL: 'http://localhost:5000/api/travels',
+            baseURL: `${process.env.REACT_APP_URL}/travels`,
             withCredentials: true
         })
 
