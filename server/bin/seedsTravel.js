@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 
-mongoose.connect(`mongodb://localhost/proyectoTravel`);
+mongoose.connect("mongodb+srv://Jessica-Iron:WjuR7RZg24hNpes5@cluster0-0fjka.mongodb.net/proyectoTravel?retryWrites=true&w=majority");
 
 //importante el orden de requerimiento para que aparezca en la DB
 const User = require("../models/user.model");
