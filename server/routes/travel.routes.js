@@ -3,7 +3,7 @@ const router = express.Router()
 
 const uploader = require('../configs/cloudinary.config');
 
-const travelModel = require("../models/Travel.model")
+const travelModel = require('../models/Travel.model')
 const dayModel = require("../models/TravelDays.model")  //necessary for populate
 const userModel = require("../models/User.model")
 
