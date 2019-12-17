@@ -17,6 +17,6 @@ app.use("/api/travels", require('./routes/travel.routes'))
 app.use('/api/files', require('./routes/files.routes'))
 
 
-//copiar la ruta de heroku
+app.use((req, res) => { res.sendFile(__dirname + "/public/index.html"); });
 
 module.exports = app
