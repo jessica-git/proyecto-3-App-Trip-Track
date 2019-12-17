@@ -53,9 +53,9 @@ class LoginForm extends Component {
                         <Form.Label>Usuario</Form.Label>
                         <Form.Control type="text" name="username" placeholder="username" onChange={this.handleInputChange} value={this.state.username} />
                     </Form.Group>
-                    <Form.Group>
+                    <Form.Group >
                         <Form.Label>Contraseña</Form.Label>
-                        <Form.Control type="text" name="password" placeholder="password" onChange={this.handleInputChange} value={this.state.password} />
+                        <Form.Control type="password" name="password" placeholder="password" onChange={this.handleInputChange} value={this.state.password} />
                     </Form.Group>
                     <Button variant="dark" type="submit">Iniciar sesión</Button>
                 </Form>

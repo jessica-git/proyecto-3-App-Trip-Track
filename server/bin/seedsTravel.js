@@ -4,9 +4,9 @@ const bcrypt = require('bcryptjs');
 mongoose.connect("mongodb+srv://Jessica-Iron:WjuR7RZg24hNpes5@cluster0-0fjka.mongodb.net/proyectoTravel?retryWrites=true&w=majority");
 
 //importante el orden de requerimiento para que aparezca en la DB
-const User = require("../models/user.model");
-const TravelDays = require("../models/travelDays.model");
-const Travel = require("../models/travel.model");
+const User = require("../models/User.model.js");
+const TravelDays = require("../models/TravelDays.model");
+const Travel = require("../models/Travel.model");
 
 require("dotenv").config();
 

@@ -3,7 +3,7 @@ const router = express.Router();
 const ensureLogin = require("connect-ensure-login")
 
 const uploadCloud = require("../configs/cloudinary.config")
-const User = require("../models/user.model")
+const User = require("../models/User.model")
 
 
 router.get("/", ensureLogin.ensureLoggedIn('/auth/login'), (req, res) => res.render("profile", { user: req.user }));

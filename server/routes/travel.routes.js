@@ -3,9 +3,9 @@ const router = express.Router()
 
 const uploader = require('../configs/cloudinary.config');
 
-const travelModel = require("../models/travel.model")
-const dayModel = require("../models/travelDays.model")  //necessary for populate
-const userModel = require("../models/user.model")
+const travelModel = require("../models/Travel.model")
+const dayModel = require("../models/TravelDays.model")  //necessary for populate
+const userModel = require("../models/User.model")
 
 
 router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {

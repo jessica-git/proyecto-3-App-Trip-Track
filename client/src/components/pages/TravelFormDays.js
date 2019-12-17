@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Row, Col } from 'react-bootstrap'
+import { Button, Form, Col } from 'react-bootstrap'
 // import { MDBFileInput } from 'mdbreact'
 
 import TravelService from "../../service/Travel.service"
@@ -42,7 +42,7 @@ class TravelFormDays extends Component {
     handleInputChange = e => {
         let { name, value } = e.target
         console.log(e.target.className)
-        let subName = e.target.getAttribute("subName")
+
         let index = e.target.className.indexOf(" ")
         let classInput = e.target.className.slice(0, index)
 
@@ -130,7 +130,7 @@ class TravelFormDays extends Component {
                 < Form.Label > Sube tus mejores fotos</Form.Label >
                 {/* <MDBFileInput multiple btnColor="info" /> */}
                 < Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
-                <Button variant="dark" size="sm" type="submit" onClick={this.handleSubmit} >Añadir</Button>
+                <Button variant="dark" size="sm" type="submit" onClick={this.handleSubmit} redirect={"/"}>Añadir</Button>
             </Form>
 
         )
