@@ -12,7 +12,7 @@ require('./configs/session.config')(app)
 
 app.use('/api/index', require('./routes/index.routes'))
 app.use('/api/auth', require('./routes/auth.routes'))
-app.use("api/profile", require("./routes/profile.routes"))
+app.use("/api/profile", require("./routes/profile.routes"))
 app.use("/api/travels", require('./routes/travel.routes'))
 app.use('/api/files', require('./routes/files.routes'))
 
