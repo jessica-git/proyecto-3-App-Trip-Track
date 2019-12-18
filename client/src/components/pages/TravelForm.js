@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import { MDBFileInput } from "mdbreact";
 // import { DateRange } from 'react-date-range';
 import { Form, Button, Modal, Toast } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 import TravelService from "../../service/Travel.service"
 import TravelFormDays from './TravelFormDays'
@@ -27,7 +28,7 @@ class TravelForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-      
+
         if (!this.state.travel.duration || !this.state.travel.place || !this.state.travel.people) { this.handleToastOpen() }
 
         this.TravelService.newTravel(this.state.travel)
@@ -71,20 +72,20 @@ class TravelForm extends Component {
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group>
                     <Form.Label>Viaje</Form.Label>
-                    <Form.Control type="text" name="place" onChange={this.handleInputChange} value={this.state.travel.place} />
+                    <Form.Control type="text" name="place" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.place} />
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Días</Form.Label>
-                    <Form.Control type="text" name="duration" onChange={this.handleInputChange} value={this.state.travel.duration} />
+                    <Form.Control type="text" name="duration" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.duration} />
                     {/* <DateRange onInit={this.handleSelect} onChange={this.handleSelect} /> */}
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Personas que han viajado</Form.Label>
-                    <Form.Control type="number" name="people" onChange={this.handleInputChange} value={this.state.travel.people} />
+                    <Form.Control type="number" name="people" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.people} />
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Precio total del viaje</Form.Label>
-                    <Form.Control type="number" name="totalPrice" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
+                    <Form.Control type="number" name="totalPrice" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
                 </Form.Group>
                 <hr />
                 <Form.Group>
@@ -101,7 +102,7 @@ class TravelForm extends Component {
                 </Modal>
 
                 <Form.Group>
-                    <Button variant="dark" size="sm" type="submit">Guardar</Button>
+                    <Button variant="dark" size="sm" type="submit" >guardar</Button>
                 </Form.Group>
                 <Toast
                     onClose={this.handleToastClose}

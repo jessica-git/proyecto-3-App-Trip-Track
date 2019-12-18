@@ -11,8 +11,8 @@ class TravelCard extends Component {
     constructor(props) {
         super(props)
         this.travelAPI = new TravelService()
-        this.state = { 
-            travel: {} 
+        this.state = {
+            travel: {}
         }
 
     }
@@ -72,12 +72,10 @@ class TravelCard extends Component {
                     </Accordion >)
                 })}
 
-
-
-
                 <Card.Body>
                     {saveButton}
                     <Link to={`/search/${city.place}`} className="btn btn-sm btn-dark">Volver</Link>
+                    <Link to={`/edit/travel/`} className="btn btn-sm btn-dark" >Editar</Link>
                 </Card.Body>
             </Card >
         )

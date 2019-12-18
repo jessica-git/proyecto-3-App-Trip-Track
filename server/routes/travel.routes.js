@@ -78,9 +78,24 @@ router.post("/new", (req, res) => {
 
 //Create a new day
 router.post("/newDay", (req, res) => {
-    const dayData = req.body
-    dayModel.create(dayData)
-        .then(newDay => res.json(newDay._id))
+
+    const { place, day, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imageUrl } = req.body
+    let Day = new dayModel({
+        place,
+        day,
+        lodgings: [lodgings],
+        placeToVisit: [placeToVisit],
+        paidExcursions: [paidExcursions],
+        transport: [transport],
+        restaurantsMeals: [restaurantsMeals],
+        tips,
+        imageUrl
+    })
+    Day.save()
+        .then(newDay => {
+            console.log(newDay)
+            res.json(newDay)
+        })
         .catch(err => { res.json(err) })
 })
 

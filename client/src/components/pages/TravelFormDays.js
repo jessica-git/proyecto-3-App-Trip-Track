@@ -27,7 +27,6 @@ class TravelFormDays extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log("submit de days")
         this.TravelService.newDay(this.state.days)
             .then(apiResponse => {
 
@@ -82,7 +81,7 @@ class TravelFormDays extends Component {
 
                     <Form.Group as={Col} controlId="formGridDay">
                         <Form.Label>Días</Form.Label>
-                        <Form.Control type="text" name="day" onChange={this.handleInputChange} value={day.day} />
+                        <Form.Control type="text" name="day" placeholder="€" onChange={this.handleInputChange} value={day.day} />
                     </Form.Group>
                 </Form.Row>
 
