@@ -3,8 +3,6 @@ import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import TravelService from "../../service/Travel.service"
-import TravelCard from './TravelCard'
-
 
 class AllTravelsCard extends Component {
     constructor(props) {

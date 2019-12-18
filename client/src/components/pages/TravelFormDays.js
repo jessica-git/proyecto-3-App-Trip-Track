@@ -140,6 +140,4 @@ export default TravelFormDays
 {/* <Form.Group>
     <Form.Label>Imagen URL (archivo)</Form.Label>
     <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
-</Form.Group>
-
-import FilesService from '../../service/Files.service' */}
+</Form.Group>*/}

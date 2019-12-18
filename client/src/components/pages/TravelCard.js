@@ -51,13 +51,13 @@ class TravelCard extends Component {
 
                 <Card.Body>
                     <Card.Title>{city.place}</Card.Title>
-                    {/* <Card.Text>rating</Card.Text> */}
                     <Card.Text>PEOPLE: {city.people}</Card.Text>
                     <Card.Text>PRICE: {city.totalPrice} €</Card.Text>
                     <Card.Text>Duration: {city.duration}</Card.Text>
                 </Card.Body>
 
                 {city.day && city.day.map((day, idx) => {
+
                     return (<Accordion key={idx}>
                         <Card>
                             <Card.Header>
@@ -75,7 +75,7 @@ class TravelCard extends Component {
                 <Card.Body>
                     {saveButton}
                     <Link to={`/search/${city.place}`} className="btn btn-sm btn-dark">Volver</Link>
-                    <Link to={`/edit/travel/`} className="btn btn-sm btn-dark" >Editar</Link>
+                    <Link to={`/edit/travel/${city._id}`} className="btn btn-sm btn-dark" >Editar</Link>
                 </Card.Body>
             </Card >
         )

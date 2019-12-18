@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import { MDBFileInput } from "mdbreact";
 // import { DateRange } from 'react-date-range';
 import { Form, Button, Modal, Toast } from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 import TravelService from "../../service/Travel.service"
 import TravelFormDays from './TravelFormDays'
@@ -32,7 +32,10 @@ class TravelForm extends Component {
         if (!this.state.travel.duration || !this.state.travel.place || !this.state.travel.people) { this.handleToastOpen() }
 
         this.TravelService.newTravel(this.state.travel)
-            .then(apiResponse => this.setState({ travel: { ...this.state.travel } }))
+            .then(apiResponse => this.setState(
+                { travel: { ...this.state.travel } },
+                this.props.history.push('/')
+                ))
             .catch(err => console.log(err))
     }
 

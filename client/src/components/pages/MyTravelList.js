@@ -50,7 +50,7 @@ class MyTravelList extends Component {
                 <Container>
                     <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
                         <Row>
-                            <Col sm={4}>
+                            <Col sm={7}>
                                 <ListGroup>
                                     {travels.map((travel, idx) => {
                                         return (
@@ -74,6 +74,6 @@ class MyTravelList extends Component {
     }
 }
 
-{/* <Tab.Pane eventKey="#link1"><Sonnet /></Tab.Pane>  SONET SE SUSTITUYE POR EL COMPONENTE */ }
 
 export default MyTravelList
+{/* <Tab.Pane eventKey="#link1"><Sonnet /></Tab.Pane>  SONET SE SUSTITUYE POR EL COMPONENTE */ }

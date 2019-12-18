@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
-import { Form, Tabs, Tab } from "react-bootstrap"
+import { Form, Tabs, Tab, Button } from "react-bootstrap"
 
 import TravelFormDaysEdit from "./TravelFormDaysEdit"
-
 import TravelService from "../../service/Travel.service"
+
 class TravelFormEdit extends Component {
     constructor(props) {
         super(props)
         this.TravelService = new TravelService()
-        this.FilesService = new FilesService()
         this.state = {
             travel: {
-                place: this.props.place,
-                duration: this.props.duration,
-                people: this.props.people,
-                totalPrice: this.props.totalPrice,
-                day: this.props.day
+                place: "",
+                duration: "",
+                people: 0,
+                totalPrice: 0,
+                day: []
             }
         }
     }
@@ -31,14 +30,25 @@ class TravelFormEdit extends Component {
         })
     }
 
+    componentDidMount() {
 
+        this.TravelService.getOneTravelByID(this.props.match.params.id)
+            .then(travel => {
+                const idTravel = travel.data
+                this.setState({ travel: idTravel })
+                console.log("que llega de alltravel", idTravel)
+            })
+            .catch(err => console.log("Error get travel by city", err))
+
+    }
 
     render() {
-        const arrayDays = this.props.travel.day
+        const arrayDays = this.state.travel.day
+
         return (
             <Form>
-                <Tabs defaultActiveKey="home" transition={false} id="noanim-tab-example">
-                    <Tab eventKey="home" title="Home">
+                <Tabs defaultActiveKey="travel" transition={false} id="noanim-tab-example">
+                    <Tab eventKey="travel" title="travel">
                         <Form.Group>
                             <Form.Label>Lugar:</Form.Label>
                             <Form.Control type="text" name="place" onChange={this.handleInputChange} value={this.state.travel.place} />
@@ -55,16 +65,18 @@ class TravelFormEdit extends Component {
                             <Form.Label>Precio total del viaje: </Form.Label>
                             <Form.Control type="text" name="totalPrice" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
                         </Form.Group>
+                        <Button variant="dark" size="sm" type="submit" >guardar</Button>
                     </Tab>
-
                     {arrayDays && arrayDays.map((day, idx) => {
-                        <Tab eventKey="profile" title="Day" key={idx}>
-                            <TravelFormDaysEdit key={day._id} {...day} />
-                        </Tab>
+                        return (
+                            <Tab eventKey="day" title="Day" key={idx}>
+                                <TravelFormDaysEdit key={day._id} {...day} />
+                            </Tab>
+                        )
                     })}
-                </Tabs>
 
-            </Form>
+                </Tabs>
+            </Form >
         )
     }
 

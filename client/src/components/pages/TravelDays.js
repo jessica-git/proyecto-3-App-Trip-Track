@@ -14,49 +14,52 @@ const Day = ({
     imageUrl
 
 }) => {
+
     const lodgingsList = lodgings.map(lodging => {
         console.log(lodging)
         return (
             <>
-                <p>Alojamiento: {lodging.lodgingsDescription}</p>
-                <p>Gasto de alojamiento: {lodging.lodgingsPrice} €</p>
+                <p>Alojamiento: {lodging.description}</p>
+                <p>Gasto de alojamiento: {lodging.price} €</p>
             </>
         )
     })
-    const placeToVisitList = placeToVisit.map(placeToVisit => {
+    const placeToVisitList = placeToVisit.map(placeVisit => {
         return (
             <>
-                <p>Lugares para visitar: {placeToVisit.placeToVisitDescription}</p>
-                <p>Gasto de las visitas: {placeToVisit.placeToVisitPrice} €</p>
+                <p>Lugares para visitar: {placeVisit.description}</p>
+                <p>Gasto de las visitas: {placeVisit.price} €</p>
             </>
         )
     })
-    const paidExcursionsList = paidExcursions.map(paidExcursions => {
+    const paidExcursionsList = paidExcursions.map(paidExcursion => {
         return (
             <>
-                <p>Excursiones contratadas: {paidExcursions.paidExcursionsDescription}</p>
-                <p>Gasto de las excursiones: {paidExcursions.paidExcursionsPrice} €</p>
+                <p>Excursiones contratadas: {paidExcursion.description}</p>
+                <p>Gasto de las excursiones: {paidExcursion.price} €</p>
             </>
         )
     })
-    const transportList = transport.map(transport => {
+    const transportList = transport.map(transp => {
         return (
             <>
-                <p>Transporte necesario: {transport.transportDescription}</p>
-                <p>Gasto del transporte: {transport.transportPrice} €</p>
+                <p>Transporte necesario: {transp.description}</p>
+                <p>Gasto del transporte: {transp.price} €</p>
             </>
         )
     })
-    const restaurantsMealsList = restaurantsMeals.map(restaurantsMeals => {
+    const restaurantsMealsList = restaurantsMeals.map(restaurant => {
         return (
             <>
-                <p>Comidas del día: {restaurantsMeals.restaurantsMealsDescription}</p>
-                <p>Gasto de comida: {restaurantsMeals.restaurantsMealsPrice} €</p>
+                <p>Comidas del día: {restaurant.description}</p>
+                <p>Gasto de comida: {restaurant.price} €</p>
             </>
         )
     })
 
+
     return (
+       ( (place || day || lodgings || placeToVisit || paidExcursions || transport || restaurantsMeals || tips) != null ? 
         <Container className="coaster-details">
             <section>
                 <Row>
@@ -75,10 +78,10 @@ const Day = ({
 
                     </Col>
                 </Row>
-
             </section>
         </Container>
-    )
+        : null)
+        )
 }
 
 export default Day

@@ -5,6 +5,7 @@ import AuthService from './service/Auth.service'
 
 import Navbar from './components/ui/Navbar'
 import Index from './components/pages/Index'
+import infoAppsCard from './components/pages/InfoAppsCard.js'
 import Profile from './components/pages/Profile'
 import Signup from './components/auth/Signup'
 import Login from './components/auth/Login'
@@ -15,7 +16,7 @@ import TravelDays from "./components/pages/TravelDays"
 import MyTravelList from "./components/pages/MyTravelList"
 import TravelForm from "./components/pages/TravelForm"
 import TravelFormDays from "./components/pages/TravelFormDays"
-// import TravelFormEdit from "./components/pages/TravelFormEdit"
+import TravelFormEdit from "./components/pages/TravelFormEdit"
 
 
 
@@ -61,6 +62,8 @@ class App extends Component {
             this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
 
+          {/* <Route exact path="/travelApps" component={InfoAppsCard} /> */}
+
           <Route exact path="/search/:place" component={AllTravelsCard} />
           <Route exact path="/travel/:place/:id" render={(props) =>
             <TravelCard {...props} loggedInUser={this.state.loggedInUser} />
@@ -69,15 +72,15 @@ class App extends Component {
           <Route exact path="/myTravels" render={() =>
             this.state.loggedInUser ? <MyTravelList loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
-          <Route exact path="/new" render={() =>
-            this.state.loggedInUser ? <TravelForm loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
+          <Route exact path="/new" render={(props) =>
+            this.state.loggedInUser ? <TravelForm loggedInUser={this.state.loggedInUser} {...props} /> : <Redirect to="/" />
           } />
           <Route exact path="/newDay" render={() =>
             this.state.loggedInUser ? <TravelFormDays loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
-          {/* <Route exact path="/edit/travel/:id" render={() =>
-            this.state.loggedInUser ? <TravelFormEdit loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
-          } /> */}
+          <Route exact path="/edit/travel/:id" render={(match) =>
+            this.state.loggedInUser ? <TravelFormEdit {...match} loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
+          } />
           {/* <Route exact path="/profile" render={() =>
             this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />

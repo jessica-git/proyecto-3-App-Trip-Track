@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Form, Button, } from "react-bootstrap"
 
+
+import TravelService from "../../service/Travel.service"
 import FilesService from "../../service/Files.service"
 
 class TravelFormDaysEdit extends Component {
@@ -22,7 +25,7 @@ class TravelFormDaysEdit extends Component {
                 imageUrl: this.props.imageUrl,
             }
         }
-
+    }
         handleSubmit = () => {
             this.TravelService.updateDay(this.state.day);
         }
@@ -45,7 +48,7 @@ class TravelFormDaysEdit extends Component {
                     this.setState({
                         disabledButton: false,
                         buttonText: "Edit",
-                        days: { ...this.state.user, imgPath: response.data.secure_url }
+                        days: { ...this.state.user, imageUrl: response.data.secure_url }
                     });
                 })
                 .catch(err => console.log(err));
@@ -68,11 +71,11 @@ class TravelFormDaysEdit extends Component {
                         <Form.Control type="text" name="totalPrice" onChange={this.handleInputChange} value={this.state.days.placeToVisit} />
                     </Form.Group>
 
-                    //....
+                
 
                     <Form.Group>
                         <Form.Label>Actualiza tus imágenes</Form.Label>
-                        <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} />
+                        <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
                     </Form.Group>
 
 
@@ -82,7 +85,7 @@ class TravelFormDaysEdit extends Component {
                 </>
             )
         }
-    }
+    
 }
 
 
