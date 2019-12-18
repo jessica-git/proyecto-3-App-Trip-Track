@@ -17,6 +17,7 @@ import MyTravelList from "./components/pages/MyTravelList"
 import TravelForm from "./components/pages/TravelForm"
 import TravelFormDays from "./components/pages/TravelFormDays"
 import TravelFormEdit from "./components/pages/TravelFormEdit"
+import TravelFormDaysEdit from "./components/pages/TravelFormDaysEdit"
 
 
 
@@ -29,9 +30,8 @@ class App extends Component {
   }
 
   setTheUser = user => {
-    console.log(user)
     this.setState({ loggedInUser: user })
-    console.log(this.state.loggedInUser)
+    
   }
 
   fetchUser = () => {
@@ -40,7 +40,7 @@ class App extends Component {
         .then(theLoggedInUserFromTheServer => this.setState({ loggedInUser: theLoggedInUserFromTheServer.data }))
         .catch(err => {
           this.setState({ loggedInUser: false })
-          console.log({ err })
+         
         })
     }
   }
@@ -80,6 +80,9 @@ class App extends Component {
           } />
           <Route exact path="/edit/travel/:id" render={(match) =>
             this.state.loggedInUser ? <TravelFormEdit {...match} loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
+          } />
+          <Route exact path="/edit/day/:id" render={(match) =>
+            this.state.loggedInUser ? <TravelFormDaysEdit {...match} loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
           {/* <Route exact path="/profile" render={() =>
             this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />

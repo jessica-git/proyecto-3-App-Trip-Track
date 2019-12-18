@@ -1,5 +1,6 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Col, Card } from 'react-bootstrap'
+import SearchBar from "../ui/SearchBar"
 
 const Index = () => {
 
@@ -7,21 +8,37 @@ const Index = () => {
         <Container>
             <section className="header">
                 <div>
-                    <h1>TripTrack</h1>
+                    <h1>TripTrackTravel</h1>
                     <p>Lhzsdjhsgfjhgsjhdfvshvdhjdgfjgdfjgdhfgshdg</p>
                 </div>
                 <reactPlayer url="#" />
             </section>
             <section className="indexBox">
-                <h2>Inspirate con los viajes de otros usuarios</h2>
-                <img src="#" alt=""></img>
-                <h2>crea tu propio viaje y comparte</h2>
-                <img src="#" alt=""></img>
-                <h2>viaja con la planificacion de otros y puntúa</h2>
-                <img src="#" alt=""></img>
+
+                <Col md={3}>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>Inspirate con los viajes de otros usuarios</Card.Title>
+                        </Card.Body>
+                        <Card.Img variant="top" src="" />
+                    </Card>
+
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>crea tu propio viaje y comparte</Card.Title>
+                        </Card.Body>
+                        <Card.Img variant="top" src="" />
+                    </Card>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>viaja con la planificacion de otros y puntúa</Card.Title>
+                        </Card.Body>
+                        <Card.Img variant="top" src="" />
+                    </Card>
+                </Col>
             </section>
             <section>
-                <p>Aqui va el serach</p>
+                <SearchBar />
             </section>
         </Container>
     )

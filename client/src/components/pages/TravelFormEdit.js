@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Tabs, Tab, Button } from "react-bootstrap"
+import { Form, Tabs, Tab, Button, Card } from "react-bootstrap"
 
 import TravelFormDaysEdit from "./TravelFormDaysEdit"
 import TravelService from "../../service/Travel.service"
@@ -19,8 +19,11 @@ class TravelFormEdit extends Component {
         }
     }
 
-    handleSubmit = () => {
-        this.TravelService.updateTravel(this.state.travel);
+    handleSubmit = (e) => {
+        e.preventDefault()
+        let { place, duration, people, totalPrice } = this.state.travel
+        let travelId = this.props.match.params.id
+        this.TravelService.updateTravel(place, duration, people, totalPrice, travelId)
     }
 
     handleInputChange = e => {
@@ -34,19 +37,18 @@ class TravelFormEdit extends Component {
 
         this.TravelService.getOneTravelByID(this.props.match.params.id)
             .then(travel => {
+
                 const idTravel = travel.data
                 this.setState({ travel: idTravel })
-                console.log("que llega de alltravel", idTravel)
             })
-            .catch(err => console.log("Error get travel by city", err))
-
+            .catch(err => console.log("Error travel edit", err))
     }
 
     render() {
         const arrayDays = this.state.travel.day
 
         return (
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
                 <Tabs defaultActiveKey="travel" transition={false} id="noanim-tab-example">
                     <Tab eventKey="travel" title="travel">
                         <Form.Group>
@@ -66,15 +68,8 @@ class TravelFormEdit extends Component {
                             <Form.Control type="text" name="totalPrice" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
                         </Form.Group>
                         <Button variant="dark" size="sm" type="submit" >guardar</Button>
-                    </Tab>
-                    {arrayDays && arrayDays.map((day, idx) => {
-                        return (
-                            <Tab eventKey="day" title="Day" key={idx}>
-                                <TravelFormDaysEdit key={day._id} {...day} />
-                            </Tab>
-                        )
-                    })}
 
+                    </Tab>
                 </Tabs>
             </Form >
         )

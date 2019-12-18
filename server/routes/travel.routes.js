@@ -26,7 +26,7 @@ router.get("/all", (req, res) => {
         .populate("day")
         .populate("user")
         .then(allTheTravels => {
-            console.log(allTheTravels)
+
             res.json(allTheTravels)
         })
         .catch(err => { res.json(err) })
@@ -46,12 +46,25 @@ router.get("/travel/:id", (req, res) => {
     travelId = req.params.id
     travelModel.findById(travelId)
         .populate("day")
+        .populate("user")
         .then(theTravel => {
-            console.log(theTravel)
-            res.json(theTravel)
+            const dataResponse = { ...theTravel._doc, user: theTravel.user.username }
+            res.json(dataResponse)
         })
         .catch(err => { res.json(err) })
 })
+
+//Overview of Travel without days detail with Populate
+router.get("/travel/day/:id", (req, res) => {
+    travelDayId = req.params.id
+    dayModel.findById(travelDayId)
+        .then(theTravelDay => {
+
+            res.json(theTravelDay)
+        })
+        .catch(err => { res.json(err) })
+})
+
 
 //Travels by user
 router.get("/myTravels/:userId", (req, res) => {
@@ -67,7 +80,7 @@ router.post("/new", (req, res) => {
     const travelData = req.body
     travelModel.create(travelData)
         .then(newTravel => {
-            console.log(newTravel)
+
             res.json(newTravel)
         })
         .catch(err => {
@@ -93,7 +106,6 @@ router.post("/newDay", (req, res) => {
     })
     Day.save()
         .then(newDay => {
-            console.log(newDay)
             res.json(newDay)
         })
         .catch(err => { res.json(err) })
@@ -103,17 +115,22 @@ router.post("/newDay", (req, res) => {
 router.post("/edit/travel/:id", (req, res) => {
     const { place, duration, people, totalPrice } = req.body
     travelId = req.params.id
+
     travelModel.findByIdAndUpdate(travelId, {
-        place, duration, people, totalPrice, day
+        place, duration, people, totalPrice
     })
         .then(updateTravel => res.json(updateTravel))
-        .catch(err => { res.json(err) })
+        .catch(err => {
+            console.log(err)
+            res.json(err)
+        })
 })
 
 //Edit day
 router.post("/edit/day/:id", (req, res) => {
     const { place, day, people, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imageUrl } = req.body
     dayId = req.params.id
+    console.log(req.body)
     dayModel.findByIdAndUpdate(dayId, {
         place, day, people, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imageUrl
     })

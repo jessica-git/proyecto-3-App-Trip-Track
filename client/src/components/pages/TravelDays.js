@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Col, Row, Container } from 'react-bootstrap'
 
 const Day = ({
@@ -16,7 +17,7 @@ const Day = ({
 }) => {
 
     const lodgingsList = lodgings.map(lodging => {
-        console.log(lodging)
+
         return (
             <>
                 <p>Alojamiento: {lodging.description}</p>
@@ -59,29 +60,30 @@ const Day = ({
 
 
     return (
-       ( (place || day || lodgings || placeToVisit || paidExcursions || transport || restaurantsMeals || tips) != null ? 
-        <Container className="coaster-details">
-            <section>
-                <Row>
-                    <Col md={6}>
-                        <p>Lugar: {place}</p>
-                        <p>Días: {day}</p>
-                        {lodgingsList}
-                        {placeToVisitList}
-                        {paidExcursionsList}
-                        {transportList}
-                        {restaurantsMealsList}
-                        <p>Consejos: {tips}</p>
-                    </Col>
-                    <Col md={{ span: 4, offset: 2 }}>
-                        <p>aqui van fotooos{imageUrl}</p>
+        ((place || day || lodgings || placeToVisit || paidExcursions || transport || restaurantsMeals || tips) != null ?
+            <Container className="coaster-details">
+                <section>
+                    <Row>
+                        <Col md={6}>
+                            <p>Lugar: {place}</p>
+                            <p>Días: {day}</p>
+                            {lodgingsList}
+                            {placeToVisitList}
+                            {paidExcursionsList}
+                            {transportList}
+                            {restaurantsMealsList}
+                            <p>Consejos: {tips}</p>
+                        </Col>
+                        <Col md={{ span: 4, offset: 2 }}>
+                            <p>aqui van fotooos{imageUrl}</p>
 
-                    </Col>
-                </Row>
-            </section>
-        </Container>
-        : null)
-        )
+                        </Col>
+                        <Link to={`/edit/day/${_id}`} className="btn btn-sm btn-dark" >Editar</Link>
+                    </Row>
+                </section>
+            </Container>
+            : null)
+    )
 }
 
 export default Day

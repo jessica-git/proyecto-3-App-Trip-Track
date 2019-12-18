@@ -39,12 +39,9 @@ class TravelFormDays extends Component {
 
     handleInputChange = e => {
         let { name, value } = e.target
-        console.log(e.target.className)
 
         let index = e.target.className.indexOf(" ")
         let classInput = e.target.className.slice(0, index)
-
-        console.log(classInput, name, value)
 
         if (classInput === "lodgings" || classInput === "placeToVisit" || classInput === "paidExcursions" || classInput === "transport" || classInput === "restaurantsMeals") {
             this.setState({

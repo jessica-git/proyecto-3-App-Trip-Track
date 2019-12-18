@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 // import { MDBFileInput } from "mdbreact";
-// import { DateRange } from 'react-date-range';
 import { Form, Button, Modal, Toast } from 'react-bootstrap'
-// import {Link} from 'react-router-dom'
 
 import TravelService from "../../service/Travel.service"
 import TravelFormDays from './TravelFormDays'
@@ -34,9 +32,9 @@ class TravelForm extends Component {
         this.TravelService.newTravel(this.state.travel)
             .then(apiResponse => this.setState(
                 { travel: { ...this.state.travel } },
-                this.props.history.push('/')
                 ))
-            .catch(err => console.log(err))
+                .catch(err => console.log(err))
+                this.props.history.push('/myTravels')
     }
 
     handleInputChange = e => {
@@ -63,13 +61,9 @@ class TravelForm extends Component {
     handleShow = () => this.setState({ showModalWindow: true })
     handleClose = () => this.setState({ showModalWindow: false })
 
-    // handleSelect(range) {
-    //     console.log(range);
-    //     // An object with two keys,
-    //     // 'startDate' and 'endDate' which are Momentjs objects.
-    // }
 
     render() {
+        
         return (
 
             <Form onSubmit={this.handleSubmit}>
@@ -80,7 +74,6 @@ class TravelForm extends Component {
                 <Form.Group>
                     <Form.Label>Días</Form.Label>
                     <Form.Control type="text" name="duration" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.duration} />
-                    {/* <DateRange onInit={this.handleSelect} onChange={this.handleSelect} /> */}
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Personas que han viajado</Form.Label>

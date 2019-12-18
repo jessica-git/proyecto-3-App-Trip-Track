@@ -13,7 +13,6 @@ router.get("/profile", (req, res) => {
     userId = req.user._id
     userId.findById(userId)
         .then(profile => {
-            console.log(profile)
             res.json(profile)
         })
         .catch(err => { res.json(err) })

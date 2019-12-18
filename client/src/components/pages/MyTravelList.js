@@ -54,7 +54,9 @@ class MyTravelList extends Component {
                                 <ListGroup>
                                     {travels.map((travel, idx) => {
                                         return (
-                                            <ListGroup.Item key={idx} action href={`travel/${travel.place}/${travel._id}`}>{travel.place}</ListGroup.Item>
+                                            <ListGroup.Item 
+                                            key={idx} action href={`travel/${travel.place}/${travel._id}`}>{travel.place}
+                                            </ListGroup.Item>
                                         )
                                     })}
                                 </ListGroup>
@@ -76,4 +78,3 @@ class MyTravelList extends Component {
 
 
 export default MyTravelList
-{/* <Tab.Pane eventKey="#link1"><Sonnet /></Tab.Pane>  SONET SE SUSTITUYE POR EL COMPONENTE */ }
