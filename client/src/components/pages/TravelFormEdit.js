@@ -66,7 +66,7 @@ class TravelFormEdit extends Component {
                             <Form.Label>Precio total del viaje: </Form.Label>
                             <Form.Control type="text" name="totalPrice" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
                         </Form.Group>
-                        <Button variant="dark" size="sm" type="submit" >guardar</Button>
+                        <Button variant="secondary" size="sm" type="submit" >guardar</Button>
 
                     </Tab>
                 </Tabs>

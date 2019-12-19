@@ -44,20 +44,17 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <Container>
-
-                <h1>Iniciar sesión</h1>
-
+            <Container className="containerLogin">
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
-                        <Form.Label>Usuario</Form.Label>
+                        <Form.Label className="formLabel">Usuario</Form.Label>
                         <Form.Control type="text" name="username" placeholder="username" onChange={this.handleInputChange} value={this.state.username} />
                     </Form.Group>
                     <Form.Group >
-                        <Form.Label>Contraseña</Form.Label>
+                        <Form.Label className="formLabel">Contraseña</Form.Label>
                         <Form.Control type="password" name="password" placeholder="password" onChange={this.handleInputChange} value={this.state.password} />
                     </Form.Group>
-                    <Button variant="dark" type="submit">Iniciar sesión</Button>
+                    <Button variant="secondary" type="submit">Iniciar sesión</Button>
                 </Form>
 
                 <Toast

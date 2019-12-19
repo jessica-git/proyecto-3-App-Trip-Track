@@ -65,58 +65,59 @@ class TravelForm extends Component {
     render() {
 
         return (
+            <div className="margin">
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group >
+                        <Form.Label className="formTravel">Viaje</Form.Label>
+                        <Form.Control type="text" name="place" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.place} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label className="formTravel">Días</Form.Label>
+                        <Form.Control type="text" name="duration" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.duration} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label className="formTravel">Personas que han viajado</Form.Label>
+                        <Form.Control type="number" name="people" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.people} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label className="formTravel">Precio total del viaje</Form.Label>
+                        <Form.Control type="number" name="totalPrice" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
+                    </Form.Group>
+                    <hr />
+                    <Form.Group>
+                        <Button variant="secondary" size="sm" onClick={this.handleShow}>Añadir día</Button>
+                    </Form.Group>
 
-            <Form onSubmit={this.handleSubmit}>
-                <Form.Group>
-                    <Form.Label>Viaje</Form.Label>
-                    <Form.Control type="text" name="place" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.place} />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Días</Form.Label>
-                    <Form.Control type="text" name="duration" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.duration} />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Personas que han viajado</Form.Label>
-                    <Form.Control type="number" name="people" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.people} />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Precio total del viaje</Form.Label>
-                    <Form.Control type="number" name="totalPrice" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
-                </Form.Group>
-                <hr />
-                <Form.Group>
-                    <Button variant="dark" size="sm" onClick={this.handleShow}>Añadir día</Button>
-                </Form.Group>
+                    <Modal show={this.state.showModalWindow} onHide={this.handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Nuevo día</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <TravelFormDays closeModalWindow={this.handleClose} addDays={this.addDays} />
+                        </Modal.Body>
+                    </Modal>
 
-                <Modal show={this.state.showModalWindow} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Nuevo día</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <TravelFormDays closeModalWindow={this.handleClose} addDays={this.addDays} />
-                    </Modal.Body>
-                </Modal>
-
-                <Form.Group>
-                    <Button variant="dark" size="sm" type="submit" >guardar</Button>
-                </Form.Group>
-                <Toast
-                    onClose={this.handleToastClose}
-                    show={this.state.showToast}
-                    delay={3000}
-                    autohide
-                    style={{
-                        position: 'fixed',
-                        right: '10px',
-                        bottom: '10px',
-                        minWidth: '250px'
-                    }}>
-                    <Toast.Header>
-                        <strong className="mr-auto">Campos requeridos para crear viaje</strong>
-                    </Toast.Header>
-                    <Toast.Body>{this.state.toastText}</Toast.Body>
-                </Toast>
-            </Form>
+                    <Form.Group>
+                        <Button variant="secondary" size="sm" type="submit" >guardar</Button>
+                    </Form.Group>
+                    <Toast
+                        onClose={this.handleToastClose}
+                        show={this.state.showToast}
+                        delay={3000}
+                        autohide
+                        style={{
+                            position: 'fixed',
+                            right: '10px',
+                            bottom: '10px',
+                            minWidth: '250px'
+                        }}>
+                        <Toast.Header>
+                            <strong className="mr-auto">Campos requeridos para crear viaje</strong>
+                        </Toast.Header>
+                        <Toast.Body>{this.state.toastText}</Toast.Body>
+                    </Toast>
+                </Form>
+            </div>
         )
     }
 

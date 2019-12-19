@@ -26,7 +26,6 @@ router.get("/all", (req, res) => {
         .populate("day")
         .populate("user")
         .then(allTheTravels => {
-
             res.json(allTheTravels)
         })
         .catch(err => { res.json(err) })

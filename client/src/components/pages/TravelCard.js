@@ -39,7 +39,7 @@ class TravelCard extends Component {
         const city = this.state.travel
         const loggedInUser = this.props.loggedInUser
         let saveButton;
-        console.log(city)
+        
         if (city) {
             const travelUserId = this.state.travel.user
 

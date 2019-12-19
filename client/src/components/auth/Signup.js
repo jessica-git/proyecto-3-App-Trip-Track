@@ -50,23 +50,22 @@ class SignupForm extends Component {
 
     render() {
         return (
-            <Container>
-                <h1>Singup</h1>
-
+            <Container className="containerSignup">
+            
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Usuario</Form.Label>
+                        <Form.Label className="formLabel">Usuario</Form.Label>
                         <Form.Control type="text" name="username" placeholder="username" onChange={this.handleInputChange} value={this.state.username} />
                     </Form.Group>
 
                     <Form.Group controlId="formEmail" >
-                        <Form.Label className="title">Email</Form.Label>
+                        <Form.Label className="formLabel">Email</Form.Label>
                         <Form.Control type="email" name="email" placeholder="Email" onChange={this.handleInputChange} value={this.state.email} />
                         <Form.Text className="text-muted">Nunca compartiremos tu correo electrónico con nadie más.</Form.Text>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label className="formLabel">Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" name="password" onChange={this.handleInputChange} value={this.state.password} />
                     </Form.Group>
 
@@ -76,10 +75,10 @@ class SignupForm extends Component {
 
 
                     <Form.Group action="/upload" method="post" enctype="multipart/form-data">
-                        <Form.Label for="file">Imagen de perfil:</Form.Label>
+                        <Form.Label for="file" className="formLabel">Imagen de perfil</Form.Label>
                         <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} />
-                    </Form.Group>
-                    <Button variant="primary" type="submit"> Submit</Button>
+                    </Form.Group >
+                    <Button type="submit" variant="secondary">Regístrate</Button>
                 </Form>
 
             </Container>

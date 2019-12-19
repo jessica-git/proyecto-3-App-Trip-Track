@@ -189,7 +189,7 @@ class TravelFormDaysEdit extends Component {
                     <Form.Label>Actualiza tus imágenes</Form.Label>
                     <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} />
                 </Form.Group>
-                <Button variant="dark" size="sm" type="submit"
+                <Button variant="secondary" size="sm" type="submit"
                     disabled={this.state.disabledButton} onClick={this.handleSubmit}>{this.state.buttonText}
                 </Button>
 

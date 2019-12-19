@@ -1,6 +1,73 @@
 /* index */
-
 .title {
     color: #FEF9E7;
     font-weight: 900;
+    font-size: 3em;
+}
+.cardsIndex {
+    margin: 150px 100px;
+    
+}
+.cardIndex {
+    margin-right: 10px;
+    width: 18rem;
+    background-color: #FEF9E7;
+}
+
+/* profile */
+.buttonProfile {
+    text-decoration: none;
+    color: #88ccb7;
+}
+.imgProfile {
+    width: 100px;
+}
+.containerProfile {
+    margin: 50px 200px;
+    
+}
+.wellcome {
+    font-weight: 700;
+    color: grey;
+    margin-bottom: 30px;
+}
+
+/* myTravelList */
+.linkCreate {
+    text-decoration: none;
+}
+
+/* signup */
+.containerSignup {
+    margin: 20px 1000px;
+}
+
+.formLabel{
+    color: #3fb4a4;
+    font-weight: 500;
+    font-size: 1.8em;
+}
+
+.buttonSignup {
+    background-color: #626567;
+    color: #88ccb7;
+}
+
+/* login */
+.containerLogin {
+    margin-top: 100px;
+}
+
+/* travelForm */
+
+.formTravel {
+     color: grey;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.margin {
+margin-top: 40px;
+margin-left: 200px;
+margin-right: 200px;
 }

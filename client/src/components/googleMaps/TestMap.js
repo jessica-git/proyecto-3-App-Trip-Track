@@ -11,16 +11,22 @@ Geocode.enableDebug()
 
 class MainMap extends Component {
     constructor(props) {
+        console.log("las props para maps", props)
         super(props)
         this.TravelService = new TravelService();
         this.state = {
-            travel: {}
+            travels: []
         }
-
-        this.onMapClick = this.onMapClick.bind(this)
-
+        // this.onMapClick = this.onMapClick.bind(this)
     }
 
+    getAllCityByUser() {
+        this.TravelService.getTravelsByUser(this.props.loggedInUser._id)
+            .then(apiResponse => {
+                this.setState({ travels: apiResponse.data })
+            })
+            .catch(err => console.log("Error update travel list", err))
+    }
 
     directionsCallback(response) {
 
@@ -28,7 +34,7 @@ class MainMap extends Component {
             if (response.status === 'OK') {
                 this.setState(() => ({ response, }))
             } else {
-                console.log('loloolololololololololo: ', response)
+                console.log('goo', response)
             }
         }
     }
@@ -38,6 +44,7 @@ class MainMap extends Component {
     }
 
     componentDidMount() {
+        this.getAllCityByUser()
         Geocode.fromAddress(this.state.travel)
             .then(response => {
                 const { lat, lng } = response.results[0].geometry.location
@@ -66,8 +73,8 @@ class MainMap extends Component {
                     <GoogleMap
                         id='example-map'
                         mapContainerStyle={{
-                            height: "600px",
-                            width: "700px",
+                            height: "400px",
+                            width: "400px",
                         }}
                         zoom={2}
                         center={{

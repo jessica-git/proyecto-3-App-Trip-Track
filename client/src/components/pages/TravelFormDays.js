@@ -128,7 +128,7 @@ class TravelFormDays extends Component {
                     <Form.Control name="imgPath" type="file" onChange={(e) => this.handleFileUpload(e)}></Form.Control>
                 </Form.Group>
 
-                <Button variant="dark" size="sm" type="submit" onClick={this.handleSubmit} redirect={"/"}>Añadir</Button>
+                <Button variant="secondary" size="sm" type="submit" onClick={this.handleSubmit} redirect={"/"}>Añadir</Button>
             </Form>
         )
     }

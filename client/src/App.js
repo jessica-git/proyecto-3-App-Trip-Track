@@ -22,7 +22,7 @@ import TravelFormDays from "./components/pages/TravelFormDays"
 import TravelFormEdit from "./components/pages/TravelFormEdit"
 import TravelFormDaysEdit from "./components/pages/TravelFormDaysEdit"
 import Inspired from './components/pages/Inspired'
-import Testmap from './components/googleMaps/TestMap'
+
 
 class App extends Component {
 
@@ -56,11 +56,7 @@ class App extends Component {
     return (
       <>
         <Navbar loggedInUser={this.state.loggedInUser} setUser={this.setTheUser} />
-
-        <Testmap />
-        <div>
-
-        </div>
+        
         <Switch>
           <Route exact path="/" component={Index} />
           <Route path="/signup" render={match => <Signup setUser={this.setTheUser} {...match} />} />

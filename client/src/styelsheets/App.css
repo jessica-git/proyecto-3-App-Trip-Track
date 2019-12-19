@@ -8,6 +8,10 @@
 font-family: 'Courier Prime', monospace;
 }
 
+a:link {
+text-decoration:none;
+}
+
 body {
     background-image: url("../images/clipdealer_A45351226_preview.jpg");
     background-size: 100%;

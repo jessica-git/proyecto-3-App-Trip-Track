@@ -43,7 +43,7 @@ class Navigation extends Component {
                         <SearchBar />
                     </Form>
                     <Nav className="helloUser">
-                        <Navbar.Text >Hola,<strong className="navbarText">{saludo}!</strong></Navbar.Text>
+                        <Navbar.Text >Hola <strong className="navbarText">{saludo}!</strong></Navbar.Text>
                     </Nav>
                 </Navbar>
 
