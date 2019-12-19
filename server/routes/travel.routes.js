@@ -8,7 +8,7 @@ const dayModel = require("../models/TravelDays.model")  //necessary for populate
 const userModel = require("../models/User.model")
 
 
-router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
+router.post('/upload', uploader.single("imgPath"), (req, res, next) => {
 
     if (!req.file) {
         next(new Error('No file uploaded!'));
@@ -92,7 +92,8 @@ router.post("/new", (req, res) => {
 //Create a new day
 router.post("/newDay", (req, res) => {
 
-    const { place, day, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imageUrl } = req.body
+    const { place, day, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imgPath, imgName } = req.body
+    console.log(imgPath)
     let Day = new dayModel({
         place,
         day,
@@ -102,7 +103,9 @@ router.post("/newDay", (req, res) => {
         transport: [transport],
         restaurantsMeals: [restaurantsMeals],
         tips,
-        imageUrl
+        imgPath,
+        imgName
+
     })
     Day.save()
         .then(newDay => {
@@ -128,11 +131,11 @@ router.post("/edit/travel/:id", (req, res) => {
 
 //Edit day
 router.post("/edit/day/:id", (req, res) => {
-    const { place, day, people, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imageUrl } = req.body
+    const { place, day, people, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imgPath } = req.body
     dayId = req.params.id
     console.log(req.body)
     dayModel.findByIdAndUpdate(dayId, {
-        place, day, people, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imageUrl
+        place, day, people, lodgings, placeToVisit, paidExcursions, transport, restaurantsMeals, tips, imgPath
     })
         .then(updateDay => res.json(updateDay))
         .catch(err => { res.json(err) })

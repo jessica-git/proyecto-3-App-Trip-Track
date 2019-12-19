@@ -25,7 +25,7 @@ class Navigation extends Component {
         return (
             this.props.loggedInUser ?
 
-                <Navbar bg="dark" variant="dark" expand="md">
+                <Navbar className="navbar" expand="md">
 
                     <Navbar.Brand><Link to={`/`} ><Image src={logo} style={{ width: "60px" }} roundedCircle /></Link></Navbar.Brand>
                     <Form inline>
@@ -49,7 +49,7 @@ class Navigation extends Component {
                 :
 
                 <Navbar bg="dark" variant="dark" expand="md">
-                    <Navbar.Brand>LOGOO</Navbar.Brand>
+                    <Navbar.Brand><Link to={`/`} ><Image src={logo} style={{ width: "60px" }} roundedCircle /></Link></Navbar.Brand>
                     <Form inline>
                         <SearchBar />
                     </Form>

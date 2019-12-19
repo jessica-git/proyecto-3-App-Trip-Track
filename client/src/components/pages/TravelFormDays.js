@@ -38,6 +38,18 @@ class TravelFormDays extends Component {
 
     }
 
+
+
+    handleFileUpload = e => {
+
+        const uploadData = new FormData();
+        uploadData.append("imgPath", e.target.files[0]);
+
+        this.FilesService.handleUpload(uploadData)
+            .then(response => this.setState({ days: { ...this.state.days, imgPath: response.data.secure_url } }))
+            .catch(err => console.log(err))
+    }
+
     handleInputChange = e => {
         let { name, value } = e.target
 
@@ -55,22 +67,10 @@ class TravelFormDays extends Component {
         }
     }
 
-    handleFileUpload = e => {
-
-        const uploadData = new FormData();
-        uploadData.append("imgPath", e.target.files[0]);
-
-        this.FileService.handleUpload(uploadData)
-            .then(response => this.setState({ imgPath: response.data.secure_url }))
-            .catch(err => console.log(err))
-    }
-
-
     render() {
         const day = this.state.days
 
         return (
-
             <Form onSubmit={this.props.handleSubmit}>
                 <Form.Row>
                     <Form.Group as={Col} controlId="formGridPlace">
@@ -124,13 +124,13 @@ class TravelFormDays extends Component {
                     <Form.Control type="text" name="tips" size="lg" onChange={this.handleInputChange} value={day.tips} />
                 </Form.Group>
 
-                <Form.Group action="/upload" method="post" enctype="multipart/form-data">
-                    <Form.label for="file">Comparte tus mejores fotos:</Form.label>
-                    <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} />
+                <Form.Group>
+                    <Form.Label >Comparte tus mejores viajes:</Form.Label>
+                    <Form.Control name="imgPath" type="file" onChange={(e) => this.handleFileUpload(e)}></Form.Control>
                 </Form.Group>
+
                 <Button variant="dark" size="sm" type="submit" onClick={this.handleSubmit} redirect={"/"}>Añadir</Button>
             </Form>
-
         )
     }
 }

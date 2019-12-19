@@ -41,24 +41,24 @@ const days = [{
     place: "Albaicín",
     day: Date.now(),
     lodgings: [{
-        description: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
-        price: 150
+        lodgingsDescription: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
+        lodgingsPrice: 150
     }],
     placeToVisit: [{
-        description: "barrio del Albaicín y vista al mirados de San Nicolás",
-        price: 0
+        placeToVisitDescription: "barrio del Albaicín y vista al mirados de San Nicolás",
+        placeToVisitPrice: 0
     }],
     paidExcursions: [{
-        description: "entrada al aljibe",
-        price: 5,
+        paidExcursionsDescription: "entrada al aljibe",
+        paidExcursionsPrice: 5,
     }],
     transport: [{
-        description: "un ratito a pie y otro caminando",
-        price: 0
+        transportDescription: "un ratito a pie y otro caminando",
+        transportPrice: 0
     }],
     restaurantsMeals: [{
-        description: "restaurante Juan Ranas",
-        price: 20,
+        restaurantsMealsDescription: "restaurante Juan Ranas",
+        restaurantsMealsPrice: 20,
     }],
     tips: "aconsejo calzado cómodo para andar porque las calles están hechas de piedras y muy empinadas",
     imgPath: "https://res.cloudinary.com/ddthuxc9t/image/upload/v1576715667/app-travel/albaicin_usld7m.jpg",
@@ -69,24 +69,24 @@ const days = [{
     place: "Sacromonte",
     day: Date.now(),
     lodgings: [{
-        description: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
-        price: 0,
+        lodgingsDescription: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
+        lodgingsPrice: 0,
     }],
     placeToVisit: [{
-        description: "barrio del Sacromonte",
-        price: 0
+        placeToVisitDescription: "barrio del Sacromonte",
+        placeToVisitPrice: 0
     }],
     paidExcursions: [{
-        description: "Cueva y baile",
-        price: 35,
+        paidExcursionsDescription: "Cueva y baile",
+        paidExcursionsPrice: 35,
     }],
     transport: [{
-        description: "microbús",
-        price: 2.50
+        transportDescription: "microbús",
+        transportPrice: 2.50
     }],
     restaurantsMeals: [{
-        description: "Compra en el super",
-        price: 10,
+        restaurantsMealsDescription: "Compra en el super",
+        restaurantsMealsPrice: 10,
     }],
     tips: "aconsejo calzado cómodo para andar porque las calles están hechas de piedras y muy empinadas",
     imgPath: "https://res.cloudinary.com/ddthuxc9t/image/upload/v1576715672/app-travel/sacromonte_nprlt9.jpg",
@@ -97,24 +97,24 @@ const days = [{
     place: "Alpujarra",
     day: Date.now(),
     lodgings: [{
-        description: "Casa rural nuevo campo, direccion calle San Jose, numero 11, 18098",
-        price: 75
+        lodgingsDescription: "Casa rural nuevo campo, direccion calle San Jose, numero 11, 18098",
+        lodgingsPrice: 75
     }],
     placeToVisit: [{
-        description: "visitas a los pueblos de la Alpujarra",
-        price: 0
+        placeToVisitDescription: "visitas a los pueblos de la Alpujarra",
+        placeToVisitPrice: 0
     }],
     paidExcursions: [{
-        description: "visita privada a un viejo molino y a un telar",
-        price: 7,
+        paidExcursionsDescription: "visita privada a un viejo molino y a un telar",
+        paidExcursionsPrice: 7,
     }],
     transport: [{
-        description: "tenemos que alquilar coche, por su situación geográfica",
-        price: 60,
+        transportDescription: "tenemos que alquilar coche, por su situación geográfica",
+        transportPrice: 60,
     }],
     restaurantsMeals: [{
-        description: "Comeremos en los bares típicos de alli, un buen plato alpujarreño",
-        price: 15,
+        restaurantsMealsDescription: "Comeremos en los bares típicos de alli, un buen plato alpujarreño",
+        restaurantsMealsPrice: 15,
     }],
     tips: "aconsejo calzado cómodo para andar porque las calles están hechas de piedras y muy empinadas",
     imgPath: "https://res.cloudinary.com/ddthuxc9t/image/upload/v1576715668/app-travel/alpujarra_qotfiw.jpg",

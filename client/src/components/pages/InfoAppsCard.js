@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Card } from 'react-bootstrap'
+import { Row, Card } from 'react-bootstrap'
 import Booking from "../../images/booking.png"
 import Airbnb from "../../images/airbnb.jpg"
 import Wikiloc from "../../images/wikiloc.png"

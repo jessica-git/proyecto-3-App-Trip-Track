@@ -12,7 +12,7 @@ class TravelCard extends Component {
         super(props)
         this.travelAPI = new TravelService()
         this.state = {
-            travel: {}
+            travel: null
         }
 
     }
@@ -37,17 +37,20 @@ class TravelCard extends Component {
 
     render() {
         const city = this.state.travel
-        const travelUserId = this.state.travel.user
         const loggedInUser = this.props.loggedInUser
         let saveButton;
+        console.log(city)
+        if (city) {
+            const travelUserId = this.state.travel.user
 
-        if (loggedInUser && travelUserId != loggedInUser._id) {
-            saveButton = <Link className="btn btn-sm btn-dark">Guardar</Link>
+            if (loggedInUser && travelUserId != loggedInUser._id) {
+                saveButton = <Link className="btn btn-sm btn-dark">Guardar</Link>
+            }
         }
-        return (
+        return city ? (
             < Card style={{ width: '18rem' }}>
                 <Card.Text>Viaje creado por: {city.user}</Card.Text>
-                <Card.Img variant="top" src="holder.js/100px180?text=Image cap" alt="maps" />
+                <Card.Img variant="top" src={city.day[0].imgPath} alt="maps" />
 
                 <Card.Body>
                     <Card.Title>{city.place}</Card.Title>
@@ -78,7 +81,7 @@ class TravelCard extends Component {
                     <Link to={`/edit/travel/${city._id}`} className="btn btn-sm btn-dark" >Editar</Link>
                 </Card.Body>
             </Card >
-        )
+        ) : "esperando viaje"
 
     }
 }

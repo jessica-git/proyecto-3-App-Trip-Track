@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 import TravelService from "../../service/Travel.service"
 import Geocode from "react-geocode";
-import {
-    GoogleMap,
-    withScriptjs,
-    withGoogleMap,
-    Marker,
-    InfoWindow
-} from "react-google-maps";
+
+
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
 
 Geocode.setApiKey(`${process.env.CLAVE_API_MAPS}`)
 
 class Map extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.TravelService = new TravelService();
         this.state = {
             travels: [],
@@ -30,7 +26,7 @@ class Map extends Component {
             .then(alltravelsFromDB => {
                 this.setState({ travels: alltravelsFromDB.data })
                 this.state.travels.forEach(elm => {
-                    Geocode.fromPlace(elm.place)
+                    // Geocode.fromPlace(elm.place)
                 })
             })
             .then(response => {
@@ -50,7 +46,10 @@ class Map extends Component {
     handleToggleClose = () => { this.setState({ isOpen: false }) }
 
     render() {
+        // console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<", this.state.places.map(elm))
+
         return (
+            
             <GoogleMap defaultZoom={10} defaultCenter={{ lat: 37.177009, lng: -3.589556 }} >
                 {this.state.places.map((elm, idx) => (
                     <Marker key={idx} position={elm} onClick={() => this.getTravel(elm)}></Marker>
@@ -63,10 +62,12 @@ class Map extends Component {
                     </InfoWindow>
                 )}
             </GoogleMap>
-        );
+
+        )
     }
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
+
 
 export default WrappedMap;

@@ -7,7 +7,7 @@ const uploader = require('../configs/cloudinary.config');
 const User = require('../models/User.model');
 
 
-authRoutes.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
+authRoutes.post('/upload', uploader.single("imgPath"), (req, res, next) => {
 
     if (!req.file) {
         next(new Error('No file uploaded!'));
@@ -18,7 +18,7 @@ authRoutes.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
 
 
 authRoutes.post('/signup', (req, res, next) => {
-    const { username, password, email, imageUrl } = req.body
+    const { username, password, email, imgPath } = req.body
 
     if (!username || !password) {
         res.status(400).json({ message: 'Provide username and password' });
@@ -49,7 +49,7 @@ authRoutes.post('/signup', (req, res, next) => {
             username,
             password: hashPass,
             email,
-            imageUrl,
+            imgPath,
 
         });
 

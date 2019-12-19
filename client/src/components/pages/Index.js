@@ -9,7 +9,6 @@ const Index = () => {
             <section className="header">
                 <div>
                     <h1>TripTrackTravel</h1>
-                    <p>Lhzsdjhsgfjhgsjhdfvshvdhjdgfjgdfjgdhfgshdg</p>
                 </div>
                 <reactPlayer url="#" />
             </section>
@@ -36,9 +35,6 @@ const Index = () => {
                         <Card.Img variant="top" src="" />
                     </Card>
                 </Col>
-            </section>
-            <section>
-                <SearchBar />
             </section>
         </Container>
     )

@@ -32,9 +32,9 @@ class TravelForm extends Component {
         this.TravelService.newTravel(this.state.travel)
             .then(apiResponse => this.setState(
                 { travel: { ...this.state.travel } },
-                ))
-                .catch(err => console.log(err))
-                this.props.history.push('/myTravels')
+            ))
+            .catch(err => console.log(err))
+        this.props.history.push('/myTravels')
     }
 
     handleInputChange = e => {
@@ -63,7 +63,7 @@ class TravelForm extends Component {
 
 
     render() {
-        
+
         return (
 
             <Form onSubmit={this.handleSubmit}>

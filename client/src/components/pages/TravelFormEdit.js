@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Tabs, Tab, Button, Card } from "react-bootstrap"
-
-import TravelFormDaysEdit from "./TravelFormDaysEdit"
+import { Form, Tabs, Tab, Button } from "react-bootstrap"
 import TravelService from "../../service/Travel.service"
 
 class TravelFormEdit extends Component {
@@ -21,9 +19,11 @@ class TravelFormEdit extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+
         let { place, duration, people, totalPrice } = this.state.travel
         let travelId = this.props.match.params.id
         this.TravelService.updateTravel(place, duration, people, totalPrice, travelId)
+        this.props.match.history.push("/")
     }
 
     handleInputChange = e => {
@@ -45,7 +45,6 @@ class TravelFormEdit extends Component {
     }
 
     render() {
-        const arrayDays = this.state.travel.day
 
         return (
             <Form onSubmit={this.handleSubmit}>

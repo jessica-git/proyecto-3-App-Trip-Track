@@ -39,7 +39,8 @@ class TravelFormDaysEdit extends Component {
             transport,
             restaurantsMeals,
             tips,
-            imageUrl } = this.state.day
+            imgPath,
+            imgName } = this.state.day
         let dayId = this.props.match.params.id
         this.TravelService.updateDay(
             place,
@@ -51,8 +52,11 @@ class TravelFormDaysEdit extends Component {
             transport,
             restaurantsMeals,
             tips,
-            imageUrl,
+            imgPath,
+            imgName,
             dayId)
+
+        this.props.history.push("/")
     }
 
     handleInputChange = e => {
@@ -82,6 +86,7 @@ class TravelFormDaysEdit extends Component {
 
         this.FilesService.handleUpload(uploadData)
             .then(response => {
+
                 this.setState({
                     disabledButton: false,
                     buttonText: "Editado",
@@ -182,7 +187,7 @@ class TravelFormDaysEdit extends Component {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Actualiza tus imágenes</Form.Label>
-                    <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
+                    <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} />
                 </Form.Group>
                 <Button variant="dark" size="sm" type="submit"
                     disabled={this.state.disabledButton} onClick={this.handleSubmit}>{this.state.buttonText}

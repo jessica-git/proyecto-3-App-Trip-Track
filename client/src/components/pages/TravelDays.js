@@ -12,53 +12,54 @@ const Day = ({
     transport,
     restaurantsMeals,
     tips,
-    imageUrl
+    imgPath,
+    imgName,
 
 }) => {
-
+    console.log(lodgings)
     const lodgingsList = lodgings.map(lodging => {
 
         return (
             <>
-                <p>Alojamiento: {lodging.description}</p>
-                <p>Gasto de alojamiento: {lodging.price} €</p>
+                <p>Alojamiento: {lodging.lodgingsDescription}</p>
+                <p>Gasto de alojamiento: {lodging.lodgingsPrice} €</p>
             </>
         )
     })
     const placeToVisitList = placeToVisit.map(placeVisit => {
         return (
             <>
-                <p>Lugares para visitar: {placeVisit.description}</p>
-                <p>Gasto de las visitas: {placeVisit.price} €</p>
+                <p>Lugares para visitar: {placeVisit.placeToVisitDescription}</p>
+                <p>Gasto de las visitas: {placeVisit.placeToVisitPrice} €</p>
             </>
         )
     })
     const paidExcursionsList = paidExcursions.map(paidExcursion => {
         return (
             <>
-                <p>Excursiones contratadas: {paidExcursion.description}</p>
-                <p>Gasto de las excursiones: {paidExcursion.price} €</p>
+                <p>Excursiones contratadas: {paidExcursion.paidExcursionsDescription}</p>
+                <p>Gasto de las excursiones: {paidExcursion.paidExcursionsPrice} €</p>
             </>
         )
     })
     const transportList = transport.map(transp => {
         return (
             <>
-                <p>Transporte necesario: {transp.description}</p>
-                <p>Gasto del transporte: {transp.price} €</p>
+                <p>Transporte necesario: {transp.transportDescription}</p>
+                <p>Gasto del transporte: {transp.transportPrice} €</p>
             </>
         )
     })
     const restaurantsMealsList = restaurantsMeals.map(restaurant => {
         return (
             <>
-                <p>Comidas del día: {restaurant.description}</p>
-                <p>Gasto de comida: {restaurant.price} €</p>
+                <p>Comidas del día: {restaurant.restaurantsMealsDescription}</p>
+                <p>Gasto de comida: {restaurant.restaurantsMealsPrice} €</p>
             </>
         )
     })
 
-
+    console.log(lodgingsList)
     return (
         ((place || day || lodgings || placeToVisit || paidExcursions || transport || restaurantsMeals || tips) != null ?
             <Container className="coaster-details">
@@ -75,7 +76,7 @@ const Day = ({
                             <p>Consejos: {tips}</p>
                         </Col>
                         <Col md={{ span: 4, offset: 2 }}>
-                            <p>aqui van fotooos{imageUrl}</p>
+                            <img src={imgPath} alt={imgName}></img>
 
                         </Col>
                         <Link to={`/edit/day/${_id}`} className="btn btn-sm btn-dark" >Editar</Link>
