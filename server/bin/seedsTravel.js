@@ -53,7 +53,7 @@ const days = [{
         price: 5,
     }],
     transport: [{
-        description: null,
+        description: "un ratito a pie y otro caminando",
         price: 0
     }],
     restaurantsMeals: [{
@@ -61,9 +61,8 @@ const days = [{
         price: 20,
     }],
     tips: "aconsejo calzado cómodo para andar porque las calles están hechas de piedras y muy empinadas",
-    cords: {
-        coordinates: [37.184953, -3.589973]
-    }
+    imgPath: "https://res.cloudinary.com/ddthuxc9t/image/upload/v1576715667/app-travel/albaicin_usld7m.jpg",
+    imgName: "imagen Albacín",
 },
 {
     _id: day2Id,
@@ -90,9 +89,8 @@ const days = [{
         price: 10,
     }],
     tips: "aconsejo calzado cómodo para andar porque las calles están hechas de piedras y muy empinadas",
-    cords: {
-        coordinates: [37.183166, -3.576771]
-    }
+    imgPath: "https://res.cloudinary.com/ddthuxc9t/image/upload/v1576715672/app-travel/sacromonte_nprlt9.jpg",
+    imgName: "imagen Sacromonte",
 },
 {
     _id: day3Id,
@@ -107,8 +105,8 @@ const days = [{
         price: 0
     }],
     paidExcursions: [{
-        description: null,
-        price: 0,
+        description: "visita privada a un viejo molino y a un telar",
+        price: 7,
     }],
     transport: [{
         description: "tenemos que alquilar coche, por su situación geográfica",
@@ -119,9 +117,8 @@ const days = [{
         price: 15,
     }],
     tips: "aconsejo calzado cómodo para andar porque las calles están hechas de piedras y muy empinadas",
-    cords: {
-        coordinates: [36.961629, -3.358844]
-    }
+    imgPath: "https://res.cloudinary.com/ddthuxc9t/image/upload/v1576715668/app-travel/alpujarra_qotfiw.jpg",
+    imgName: "imagen Alpujarra granadina",
 }]
 
 User.create(user)

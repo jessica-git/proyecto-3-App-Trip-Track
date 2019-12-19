@@ -10,7 +10,7 @@ export default class ProfileService {
 
     }
 
-    // updateProfile = (id, edit) => this.service.post(`/edit`, { id, edit })
+    updateProfile = (id, username, imgPath, imgName) => this.service.post(`/edit`, { id, username, imgPath, imgName})
 
     handleUpload = theFile => this.service.post('/upload', theFile)
 

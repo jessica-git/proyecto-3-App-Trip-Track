@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ListGroup, Row, Col, Tab, Container, Image } from 'react-bootstrap'
 import imgCreate from "../../images/button-create.png"
 import { Link } from 'react-router-dom'
-// import WrappedMap from "../map";
+import WrappedMap from "../googleMaps/GoogleMaps";
 
 import TravelService from "../../service/Travel.service"
 
@@ -36,14 +36,14 @@ class MyTravelList extends Component {
                     <Col xs={6} md={4}>
                         <Link to={`/new`} ><Image src={imgCreate} style={{ width: "50px" }} roundedCircle />Crear</Link>
                         <p>Aqui va el mapaaaa</p>
-                        {/* <div style={{ width: "100%", height: "85vh" }}>
-                            <WrappedMap
-                                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBdergxMgHic2LH7s_ou7nmShy6smGNnPY`}
+                        <div style={{ width: "100%", height: "85vh" }}>
+                            <WrappedMap //{`${process.env.CLAVE_API_MAPS}`}
+                                googleMapURL= {"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCOs2fBsxAU-xVqjcVkAnYsmvyQ0ITiWJA"}
                                 loadingElement={<div style={{ height: "100%" }} />}
                                 containerElement={<div style={{ height: "100%" }} />}
                                 mapElement={<div style={{ height: "100%" }} />}
                             />
-                        </div> */}
+                        </div>
                     </Col>
                 </Row>
 

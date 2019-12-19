@@ -18,14 +18,14 @@ router.get("/profile", (req, res) => {
         .catch(err => { res.json(err) })
 })
 
-//Edit profile
-// routes.post('/profile/edit/:id', (req, res, next) => {
-//     const { username, imageUrl } = req.body
+// Edit profile
+router.post('/profile/edit/:id', (req, res) => {
+    const { username, imgPath } = req.body
 
-//     User.findByIdAndUpdate(req.params.id, { username, imageUrl},{ new: true })
-//         .then(() => res.json({ message: "User has been updated" }))
-//         .catch(err => console.log(err));
-// });
+    User.findByIdAndUpdate(req.params.id, { username, imgPath},{ new: true })
+        .then(() => res.json({ message: "User has been updated" }))
+        .catch(err => console.log(err));
+});
 
 
 

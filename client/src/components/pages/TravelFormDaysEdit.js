@@ -12,7 +12,7 @@ class TravelFormDaysEdit extends Component {
         this.FilesService = new FilesService()
         this.state = {
             disabledButton: false,
-            buttonText: "Editar",
+            buttonText: "Editado",
             day: {
                 place: "",
                 day: "",
@@ -22,7 +22,8 @@ class TravelFormDaysEdit extends Component {
                 transport: [],
                 restaurantsMeals: [],
                 tips: "",
-                imageUrl: "",
+                imgPath: '',
+                imgName: ''
             }
         }
     }
@@ -77,14 +78,14 @@ class TravelFormDaysEdit extends Component {
         this.setState({ disabledButton: true, buttonText: "subiendo imágenes" })
 
         const uploadData = new FormData()
-        uploadData.append("imageUrl", e.target.files[0])
+        uploadData.append("imgPath", e.target.files[0])
 
         this.FilesService.handleUpload(uploadData)
             .then(response => {
                 this.setState({
                     disabledButton: false,
-                    buttonText: "Edit",
-                    day: { ...this.state.user, imageUrl: response.data.secure_url }
+                    buttonText: "Editado",
+                    day: { ...this.state.user, imgPath: response.data.secure_url } ////CORRECTO???
                 });
             })
             .catch(err => console.log(err));

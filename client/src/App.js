@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
+import "./styelsheets/App.css";
+
 import AuthService from './service/Auth.service'
 
 import Navbar from './components/ui/Navbar'
+import Footer from './components/ui/Footer'
 import Index from './components/pages/Index'
-import infoAppsCard from './components/pages/InfoAppsCard.js'
+import InfoAppsCard from './components/pages/InfoAppsCard.js'
 import Profile from './components/pages/Profile'
 import Signup from './components/auth/Signup'
 import Login from './components/auth/Login'
@@ -31,7 +34,7 @@ class App extends Component {
 
   setTheUser = user => {
     this.setState({ loggedInUser: user })
-    
+
   }
 
   fetchUser = () => {
@@ -40,7 +43,7 @@ class App extends Component {
         .then(theLoggedInUserFromTheServer => this.setState({ loggedInUser: theLoggedInUserFromTheServer.data }))
         .catch(err => {
           this.setState({ loggedInUser: false })
-         
+
         })
     }
   }
@@ -62,7 +65,7 @@ class App extends Component {
             this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
 
-          {/* <Route exact path="/travelApps" component={InfoAppsCard} /> */}
+          <Route exact path="/travelApps" component={InfoAppsCard} />
 
           <Route exact path="/search/:place" component={AllTravelsCard} />
           <Route exact path="/travel/:place/:id" render={(props) =>
@@ -84,15 +87,9 @@ class App extends Component {
           <Route exact path="/edit/day/:id" render={(match) =>
             this.state.loggedInUser ? <TravelFormDaysEdit {...match} loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
           } />
-          {/* <Route exact path="/profile" render={() =>
-            this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
-          } />
-          <Route exact path="/profile/edit/:id" render={() =>
-            this.state.loggedInUser ? <ProfileEdit loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />
-          } /> */}
-
-
         </Switch>
+        <Footer />
+
 
       </>
 

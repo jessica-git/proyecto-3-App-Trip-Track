@@ -10,7 +10,8 @@ const detailsSchema = new Schema({
     transport: [{}],
     restaurantsMeals: [{}],
     tips: String,
-    imageUrl: String,
+    imgPath: String,
+    imgName: String,
 }, {
     timestamps: true
 })

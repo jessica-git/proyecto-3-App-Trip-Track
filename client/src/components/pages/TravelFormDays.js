@@ -20,7 +20,8 @@ class TravelFormDays extends Component {
                 transport: { transportDescription: "", transportPrice: 0 },
                 restaurantsMeals: { restaurantsMealsDescription: "", restaurantsMealsPrice: 0 },
                 tips: "",
-                imageUrl: "",
+                imgPath: '',
+                imgName: ''
             }
         }
     }
@@ -55,11 +56,12 @@ class TravelFormDays extends Component {
     }
 
     handleFileUpload = e => {
-        const uploadData = new FormData()
-        uploadData.append("imageUrl", e.target.files[0])
 
-        this.FilesService.handleUpload(uploadData)
-            .then(response => this.setState({ travel: { ...this.state.travel, imageUrl: response.data.secure_url } }))
+        const uploadData = new FormData();
+        uploadData.append("imgPath", e.target.files[0]);
+
+        this.FileService.handleUpload(uploadData)
+            .then(response => this.setState({ imgPath: response.data.secure_url }))
             .catch(err => console.log(err))
     }
 
@@ -122,9 +124,10 @@ class TravelFormDays extends Component {
                     <Form.Control type="text" name="tips" size="lg" onChange={this.handleInputChange} value={day.tips} />
                 </Form.Group>
 
-                < Form.Label > Sube tus mejores fotos</Form.Label >
-                {/* <MDBFileInput multiple btnColor="info" /> */}
-                < Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
+                <Form.Group action="/upload" method="post" enctype="multipart/form-data">
+                    <Form.label for="file">Comparte tus mejores fotos:</Form.label>
+                    <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} />
+                </Form.Group>
                 <Button variant="dark" size="sm" type="submit" onClick={this.handleSubmit} redirect={"/"}>Añadir</Button>
             </Form>
 
@@ -134,7 +137,3 @@ class TravelFormDays extends Component {
 
 export default TravelFormDays
 
-{/* <Form.Group>
-    <Form.Label>Imagen URL (archivo)</Form.Label>
-    <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
-</Form.Group>*/}

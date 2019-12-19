@@ -14,17 +14,18 @@ class SignupForm extends Component {
             username: '',
             password: '',
             email: '',
-            imageUrl: '',
+            imgPath: '',
+            imgName: ''
         }
     }
 
     handleSubmit = e => {
         e.preventDefault()
-        const { username, password, email, imageUrl } = this.state
-        this.AuthService.signup(username, password, email, imageUrl)
+        const { username, password, email, imgPath} = this.state
+        this.AuthService.signup(username, password, email, imgPath)
             .then(theNewUser => {
                 this.props.setUser(theNewUser.data)
-                this.setState({ username: '', password: '', email: '', imageUrl: '' })
+                this.setState({ username: '', password: '', email: '', imgPath: '' })
                 this.props.history.push('/')
             })
             .catch(err => console.log(err.response.data.message))
@@ -36,15 +37,15 @@ class SignupForm extends Component {
         this.setState({ [name]: value })
     }
 
-    // handleFileUpload = e => {
+    handleFileUpload = e => {
 
-    //     const uploadData = new FormData();
-    //     uploadData.append("imageUrl", e.target.files[0]);
+        const uploadData = new FormData();
+        uploadData.append("imgPath", e.target.files[0]);
 
-    //     this.service.handleUpload(uploadData)
-    //         .then(response => this.setState({ imageUrl: response.data.secure_url }))
-    //         .catch(err => console.log(err))
-    // }
+        this.FileService.handleUpload(uploadData)
+            .then(response => this.setState({ imgPath: response.data.secure_url }))
+            .catch(err => console.log(err))
+    }
 
 
     render() {
@@ -74,18 +75,10 @@ class SignupForm extends Component {
                     </Form.Group>
 
 
-                    {/* <Form.Group action="/upload" method="post" enctype="multipart/form-data">
+                    <Form.Group action="/upload" method="post" enctype="multipart/form-data">
                         <Form.label for="file">Imagen de perfil:</Form.label>
-                        <InputGroup type="file" name="file" id="file" onChange={this.handleFileUpload} />
-                        <InputGroup type="submit" name="submit" value="Submit" />
-                    </Form.Group> */}
-
-                    <Form.Group>
-                        <Form.Label>Imagen URL (archivo)</Form.Label>
-                        {/* <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} /> */}
+                        <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} /> 
                     </Form.Group>
-
-
                     <Button variant="primary" type="submit"> Submit</Button>
                 </Form>
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Navbar, Nav, Form } from 'react-bootstrap'
+import { Navbar, Nav, Form, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import logo from '../../images/logo jess.png'
 
 import AuthService from '../../service/Auth.service'
 import SearchBar from "./SearchBar"
@@ -8,13 +9,13 @@ import SearchBar from "./SearchBar"
 class Navigation extends Component {
     constructor(props) {
         super(props)
-        this._service = new AuthService ()
+        this._service = new AuthService()
     }
 
     logoutUser = () => {
         this._service.logout()
-        .then(x => this.props.setUser(false))
-        .catch(err => console.log(err))
+            .then(x => this.props.setUser(false))
+            .catch(err => console.log(err))
     }
 
     render() {
@@ -25,7 +26,8 @@ class Navigation extends Component {
             this.props.loggedInUser ?
 
                 <Navbar bg="dark" variant="dark" expand="md">
-                    <Navbar.Brand><Link to="/">LOGOOOO</Link></Navbar.Brand>
+
+                    <Navbar.Brand><Link to={`/`} ><Image src={logo} style={{ width: "60px" }} roundedCircle /></Link></Navbar.Brand>
                     <Form inline>
                         <SearchBar />
                     </Form>
