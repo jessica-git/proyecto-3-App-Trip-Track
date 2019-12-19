@@ -8,7 +8,7 @@ const Profile = props => {
     return (
 
         <div className="container">
-            <img src="client/public/images/icon-user.jpg" alt="image profile"></img>
+            <img src="../../images/icon-user.jpg" alt="image profile"></img>
             <h3>Wellcome {props.loggedInUser.username} </h3>
 
             <Button variant="secondary" size="lg" block><Link to={`/myTravels`} >Tus viajes creados</Link></Button>

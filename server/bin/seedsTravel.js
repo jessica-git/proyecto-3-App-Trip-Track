@@ -20,7 +20,9 @@ const user = {
     _id: mongoose.Types.ObjectId(),
     username: "Jessica",
     email: "jess@jess.com",
-    password: bcrypt.hashSync('1234', salt)
+    password: bcrypt.hashSync('1234', salt),
+    imgPath: "https://res.cloudinary.com/ddthuxc9t/image/upload/v1576715266/app-travel/file_h16go9.png",
+    imgName: "user icon"
 }
 
 const day1Id = mongoose.Types.ObjectId()
@@ -39,7 +41,7 @@ const travel = {
 const days = [{
     _id: day1Id,
     place: "Albaicín",
-    day: Date.now(),
+    day: 03/10/2019,
     lodgings: [{
         lodgingsDescription: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
         lodgingsPrice: 150
@@ -67,7 +69,7 @@ const days = [{
 {
     _id: day2Id,
     place: "Sacromonte",
-    day: Date.now(),
+    day: 04/10/2019,
     lodgings: [{
         lodgingsDescription: "Hotel vistas al mirador 5 estrellas, direccion calle poeta, numero 3, 18092",
         lodgingsPrice: 0,
@@ -95,7 +97,7 @@ const days = [{
 {
     _id: day3Id,
     place: "Alpujarra",
-    day: Date.now(),
+    day: 05/10/2019,
     lodgings: [{
         lodgingsDescription: "Casa rural nuevo campo, direccion calle San Jose, numero 11, 18098",
         lodgingsPrice: 75

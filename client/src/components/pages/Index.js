@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Col, Card } from 'react-bootstrap'
-import SearchBar from "../ui/SearchBar"
+// import SearchBar from "../ui/SearchBar"
+import "../../styelsheets/Pages.css"
 
 const Index = () => {
 
@@ -8,7 +9,7 @@ const Index = () => {
         <Container>
             <section className="header">
                 <div>
-                    <h1>TripTrackTravel</h1>
+                    <h1 className="title">TripTrackTravel</h1>
                 </div>
                 <reactPlayer url="#" />
             </section>

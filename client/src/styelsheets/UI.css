@@ -1,7 +1,45 @@
-footer {
+/* footer {
  background-color: #f7c5a2;
+} */
+
+/* search */
+
+.searchBar {
+  border-color: white;
+  border-radius: 5px;
+  background-color: #FEF9E7 ;
+}
+.searchBar img{
+  max-width: 30px;
+  max-height: 20px;
+}
+.linkSearch {
+  text-decoration: none;
+  color: inherit;
 }
 
+
+/* navbar */
+
 .navbar {
-  background-color: white;
+  background-color: #FEF9E7 ;
+  justify-content: space-between;
+}
+.navbarText {
+margin-right: 15px;
+font-size: 1.15em;
+
+}
+.navbarLink {
+    text-decoration: none;
+    font-weight: 600;
+    color: #008080;
+    margin-right: 10px;
+    font-size: 1.12em;
+    letter-spacing: -1px;
+    align-items: center;
+}
+
+.helloUser {
+  margin-left: 30px;
 }

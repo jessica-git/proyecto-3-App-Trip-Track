@@ -1,16 +1,15 @@
-.marker {
+/* .marker {
     background-color: red;
     width: 15px;
     height: 15px;
+} */
+
+* {
+font-family: 'Courier Prime', monospace;
 }
 
 body {
-    background: -moz-linear-gradient(top, #DFF4DD 0%, #F4F2DD 50%, #F4DDDE 100%);
-    background: -webkit-linear-gradient(top, #DFF4DD 0%, #F4F2DD 50%, #F4DDDE 100%);
-    background: linear-gradient(to bottom, #DFF4DD 0%, #F4F2DD 50%, #F4DDDE 100%);
+    background-image: url("../images/clipdealer_A45351226_preview.jpg");
+    background-size: 100%;
 }
 
-h1,h2,h3, link {
-    font-family: 'Courier Prime', monospace;
-
-}

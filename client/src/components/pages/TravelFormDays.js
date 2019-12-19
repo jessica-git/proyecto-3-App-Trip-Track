@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Button, Form, Col } from 'react-bootstrap'
-// import { MDBFileInput } from 'mdbreact'
 
 import TravelService from "../../service/Travel.service"
 import FilesService from '../../service/Files.service'

@@ -21,7 +21,7 @@ class SignupForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { username, password, email, imgPath} = this.state
+        const { username, password, email, imgPath } = this.state
         this.AuthService.signup(username, password, email, imgPath)
             .then(theNewUser => {
                 this.props.setUser(theNewUser.data)
@@ -41,7 +41,7 @@ class SignupForm extends Component {
 
         const uploadData = new FormData();
         uploadData.append("imgPath", e.target.files[0]);
-
+        console.log(e.target.files)
         this.FileService.handleUpload(uploadData)
             .then(response => this.setState({ imgPath: response.data.secure_url }))
             .catch(err => console.log(err))
@@ -76,8 +76,8 @@ class SignupForm extends Component {
 
 
                     <Form.Group action="/upload" method="post" enctype="multipart/form-data">
-                        <Form.label for="file">Imagen de perfil:</Form.label>
-                        <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} /> 
+                        <Form.Label for="file">Imagen de perfil:</Form.Label>
+                        <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} />
                     </Form.Group>
                     <Button variant="primary" type="submit"> Submit</Button>
                 </Form>

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const detailsSchema = new Schema({
     place: String,
-    day: Date,
+    day: Number,
     lodgings: [{}],
     placeToVisit: [{}],
     paidExcursions: [{}],
