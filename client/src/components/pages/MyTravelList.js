@@ -34,36 +34,37 @@ class MyTravelList extends Component {
         const travels = this.state.travelList
         return (
             <>
-                <Container>
-                    <Col md={6}>
+                <div className="margin">
+                    <Container>
                         <Link to={`/new`} className="linkCreate"><Image src={imgCreate} style={{ width: "50px" }} roundedCircle />Crear</Link>
-                        <Row md={6}>
+                        <Row md={6} className="justify-content-center">
                             <Testmap loggedInUser={this.props.loggedInUser} />
-
-                            <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
-                                <Row>
-                                    <Col >
-                                        <ListGroup>
-                                            {travels.map((travel, idx) => {
-                                                return (
-                                                    <ListGroup.Item
-                                                        key={idx} action href={`travel/${travel.place}/${travel._id}`}>{travel.place}
-                                                    </ListGroup.Item>
-                                                )
-                                            })}
-                                        </ListGroup>
-                                    </Col>
-                                    <Col md={6}>
-                                        <Tab.Content>
-                                            <Tab.Pane eventKey="#link1"></Tab.Pane>
-                                            {/* <Tab.Pane eventKey="#link2"></Tab.Pane> */}
-                                        </Tab.Content>
-                                    </Col>
-                                </Row>
-                            </Tab.Container>
+                            <div className="">
+                                <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
+                                    <Row>
+                                        <Col >
+                                            <ListGroup>
+                                                {travels.map((travel, idx) => {
+                                                    return (
+                                                        <ListGroup.Item
+                                                            key={idx} action href={`travel/${travel.place}/${travel._id}`}>{travel.place}
+                                                        </ListGroup.Item>
+                                                    )
+                                                })}
+                                            </ListGroup>
+                                        </Col>
+                                        <Col>
+                                            <Tab.Content>
+                                                <Tab.Pane eventKey="#link1"></Tab.Pane>
+                                                {/* <Tab.Pane eventKey="#link2"></Tab.Pane> */}
+                                            </Tab.Content>
+                                        </Col>
+                                    </Row>
+                                </Tab.Container>
+                            </div>
                         </Row>
-                    </Col>
-                </Container>
+                    </Container>
+                </div>
             </>
         )
 

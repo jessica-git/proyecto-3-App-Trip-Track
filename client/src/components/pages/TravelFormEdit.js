@@ -23,7 +23,7 @@ class TravelFormEdit extends Component {
         let { place, duration, people, totalPrice } = this.state.travel
         let travelId = this.props.match.params.id
         this.TravelService.updateTravel(place, duration, people, totalPrice, travelId)
-        this.props.match.history.push("/")
+        this.props.history.push("/")
     }
 
     handleInputChange = e => {

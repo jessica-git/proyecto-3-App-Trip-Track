@@ -1,33 +1,37 @@
 {
   "files": {
-    "main.css": "/static/css/main.a5bdf0f6.chunk.css",
-    "main.js": "/static/js/main.56d352d5.chunk.js",
-    "main.js.map": "/static/js/main.56d352d5.chunk.js.map",
+    "main.css": "/static/css/main.6fe17138.chunk.css",
+    "main.js": "/static/js/main.dfc9c071.chunk.js",
+    "main.js.map": "/static/js/main.dfc9c071.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.88d4f3f8.js",
     "runtime-main.js.map": "/static/js/runtime-main.88d4f3f8.js.map",
     "static/css/2.17e5ed98.chunk.css": "/static/css/2.17e5ed98.chunk.css",
-    "static/js/2.512cd147.chunk.js": "/static/js/2.512cd147.chunk.js",
-    "static/js/2.512cd147.chunk.js.map": "/static/js/2.512cd147.chunk.js.map",
+    "static/js/2.2ad1c5d2.chunk.js": "/static/js/2.2ad1c5d2.chunk.js",
+    "static/js/2.2ad1c5d2.chunk.js.map": "/static/js/2.2ad1c5d2.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.d0a237a4ae6b62ef8f1054133d14577d.js": "/precache-manifest.d0a237a4ae6b62ef8f1054133d14577d.js",
+    "precache-manifest.6874a3c471422bb06f0e31e116f46ebf.js": "/precache-manifest.6874a3c471422bb06f0e31e116f46ebf.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.17e5ed98.chunk.css.map": "/static/css/2.17e5ed98.chunk.css.map",
-    "static/css/main.a5bdf0f6.chunk.css.map": "/static/css/main.a5bdf0f6.chunk.css.map",
-    "static/js/2.512cd147.chunk.js.LICENSE": "/static/js/2.512cd147.chunk.js.LICENSE",
+    "static/css/main.6fe17138.chunk.css.map": "/static/css/main.6fe17138.chunk.css.map",
+    "static/js/2.2ad1c5d2.chunk.js.LICENSE": "/static/js/2.2ad1c5d2.chunk.js.LICENSE",
     "static/media/TuneIn.png": "/static/media/TuneIn.ed14a0bd.png",
     "static/media/airbnb.jpg": "/static/media/airbnb.11c2d637.jpg",
+    "static/media/back.jpg": "/static/media/back.cb9c5968.jpg",
     "static/media/button-create.png": "/static/media/button-create.6ebdb569.png",
     "static/media/App.css": "/static/media/clipdealer_A45351226_preview.ac531f56.jpg",
     "static/media/logo jess.png": "/static/media/logo jess.438f41a5.png",
     "static/media/magnifying-glass copia.png": "/static/media/magnifying-glass copia.3502f4ad.png",
+    "static/media/rating.png": "/static/media/rating.92676ee0.png",
+    "static/media/viaje2-index.jpg": "/static/media/viaje2-index.3a85d442.jpg",
+    "static/media/viaje3-index.jpg": "/static/media/viaje3-index.5d04eec2.jpg",
     "static/media/weather-pro.jpeg": "/static/media/weather-pro.2cf2e21b.jpeg",
     "static/media/wifi-map.png": "/static/media/wifi-map.10a04707.png"
   },
   "entrypoints": [
     "static/js/runtime-main.88d4f3f8.js",
     "static/css/2.17e5ed98.chunk.css",
-    "static/js/2.512cd147.chunk.js",
-    "static/css/main.a5bdf0f6.chunk.css",
-    "static/js/main.56d352d5.chunk.js"
+    "static/js/2.2ad1c5d2.chunk.js",
+    "static/css/main.6fe17138.chunk.css",
+    "static/js/main.dfc9c071.chunk.js"
   ]
 }

@@ -85,7 +85,7 @@ class TravelForm extends Component {
                     </Form.Group>
                     <hr />
                     <Form.Group>
-                        <Button variant="secondary" size="sm" onClick={this.handleShow}>Añadir día</Button>
+                        <Button variant="secondary" size="lg" onClick={this.handleShow}>Añadir día</Button>
                     </Form.Group>
 
                     <Modal show={this.state.showModalWindow} onHide={this.handleClose}>
@@ -98,7 +98,7 @@ class TravelForm extends Component {
                     </Modal>
 
                     <Form.Group>
-                        <Button variant="secondary" size="sm" type="submit" >guardar</Button>
+                        <Button variant="secondary" size="sm" type="submit" >Guardar</Button>
                     </Form.Group>
                     <Toast
                         onClose={this.handleToastClose}

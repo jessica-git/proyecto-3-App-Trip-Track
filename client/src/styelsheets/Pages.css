@@ -1,17 +1,22 @@
 /* index */
+
+.minFullHeight {
+    min-height: calc(100vh - 120px);
+}
+.app-featuresText {
+     color: grey;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.app-features img{
+    width: 100%;
+}
 .title {
     color: #FEF9E7;
     font-weight: 900;
     font-size: 3em;
-}
-.cardsIndex {
-    margin: 150px 100px;
-    
-}
-.cardIndex {
-    margin-right: 10px;
-    width: 18rem;
-    background-color: #FEF9E7;
+    margin-top: 20px;
 }
 
 /* profile */
@@ -21,14 +26,15 @@
 }
 .imgProfile {
     width: 100px;
+    margin-top: 70px;
 }
 .containerProfile {
-    margin: 50px 200px;
+    margin: 50px 300px;
     
 }
 .wellcome {
     font-weight: 700;
-    color: grey;
+    color: #06736e;
     margin-bottom: 30px;
 }
 
@@ -36,10 +42,13 @@
 .linkCreate {
     text-decoration: none;
 }
+.margin {
+    margin-top: 40px;
+}
 
 /* signup */
 .containerSignup {
-    margin: 20px 1000px;
+    margin: 20px
 }
 
 .formLabel{
@@ -58,16 +67,29 @@
     margin-top: 100px;
 }
 
-/* travelForm */
 
+/* travelForm */
 .formTravel {
      color: grey;
     font-weight: 700;
     font-size: 1.1em;
 }
 
-.margin {
-margin-top: 40px;
-margin-left: 200px;
-margin-right: 200px;
+.formText {
+     color: 5B5E60;
+    font-weight: 400;
+    font-size: 1.1em;
 }
+.cardGeneral {
+    margin: 40px;
+}
+
+
+/* travel day */
+.imgTravelDay {
+    width: 100%;
+}
+
+/* apps travel */
+
+/* inspired */

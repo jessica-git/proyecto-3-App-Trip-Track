@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer, Marker } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 import Geocode from "react-geocode";
 import TravelService from "../../service/Travel.service"
 
@@ -17,13 +17,14 @@ class MainMap extends Component {
         this.state = {
             travels: []
         }
-        // this.onMapClick = this.onMapClick.bind(this)
     }
 
     getAllCityByUser() {
-        this.TravelService.getTravelsByUser(this.props.loggedInUser._id)
+        return this.TravelService.getTravelsByUser(this.props.loggedInUser._id)
             .then(apiResponse => {
-                this.setState({ travels: apiResponse.data })
+                this.setState({ travels: apiResponse.data }, () => {
+                    return
+                })
             })
             .catch(err => console.log("Error update travel list", err))
     }
@@ -44,26 +45,28 @@ class MainMap extends Component {
     }
 
     componentDidMount() {
-        this.getAllCityByUser()
-        Geocode.fromAddress(this.state.travel)
-            .then(response => {
-                const { lat, lng } = response.results[0].geometry.location
-                console.log(lat, lng)
-            },
-                error => { console.error(error) }
-            )
+        this.getAllCityByUser().then(() => {
+
+
+            //3creo un array de promesas para esperar a todos con un promise all
+            let promiseArray = this.state.travels.map(travel => {
+                //1recorremos el travels llamando a geocoder para cada uno
+                return Geocode.fromAddress(travel.place)
+                    .then(response => {
+                        const { lat, lng } = response.results[0].geometry.location
+                        return { lat, lng }
+                        //2como geocoder toma tiempo tengo que esperar a todos.
+
+                    },
+                        error => { console.error(error) }
+                    )
+
+            })
+            //4hago el promise all y cuando acaba me guardo el resultado en el state
+            Promise.all(promiseArray).then(x => this.setState({ coords: x }))
+        })
     }
     render() {
-        // const position = {
-        //     lat: 37.772,
-        //     lng: -122.214
-        // },
-        // const onLoad = marker => {
-        //     console.log('marker: ', marker)
-        // },
-        // cons onLoad = infoWindow => {
-        //     console.log('infoWindow: ', infoWindow)
-        // }
 
         return (
             <>
@@ -86,14 +89,10 @@ class MainMap extends Component {
                         }}
 
                     >
-                        <Marker position={{ lat: 33.772, lng: -117.214 }}></Marker>
+                        {/* 5pinto los markers con el state y como lanza error compruebo primero si existen las coords ya */}
+                        {this.state.coords && this.state.coords.map(coord => <Marker position={coord}></Marker>)}
                     </GoogleMap>
                 </LoadScript>
-                {/* <InfoWindow
-                    onLoad={onLoad}
-                    position={position}
-                ></InfoWindow>
-                <Marker onLoad={onLoad} position={position}></Marker> */}
             </>
 
         )

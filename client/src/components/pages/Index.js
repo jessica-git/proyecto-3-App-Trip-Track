@@ -1,6 +1,10 @@
 import React from 'react'
-import { Container, Row, Card } from 'react-bootstrap'
+import { Container, Row, Card, Col } from 'react-bootstrap'
 import "../../styelsheets/Pages.css"
+
+import img1 from '../../images/viaje1-index.jpeg'
+import img2 from '../../images/viaje2-index.jpg'
+import img3 from '../../images/viaje3-index.jpg'
 
 const Index = () => {
 
@@ -14,27 +18,26 @@ const Index = () => {
                 <reactPlayer url="#" />
             </section>
 
-            <section>
-                <Row md={4}>
-                    <Card className="cardIndex" style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Inspírate con los viajes de otros usuarios</Card.Title>
-                        </Card.Body>
-                        <Card.Img variant="top" src="" />
-                    </Card>
-
-                    <Card className="cardIndex" style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Crea tu propio viaje y comparte</Card.Title>
-                        </Card.Body>
-                        <Card.Img variant="top" src="" />
-                    </Card>
-                    <Card className="cardIndex" style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Viaja con la planificacion de otros</Card.Title>
-                        </Card.Body>
-                        <Card.Img variant="top" src="" />
-                    </Card>
+            <section >
+                <Row className="minFullHeight align-items-center justify-content-around">
+                    <Col md={3}>
+                        <div className="app-features">
+                            <img src={img1} alt="imagen"></img>
+                            <p className="app-featuresText">Inspírate con los viajes de otros usuarios</p>
+                        </div>
+                    </Col>
+                    <Col md={3}>
+                        <div className="app-features">
+                            <img src={img2} alt="imagen"></img>
+                            <p className="app-featuresText">Crea tu propio viaje y comparte</p>
+                        </div>
+                    </Col>
+                    <Col md={3}>
+                        <div className="app-features">
+                            <img src={img3} alt="imagen"></img>
+                            <p className="app-featuresText">Viaja con la planificacion de otros</p>
+                        </div>
+                    </Col>
                 </Row>
             </section>
         </Container>

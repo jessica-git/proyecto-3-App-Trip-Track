@@ -21,40 +21,40 @@ const Day = ({
 
         return (
             <>
-                <p>Alojamiento: {lodging.lodgingsDescription}</p>
-                <p>Gasto de alojamiento: {lodging.lodgingsPrice} €</p>
+                <p><strong>Alojamiento: </strong>{lodging.lodgingsDescription}</p>
+                <p><strong>Gasto de alojamiento: </strong>{lodging.lodgingsPrice} €</p>
             </>
         )
     })
     const placeToVisitList = placeToVisit.map(placeVisit => {
         return (
             <>
-                <p>Lugares para visitar: {placeVisit.placeToVisitDescription}</p>
-                <p>Gasto de las visitas: {placeVisit.placeToVisitPrice} €</p>
+                <p><strong>Lugares para visitar: </strong>{placeVisit.placeToVisitDescription}</p>
+                <p><strong>Gasto de las visitas: </strong>{placeVisit.placeToVisitPrice} €</p>
             </>
         )
     })
     const paidExcursionsList = paidExcursions.map(paidExcursion => {
         return (
             <>
-                <p>Excursiones contratadas: {paidExcursion.paidExcursionsDescription}</p>
-                <p>Gasto de las excursiones: {paidExcursion.paidExcursionsPrice} €</p>
+                <p><strong>Excursiones contratadas: </strong>{paidExcursion.paidExcursionsDescription}</p>
+                <p><strong>Gasto de las excursiones: </strong>{paidExcursion.paidExcursionsPrice} €</p>
             </>
         )
     })
     const transportList = transport.map(transp => {
         return (
             <>
-                <p>Transporte necesario: {transp.transportDescription}</p>
-                <p>Gasto del transporte: {transp.transportPrice} €</p>
+                <p><strong>Transporte necesario: </strong>{transp.transportDescription}</p>
+                <p><strong>Gasto del transporte: </strong>{transp.transportPrice} €</p>
             </>
         )
     })
     const restaurantsMealsList = restaurantsMeals.map(restaurant => {
         return (
             <>
-                <p>Comidas del día: {restaurant.restaurantsMealsDescription}</p>
-                <p>Gasto de comida: {restaurant.restaurantsMealsPrice} €</p>
+                <p><strong>Comidas del día: </strong>{restaurant.restaurantsMealsDescription}</p>
+                <p><strong>Gasto de comida: </strong>{restaurant.restaurantsMealsPrice} €</p>
             </>
         )
     })
@@ -62,27 +62,22 @@ const Day = ({
     console.log(lodgingsList)
     return (
         ((place || day || lodgings || placeToVisit || paidExcursions || transport || restaurantsMeals || tips) != null ?
-            <Container className="coaster-details">
-                <section>
-                    <Row>
-                        <Col md={6}>
-                            <p>Lugar: {place}</p>
-                            <p>Días: {day}</p>
-                            {lodgingsList}
-                            {placeToVisitList}
-                            {paidExcursionsList}
-                            {transportList}
-                            {restaurantsMealsList}
-                            <p>Consejos: {tips}</p>
-                        </Col>
-                        <Col md={{ span: 4, offset: 2 }}>
+            <section className="remember coaster-details">
+                <p><strong>Lugar: </strong>{place}</p>
+                <p><strong>Días: </strong>{day}</p>
+                {lodgingsList}
+                {placeToVisitList}
+                {paidExcursionsList}
+                {transportList}
+                {restaurantsMealsList}
+                <p><strong>Consejos: </strong>{tips}</p>
+                {/* <Col md={{ span: 4, offset: 2 }}>
                             <img src={imgPath} alt={imgName}></img>
+                        </Col> */}
+                <img src={imgPath} alt={imgName} className="imgTravelDay"></img>
 
-                        </Col>
-                        <Link to={`/edit/day/${_id}`} className="btn btn-sm btn-dark" >Editar</Link>
-                    </Row>
-                </section>
-            </Container>
+                <Link to={`/edit/day/${_id}`} className="btn btn-sm btn-secondary" >Editar</Link>
+            </section>
             : null)
     )
 }

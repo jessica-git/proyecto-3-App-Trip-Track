@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Col, Row, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import TravelService from "../../service/Travel.service"
@@ -41,17 +41,23 @@ class AllTravelsCard extends Component {
         const arrayCities = this.state.filteredCities
         return arrayCities ? arrayCities.map(city => {
             return (
-
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" alt="maps" />
-                    <Card.Body>
-                        <Card.Title>{city.place}</Card.Title>
-                        <Card.Text>{city.user}</Card.Text>
-                        <Card.Text>{city.duration}</Card.Text>
-                        {/* <Card.Text>rating</Card.Text> */}
-                        <Link className="btn btn-sm btn-dark" to={`/travel/${city.place}/${city._id}`}>Ver detalles</Link>
-                    </Card.Body>
-                </Card>
+                <Container className="margin">
+                    <Col md={6}>
+                        <Row className="align-items-center">
+                            <Card style={{ width: '18rem' }}>
+                                {/* <Card.Img variant="top" src="holder.js/100px180" alt="maps" /> */}
+                                <Card.Body>
+                                    <Card.Title><strong>{city.place}</strong></Card.Title>
+                                    {/* <Card.Text>{city.user}</Card.Text> */}
+                                    <Card.Text>{city.duration} días</Card.Text>
+                                    <Card.Text>{city.totalPrice}€</Card.Text>
+                                    {/* <Card.Text>rating</Card.Text> */}
+                                    <Link className="btn btn-sm btn-secondary" to={`/travel/${city.place}/${city._id}`}>Ver detalles</Link>
+                                </Card.Body>
+                            </Card>
+                        </Row>
+                    </Col>
+                </Container>
 
             )
         }) : "Esperando los datos..."
