@@ -27,34 +27,34 @@ class Inspired extends Component {
 
         const cards = this.state.travels.map(travel => {
             return (
-                
-                        <Col md={4}>
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={imgRating} />
-                                <Card.Body>
-                                    <Card.Title>{travel.place}</Card.Title>
-                                    <Card.Text>
-                                        Viaje es la acción y efecto de viajar.
-                                   </Card.Text>
-                                </Card.Body>
 
-                                <Card.Body>
-                                    <Card.Link href="#">Detalles del viaje</Card.Link>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                   
+                <Col md={4}>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={imgRating} />
+                        <Card.Body>
+                            <Card.Title>{travel.place}</Card.Title>
+                            <Card.Text>
+                                Viaje es la acción y efecto de viajar.
+                                   </Card.Text>
+                        </Card.Body>
+
+                        <Card.Body>
+                            <Card.Link href="#">Detalles del viaje</Card.Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+
             )
         })
-        return (
+        return this.state.travels ? (
             <>
                 <Container>
                     <Row className=" justify-content-center">
-                {cards}
+                        {cards}
                     </Row>
                 </Container>
             </>
-        )
+        ) : "Esperando los viajes"
     }
 }
 
