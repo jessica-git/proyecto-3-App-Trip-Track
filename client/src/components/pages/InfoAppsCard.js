@@ -18,7 +18,7 @@ const InfoAppsCard = () => {
 
             <Row md={4}>
 
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem', margin: 20 }}>
                     <Card.Img variant="top" src={Booking} />
                     <Card.Body>
                         <Card.Title>Booking</Card.Title>
@@ -29,7 +29,7 @@ const InfoAppsCard = () => {
                     </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem', margin: 20 }}>
                     <Card.Img variant="top" src={Airbnb} />
                     <Card.Body>
                         <Card.Title>Airbnb</Card.Title>
@@ -41,7 +41,7 @@ const InfoAppsCard = () => {
                 </Card>
 
 
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem', margin: 20 }}>
                     <Card.Img variant="top" src={Wikiloc} />
                     <Card.Body>
                         <Card.Title>Wikiloc</Card.Title>
@@ -52,7 +52,7 @@ const InfoAppsCard = () => {
                 </Card>
 
 
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem', margin: 20 }}>
                     <Card.Img variant="top" src={Flush} />
                     <Card.Body>
                         <Card.Title>Flush</Card.Title>
@@ -63,7 +63,7 @@ const InfoAppsCard = () => {
                     </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem', margin: 20 }}>
                     <Card.Img variant="top" src={WifiMap} />
                     <Card.Body>
                         <Card.Title>Wifi Map</Card.Title>
@@ -74,7 +74,7 @@ const InfoAppsCard = () => {
                     </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem', margin: 20 }}>
                     <Card.Img variant="top" src={Omio} />
                     <Card.Body>
                         <Card.Title>Omio</Card.Title>
@@ -84,7 +84,7 @@ const InfoAppsCard = () => {
                     </Card.Text>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem', margin: 20 }}>
                     <Card.Img variant="top" src={TuneIn} />
                     <Card.Body>
                         <Card.Title>TuneIn</Card.Title>
@@ -94,7 +94,7 @@ const InfoAppsCard = () => {
                     </Card.Text>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem', margin: 20 }}>
                     <Card.Img variant="top" src={Weather} />
                     <Card.Body>
                         <Card.Title>WeatherPro</Card.Title>

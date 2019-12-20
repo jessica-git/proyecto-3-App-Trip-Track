@@ -49,7 +49,7 @@ class Inspired extends Component {
         return this.state.travels ? (
             <>
                 <Container>
-                    <Row className=" justify-content-center">
+                    <Row className=" justify-content-center" style={{ margin: 20 }}>
                         {cards}
                     </Row>
                 </Container>
