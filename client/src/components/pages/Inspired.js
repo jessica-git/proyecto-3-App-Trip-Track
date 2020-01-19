@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TravelService from "../../service/Travel.service"
-import { Card, ListGroup, ListGroupItem, Container, Row, Col } from 'react-bootstrap'
+import { Card, Container, Row, Col } from 'react-bootstrap'
 import imgRating from "../../images/rating.png"
 class Inspired extends Component {
     constructor(props) {

@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { ListGroup, Row, Col, Tab, Container, Image } from 'react-bootstrap'
+import { ListGroup, Row, Col, Tab, Image } from 'react-bootstrap'
 import imgCreate from "../../images/button-create.png"
 import { Link } from 'react-router-dom'
 import Testmap from '../googleMaps/TestMap'
-import "../../styelsheets/Pages.css"
-// import WrappedMap from "../googleMaps/GoogleMaps";
 
 import TravelService from "../../service/Travel.service"
 
+import "../../styelsheets/Pages.css"
 class MyTravelList extends Component {
     constructor(props) {
         super(props)
@@ -34,16 +33,25 @@ class MyTravelList extends Component {
         const travels = this.state.travelList
         return (
             <>
-                <div className="margin">
-                    <Container>
-                        <Link to={`/new`} className="linkCreate"><Image src={imgCreate} style={{ width: "50px" }} roundedCircle />Crear</Link>
+                <div className="imgHeader">
+                    <h2>TUS VIAJES</h2>
+                </div>
+                <div>
+                    <div className="linkCreate">
+                        <Link to={`/new`} className="linkCreate-Link"><Image src={imgCreate} style={{ width: "50px" }} roundedCircle />Crear</Link>
+
+                    </div>
+
+                    <div className="backgroundPage">
                         <Row md={6} className="justify-content-center">
-                            <Testmap loggedInUser={this.props.loggedInUser} />
-                            <div className="">
-                                <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
-                                    <Row>
+                            <div className="styleMap border">
+                                <Testmap loggedInUser={this.props.loggedInUser} />
+                            </div>
+                            <div>
+                                <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1" >
+                                    <div className="row">
                                         <Col >
-                                            <ListGroup>
+                                            <ListGroup >
                                                 {travels.map((travel, idx) => {
                                                     return (
                                                         <ListGroup.Item
@@ -59,12 +67,13 @@ class MyTravelList extends Component {
                                                 {/* <Tab.Pane eventKey="#link2"></Tab.Pane> */}
                                             </Tab.Content>
                                         </Col>
-                                    </Row>
+                                    </div>
                                 </Tab.Container>
                             </div>
                         </Row>
-                    </Container>
+                    </div>
                 </div>
+
             </>
         )
 

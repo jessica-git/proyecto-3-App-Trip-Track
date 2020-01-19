@@ -47,9 +47,10 @@ class TravelFormEdit extends Component {
     render() {
 
         return (
-            <Form onSubmit={this.handleSubmit}>
-                <Tabs defaultActiveKey="travel" transition={false} id="noanim-tab-example">
-                    <Tab eventKey="travel" title="travel">
+            <div className="backgroundIndex filter"> 
+                <Form onSubmit={this.handleSubmit} className="boxEditHeader travelformEditHeader">
+                    <Tabs defaultActiveKey="travel" transition={false} id="noanim-tab-example" >
+                        <Tab eventKey="travel" title="Travel" >
                         <Form.Group>
                             <Form.Label>Lugar:</Form.Label>
                             <Form.Control type="text" name="place" onChange={this.handleInputChange} value={this.state.travel.place} />
@@ -66,14 +67,15 @@ class TravelFormEdit extends Component {
                             <Form.Label>Precio total del viaje: </Form.Label>
                             <Form.Control type="text" name="totalPrice" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
                         </Form.Group>
-                        <Button variant="secondary" size="sm" type="submit" >guardar</Button>
-
+                        <Button variant="secondary" size="sm" type="submit" >Guardar</Button>
                     </Tab>
                 </Tabs>
             </Form >
+            </div>   
         )
     }
 
 }
+
 
 export default TravelFormEdit

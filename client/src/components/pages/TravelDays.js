@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Col, Row, Container } from 'react-bootstrap'
+
 
 const Day = ({
     _id,
@@ -71,12 +71,9 @@ const Day = ({
                 {transportList}
                 {restaurantsMealsList}
                 <p><strong>Consejos: </strong>{tips}</p>
-                {/* <Col md={{ span: 4, offset: 2 }}>
-                            <img src={imgPath} alt={imgName}></img>
-                        </Col> */}
                 <img src={imgPath} alt={imgName} className="imgTravelDay"></img>
 
-                <Link to={`/edit/day/${_id}`} className="btn btn-sm btn-secondary" >Editar</Link>
+                <Link to={`/edit/day/${_id}`} className="btn btn-sm btn-secondary marginTop" >Editar</Link>
             </section>
             : null)
     )

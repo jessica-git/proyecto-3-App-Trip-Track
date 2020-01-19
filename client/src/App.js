@@ -6,7 +6,6 @@ import "./styelsheets/App.css";
 import AuthService from './service/Auth.service'
 
 import Navbar from './components/ui/Navbar'
-import Footer from './components/ui/Footer'
 import Index from './components/pages/Index'
 import InfoAppsCard from './components/pages/InfoAppsCard.js'
 import Profile from './components/pages/Profile'
@@ -91,7 +90,7 @@ class App extends Component {
 
         </Switch>
 
-        {/* <Footer /> */}
+       
 
       </>
 

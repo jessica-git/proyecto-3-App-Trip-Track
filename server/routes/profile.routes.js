@@ -6,9 +6,11 @@ const uploadCloud = require("../configs/cloudinary.config")
 const User = require("../models/User.model")
 
 
-router.get("/", ensureLogin.ensureLoggedIn('/auth/login'), (req, res) => res.render("profile", { user: req.user }));
+router.get("/", ensureLogin.ensureLoggedIn('/auth/login'), (req, res) => res.render("profile", { user: req.user })); 
 
-//Mostrar información del usuario en el perfil
+
+
+//Show info user
 router.get("/profile", (req, res) => {
     userId = req.user._id
     userId.findById(userId)

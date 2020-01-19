@@ -22,8 +22,8 @@ class TravelFormDaysEdit extends Component {
                 transport: [],
                 restaurantsMeals: [],
                 tips: "",
-                imgPath: '',
-                imgName: ''
+                imgPath: "",
+                imgName: ""
             }
         }
     }

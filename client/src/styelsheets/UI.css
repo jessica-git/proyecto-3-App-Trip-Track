@@ -1,13 +1,10 @@
-/* footer {
- background-color: #f7c5a2;
-} */
 
 /* search */
 
 .searchBar {
   border-color: white;
   border-radius: 5px;
-  background-color: #FEF9E7 ;
+  background-color: rgba(254,249,231,0.2);
 }
 .searchBar img{
   max-width: 30px;
@@ -22,22 +19,33 @@
 /* navbar */
 
 .navbar {
-  background-color: #FEF9E7 ;
+  background-color: rgba(254,249,231,0.5);
+  height: 50px;
   justify-content: space-between;
+  z-index: 100;
+  position: fixed;
 }
-.navbarText {
-margin-right: 15px;
-font-size: 1.15em;
 
+.logoApp {
+  width: 60px;
+  padding: 5px;
 }
+
+.navbarText {
+  margin-right: 15px;
+  font-size: 1.15em;
+  padding-top: 10px;
+}
+
 .navbarLink {
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 150;
     color: #008080;
     margin-right: 10px;
-    font-size: 1.12em;
+    font-size: 1em;
     letter-spacing: -1px;
     align-items: center;
+    padding-top: 10px;
 }
 
 .helloUser {

@@ -9,6 +9,7 @@ Geocode.setRegion("es")
 Geocode.enableDebug()
 
 
+
 class MainMap extends Component {
     constructor(props) {
         console.log("las props para maps", props)
@@ -48,21 +49,21 @@ class MainMap extends Component {
         this.getAllCityByUser().then(() => {
 
 
-            //3creo un array de promesas para esperar a todos con un promise all
+            //3 creo un array de promesas para esperar a todos con un promise all
             let promiseArray = this.state.travels.map(travel => {
-                //1recorremos el travels llamando a geocoder para cada uno
+                //1 recorremos el travels llamando a geocoder para cada uno
                 return Geocode.fromAddress(travel.place)
                     .then(response => {
                         const { lat, lng } = response.results[0].geometry.location
                         return { lat, lng }
-                        //2como geocoder toma tiempo tengo que esperar a todos.
+                        //2 como geocoder toma tiempo tengo que esperar a todos.
 
                     },
                         error => { console.error(error) }
                     )
 
             })
-            //4hago el promise all y cuando acaba me guardo el resultado en el state
+            //4 hago el promise all y cuando acaba me guardo el resultado en el state
             Promise.all(promiseArray).then(x => this.setState({ coords: x }))
         })
     }
@@ -71,9 +72,9 @@ class MainMap extends Component {
         return (
             <>
 
-                <LoadScript id="script-loader"
+                <LoadScript id="script-loader" 
                     googleMapsApiKey={`${process.env.REACT_APP_KEY}`}>
-                    <GoogleMap
+                    <GoogleMap 
                         id='example-map'
                         mapContainerStyle={{
                             height: "400px",
@@ -89,7 +90,7 @@ class MainMap extends Component {
                         }}
 
                     >
-                        {/* 5pinto los markers con el state y como lanza error compruebo primero si existen las coords ya */}
+                        {/* 5 pinto los markers con el state y como lanza error compruebo primero si existen las coords ya */}
                         {this.state.coords && this.state.coords.map(coord => <Marker position={coord}></Marker>)}
                     </GoogleMap>
                 </LoadScript>

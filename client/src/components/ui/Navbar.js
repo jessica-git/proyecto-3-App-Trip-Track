@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, Form, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import logo from '../../images/logo jess.png'
+import logo from '../../images/logo app-verde.png'
 import "../../styelsheets/UI.css";
 
 import AuthService from '../../service/Auth.service'
@@ -27,7 +27,7 @@ class Navigation extends Component {
             this.props.loggedInUser ?
 
                 <Navbar className="navbar" expand="md">
-                    <Navbar.Brand><Link to={`/`} ><Image src={logo} style={{ width: "60px" }} roundedCircle /></Link></Navbar.Brand>
+                    <Navbar.Brand><Link to={`/`} ><Image src={logo} className="logoApp" roundedCircle /></Link></Navbar.Brand>
                     
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse>

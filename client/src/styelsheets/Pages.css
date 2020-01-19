@@ -1,49 +1,39 @@
 /* index */
 
-.minFullHeight {
-    min-height: calc(100vh - 120px);
-}
-.app-featuresText {
-     color: grey;
-    font-weight: 700;
-    font-size: 1.1em;
+.backgroundIndex{
+    background-image: url("../images/vietnam.jpg");
+    background-size: 100%;
+    min-height: 100vh;
+    margin-top: -50px;
 }
 
-.app-features img{
-    width: 100%;
-}
-.title {
+.boxIndex {
+    padding: 180px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #FEF9E7;
-    font-weight: 900;
-    font-size: 3em;
-    margin-top: 20px;
+    text-shadow: #3d6863 2px 2px 1.5px;
+}
+.boxIndex h1 {
+    color: #FEF9E7;
+    font-weight: 500;
+    font-size: 3.8em;  
+    text-shadow: #3d6863 2px 5px 1px;
+    padding-bottom: 25px;
+}
+.boxIndex p {
+    font-size: 1.3em;
+    padding: 40px 150px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-weight: 110;
 }
 
-/* profile */
-.buttonProfile {
-    text-decoration: none;
-    color: #88ccb7;
-}
-.imgProfile {
-    width: 100px;
-    margin-top: 70px;
-}
-.containerProfile {
-    margin: 50px 300px;
-    
-}
-.wellcome {
-    font-weight: 700;
-    color: #06736e;
-    margin-bottom: 30px;
-}
-
-/* myTravelList */
-.linkCreate {
-    text-decoration: none;
-}
-.margin {
-    margin-top: 40px;
+.boxIndex p span {
+    font-weight: bolder;
 }
 
 /* signup */
@@ -68,7 +58,105 @@
 }
 
 
+/* profile */
+.backgroundPage {
+    background: rgb(152, 194, 190);
+    background-size: 100%;
+    min-height: 100vh;
+    margin-top: -50px;
+}
+
+.imgHeader {
+    background-image: url("../images/vietnam.jpg");
+	color: white;
+	height: 80px;
+	width: 100%;
+	height: 130px;
+    margin-top: -50px;
+    padding-top: 60px;
+}
+.imgHeader h2 {
+    text-align: center;
+    text-shadow: #3d6863 2px 2px 1.5px;
+    padding-top: 10px;
+
+}
+.containerProfile {
+    margin: 50px 300px;
+    padding-top: 50px;
+    
+}
+.buttonProfile {
+    text-decoration: none;
+    color: #88ccb7;
+}
+.buttonProfile:hover {
+    color: #88ccb7;
+}
+.imgProfile {
+    width: 100px;
+    margin-top: 70px;
+}
+
+.wellcome {
+    font-weight: 700;
+    color: #06736e;
+    margin-bottom: 30px;
+}
+
+
+/* myTravelList */
+
+.linkCreate {
+    text-decoration: none;
+    padding-left: 100px;
+    
+}
+.linkCreate-Link{
+    color: white
+}
+.linkCreate-Link:hover {
+    color: white
+}
+.margin {
+    margin-top: 40px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: 40px;
+    padding-top: 40px;
+}
+.styleMap {
+    box-shadow: 8px 10px 8px #666;
+}
+.border {
+    border-radius: 5px;
+}
+
+
+ /* travel card */
+
+ .card.cardTravel {
+     width: 700px;
+     box-shadow: 1px 3px 29px -3px rgba(0,0,0,0.75);
+     margin: 40px 0 50px 0;
+ }
+ .travelCard .accordion .btn.btn-link {
+    text-decoration: none;
+    color: #6c757c;
+ }
+ .marginLeft {
+     margin-left: 15px;
+ }
+ .marginTop {
+     margin-top: 15px;
+ }
+
+
 /* travelForm */
+
 .formTravel {
      color: grey;
     font-weight: 700;
@@ -76,12 +164,9 @@
 }
 
 .formText {
-     color: 5B5E60;
+     color: #5B5E60;
     font-weight: 400;
     font-size: 1.1em;
-}
-.cardGeneral {
-    margin: 40px;
 }
 
 
@@ -89,7 +174,26 @@
 .imgTravelDay {
     width: 100%;
 }
+.cardGeneral {
+    margin: 40px;
+}
 
-/* apps travel */
-/* margin: 20px; */
-/* inspired */
+
+/* travel edit */
+
+.boxEditHeader {
+    padding: 100px 160px;
+}
+.backgroundIndex.filter {
+    filter: blur(4px);
+    z-index: 0;
+}
+.travelformEditHeader {
+    z-index: 100;
+}
+
+
+/* all travel card */
+
+
+

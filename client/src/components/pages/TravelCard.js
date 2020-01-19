@@ -45,16 +45,18 @@ class TravelCard extends Component {
             const travelUserId = this.state.travel.user
 
             if (loggedInUser && travelUserId != loggedInUser._id) {
-                saveButton = <Link className="btn btn-sm btn-dark">Guardar</Link>
+                saveButton = <Link className="btn btn-sm btn-dark marginLeft">Guardar</Link>
             }
         }
         return city ? (
-            <Container>
-                <Row className=" justify-content-center">
-                    <Col md={6}>
-                        < Card >
+            <div className="backgroundPage">
+                <Container className="travelCard">
+                <Row className="justify-content-center">
+                    <Col md={8}>
+
+                        <Card className="cardTravel">
                             <Card.Text className="formText">Usuario: {city.user}</Card.Text>
-                            <Card.Img variant="top" src={city.day[0].imgPath} alt="maps" />
+                            <Card.Img variant="top" src={city.day[0].imgPath} alt="city image" />
 
                             <Card.Body>
                                 <Card.Title> <strong>{city.place}</strong></Card.Title>
@@ -67,8 +69,8 @@ class TravelCard extends Component {
 
                                 return (<Accordion key={idx}>
                                     <Card>
-                                        <Card.Header>
-                                            <Accordion.Toggle as={Button} variant="link" eventKey="0">Día {idx + 1}</Accordion.Toggle>
+                                        <Card.Header >
+                                            <Accordion.Toggle as={Button} variant="link"  eventKey="0">Día {idx + 1}</Accordion.Toggle>
                                         </Card.Header>
                                         <Accordion.Collapse eventKey="0">
                                             <Card.Body>
@@ -80,16 +82,18 @@ class TravelCard extends Component {
                             })}
 
                             <Card.Body>
-                                <Link to={`/search/${city.place}`} >
+                                    <Link to={`/search/${city.place}`}  >   
                                     <Image src={back} style={{ width: "50px" }} roundedCircle /></Link>
                                 {saveButton}
-                                <Link to={`/edit/travel/${city._id}`} className="btn btn-sm btn-secondary " >Editar</Link>
+                                <Link to={`/edit/travel/${city._id}`} className="btn btn-sm btn-secondary marginLeft" >Editar</Link>
                             </Card.Body>
                         </Card >
+
                     </Col>
                 </Row>
             </Container>
-        ) : "esperando viaje"
+            </div>
+        ) : <div className="backgroundPage margin"> "esperando viaje" </div>
 
     }
 }

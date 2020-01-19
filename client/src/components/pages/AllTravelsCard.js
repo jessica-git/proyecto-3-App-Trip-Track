@@ -41,7 +41,7 @@ class AllTravelsCard extends Component {
         const arrayCities = this.state.filteredCities
         return arrayCities ? arrayCities.map(city => {
             return (
-                <Container className="margin">
+                <Container >
                     <Col md={6}>
                         <Row className="align-items-center">
                             <Card style={{ width: '18rem' }}>
@@ -57,6 +57,7 @@ class AllTravelsCard extends Component {
                             </Card>
                         </Row>
                     </Col>
+                 
                 </Container>
 
             )
