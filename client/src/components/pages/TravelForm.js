@@ -65,32 +65,33 @@ class TravelForm extends Component {
     render() {
 
         return (
-            <div className="margin">
-                <Form onSubmit={this.handleSubmit}>
+           
+                <div className="backgroundBlur">
+                    <Form onSubmit={this.handleSubmit} className="boxEditHeader">
                     <Form.Group >
-                        <Form.Label className="formTravel">Viaje</Form.Label>
+                        <Form.Label >Viaje</Form.Label>
                         <Form.Control type="text" name="place" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.place} />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label className="formTravel">Días</Form.Label>
+                        <Form.Label >Días</Form.Label>
                         <Form.Control type="text" name="duration" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.duration} />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label className="formTravel">Personas que han viajado</Form.Label>
+                        <Form.Label >Personas que han viajado</Form.Label>
                         <Form.Control type="number" name="people" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.people} />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label className="formTravel">Precio total del viaje</Form.Label>
+                        <Form.Label >Precio total del viaje</Form.Label>
                         <Form.Control type="number" name="totalPrice" placeholder="Campo requerido" onChange={this.handleInputChange} value={this.state.travel.totalPrice} />
                     </Form.Group>
                     <hr />
                     <Form.Group>
-                        <Button variant="secondary" size="lg" onClick={this.handleShow}>Añadir día</Button>
+                        <Button variant="secondary" size="m" onClick={this.handleShow}>Añadir día</Button>
                     </Form.Group>
 
                     <Modal show={this.state.showModalWindow} onHide={this.handleClose}>
                         <Modal.Header closeButton>
-                            <Modal.Title>Nuevo día</Modal.Title>
+                            <Modal.Title >Nuevo día</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <TravelFormDays closeModalWindow={this.handleClose} addDays={this.addDays} />
@@ -117,7 +118,8 @@ class TravelForm extends Component {
                         <Toast.Body>{this.state.toastText}</Toast.Body>
                     </Toast>
                 </Form>
-            </div>
+                </div>
+            
         )
     }
 

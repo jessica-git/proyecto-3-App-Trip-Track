@@ -12,7 +12,7 @@ Geocode.enableDebug()
 
 class MainMap extends Component {
     constructor(props) {
-        console.log("las props para maps", props)
+        
         super(props)
         this.TravelService = new TravelService();
         this.state = {

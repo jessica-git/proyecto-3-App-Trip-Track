@@ -10,7 +10,7 @@ const Index = () => {
             <div className="boxIndex">
                 <h1 >TRIP TRACK TRAVEL</h1>
                 <h2 >¿Dónde quieres ir?</h2>
-                <p>Con <span>TripTrackTravel</span> podrás crear tu propio viaje, compartirlo con la comunidad y viajar con la planificación de otros usuariuos</p>
+                <p>Con <span>TripTrackTravel</span> podrás crear tu propio viaje, compartirlo con la comunidad y viajar con la planificación de otros usuarios</p>
 
             </div>
         </div>

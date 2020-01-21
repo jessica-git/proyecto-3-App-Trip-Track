@@ -14,7 +14,7 @@ import Weather from "../../images/weather-pro.jpeg"
 const InfoAppsCard = () => {
 
     return (
-        <Container>
+        <Container >
 
             <Row md={4}>
 

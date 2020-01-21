@@ -39,30 +39,38 @@ class AllTravelsCard extends Component {
     render() {
 
         const arrayCities = this.state.filteredCities
-        return arrayCities ? arrayCities.map(city => {
-            return (
-                <Container >
-                    <Col md={6}>
-                        <Row className="align-items-center">
-                            <Card style={{ width: '18rem' }}>
-                                {/* <Card.Img variant="top" src="holder.js/100px180" alt="maps" /> */}
-                                <Card.Body>
-                                    <Card.Title><strong>{city.place}</strong></Card.Title>
-                                    {/* <Card.Text>{city.user}</Card.Text> */}
-                                    <Card.Text>{city.duration} días</Card.Text>
-                                    <Card.Text>{city.totalPrice}€</Card.Text>
-                                    {/* <Card.Text>rating</Card.Text> */}
-                                    <Link className="btn btn-sm btn-secondary" to={`/travel/${city.place}/${city._id}`}>Ver detalles</Link>
-                                </Card.Body>
-                            </Card>
-                        </Row>
-                    </Col>
-                 
-                </Container>
+        if (!arrayCities) {
+            return "Esperando los datos..."
+        }
 
-            )
-        }) : "Esperando los datos..."
+        return (
+            <>
+                <div className="imgHeader">
+                    <h2>{this.props.match.params.place}</h2>
+                </div>
 
+                {
+                    arrayCities.map(city => {
+                        return (
+                            <Container >
+                                <Row md={4}>
+                                    <Col>
+                                        <Card style={{ width: '18rem', margin: 20 }}>
+                                            <Card.Body>
+                                                <Card.Title><strong>{city.place}</strong></Card.Title>
+                                                <Card.Text>{city.duration} días</Card.Text>
+                                                <Card.Text>{city.totalPrice}€</Card.Text>
+                                                <Link className="btn btn-sm btn-secondary" to={`/travel/${city.place}/${city._id}`}>Ver detalles</Link>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        )
+                    })
+                }
+            </>
+        )
     }
 
 }

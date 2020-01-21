@@ -157,12 +157,6 @@
 
 /* travelForm */
 
-.formTravel {
-     color: grey;
-    font-weight: 700;
-    font-size: 1.1em;
-}
-
 .formText {
      color: #5B5E60;
     font-weight: 400;
@@ -171,6 +165,7 @@
 
 
 /* travel day */
+
 .imgTravelDay {
     width: 100%;
 }
@@ -182,14 +177,13 @@
 /* travel edit */
 
 .boxEditHeader {
-    padding: 100px 160px;
+    padding: 100px 250px;
 }
-.backgroundIndex.filter {
-    filter: blur(4px);
-    z-index: 0;
-}
-.travelformEditHeader {
-    z-index: 100;
+.backgroundBlur {
+    background-image: url("../images/backgroundBlur.png");
+    background-size: 100%;
+    min-height: 100vh;
+    margin-top: -50px;
 }
 
 

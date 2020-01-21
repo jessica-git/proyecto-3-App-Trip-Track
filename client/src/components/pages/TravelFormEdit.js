@@ -47,8 +47,8 @@ class TravelFormEdit extends Component {
     render() {
 
         return (
-            <div className="backgroundIndex filter"> 
-                <Form onSubmit={this.handleSubmit} className="boxEditHeader travelformEditHeader">
+            <div className="backgroundBlur"> 
+                <Form onSubmit={this.handleSubmit} className="boxEditHeader">
                     <Tabs defaultActiveKey="travel" transition={false} id="noanim-tab-example" >
                         <Tab eventKey="travel" title="Travel" >
                         <Form.Group>

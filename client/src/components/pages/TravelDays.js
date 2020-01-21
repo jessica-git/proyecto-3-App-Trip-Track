@@ -16,7 +16,7 @@ const Day = ({
     imgName,
 
 }) => {
-    console.log(lodgings)
+    
     const lodgingsList = lodgings.map(lodging => {
 
         return (
@@ -59,7 +59,7 @@ const Day = ({
         )
     })
 
-    console.log(lodgingsList)
+    
     return (
         ((place || day || lodgings || placeToVisit || paidExcursions || transport || restaurantsMeals || tips) != null ?
             <section className="remember coaster-details">

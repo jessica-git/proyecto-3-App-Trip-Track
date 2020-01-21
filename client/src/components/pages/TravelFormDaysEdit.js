@@ -90,7 +90,7 @@ class TravelFormDaysEdit extends Component {
                 this.setState({
                     disabledButton: false,
                     buttonText: "Editado",
-                    day: { ...this.state.user, imgPath: response.data.secure_url } ////CORRECTO???
+                    day: { ...this.state.user, imgPath: response.data.secure_url } 
                 });
             })
             .catch(err => console.log(err));
@@ -99,8 +99,10 @@ class TravelFormDaysEdit extends Component {
     componentDidMount() {
 
         this.TravelService.getOneTravelDayByID(this.props.match.params.id)
+        
             .then(travelDayReponse => {
                 this.setState({ day: travelDayReponse.data })
+                console.log("datos del travel", travelDayReponse.data)
             })
             .catch(err => console.log("Error travel edit", err))
     }
@@ -109,7 +111,7 @@ class TravelFormDaysEdit extends Component {
     render() {
 
         const lodgingsList = this.state.day.lodgings.map((lodging, index) => {
-
+            
             return (
                 <>
                     <Form.Control type="text" data-class="lodgings" data-key={index} name="description" onChange={this.handleInputArrayChange} defaultValue={lodging.description} />
@@ -152,7 +154,9 @@ class TravelFormDaysEdit extends Component {
         })
 
         return (
-            <Form onSubmit={this.handleSubmit}>
+            <div className="backgroundBlur">
+
+                <Form onSubmit={this.handleSubmit} className="boxEditHeader">
                 <Form.Group>
                     <Form.Label>Lugar: </Form.Label>
                     <Form.Control type="text" name="place" onChange={this.handleInputChange} defaultValue={this.state.day.place} />
@@ -194,6 +198,8 @@ class TravelFormDaysEdit extends Component {
                 </Button>
 
             </Form>
+
+            </div>
         )
     }
 
