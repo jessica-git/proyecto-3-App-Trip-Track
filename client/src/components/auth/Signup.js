@@ -4,6 +4,8 @@ import { Button, Form, Container } from 'react-bootstrap'
 import AuthService from '../../service/Auth.service'
 import FileService from '../../service/Files.service'
 
+import '../../styelsheets/Pages.css'
+
 class SignupForm extends Component {
 
     constructor(props) {
@@ -41,7 +43,7 @@ class SignupForm extends Component {
 
         const uploadData = new FormData();
         uploadData.append("imgPath", e.target.files[0]);
-        console.log(e.target.files)
+
         this.FileService.handleUpload(uploadData)
             .then(response => this.setState({ imgPath: response.data.secure_url }))
             .catch(err => console.log(err))
@@ -50,38 +52,40 @@ class SignupForm extends Component {
 
     render() {
         return (
-            <Container className="containerSignup">
-            
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label className="formLabel">Usuario</Form.Label>
-                        <Form.Control type="text" name="username" placeholder="username" onChange={this.handleInputChange} value={this.state.username} />
-                    </Form.Group>
+            <div className="backgroundBlur">
+                <Container >
 
-                    <Form.Group controlId="formEmail" >
-                        <Form.Label className="formLabel">Email</Form.Label>
-                        <Form.Control type="email" name="email" placeholder="Email" onChange={this.handleInputChange} value={this.state.email} />
-                        <Form.Text className="text-muted">Nunca compartiremos tu correo electrónico con nadie más.</Form.Text>
-                    </Form.Group>
+                    <Form onSubmit={this.handleSubmit} className="boxEditHeader">
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label className="formLabel">Usuario</Form.Label>
+                            <Form.Control type="text" name="username" placeholder="username" onChange={this.handleInputChange} value={this.state.username} />
+                        </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label className="formLabel">Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" name="password" onChange={this.handleInputChange} value={this.state.password} />
-                    </Form.Group>
+                        <Form.Group controlId="formEmail" >
+                            <Form.Label className="formLabel">Email</Form.Label>
+                            <Form.Control type="email" name="email" placeholder="Email" onChange={this.handleInputChange} value={this.state.email} />
+                            <Form.Text className="text-muted">Nunca compartiremos tu correo electrónico con nadie más.</Form.Text>
+                        </Form.Group>
 
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Remember me" />
-                    </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label className="formLabel">Password</Form.Label>
+                            <Form.Control type="password" placeholder="Password" name="password" onChange={this.handleInputChange} value={this.state.password} />
+                        </Form.Group>
+
+                        <Form.Group controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Remember me" />
+                        </Form.Group>
 
 
-                    <Form.Group action="/upload" method="post" enctype="multipart/form-data">
-                        <Form.Label for="file" className="formLabel">Imagen de perfil</Form.Label>
-                        <Form.Control name="imgPath" type="file" onChange={this.handleFileUpload} />
-                    </Form.Group >
-                    <Button type="submit" variant="secondary">Regístrate</Button>
-                </Form>
+                        <Form.Group action="/upload" method="post" enctype="multipart/form-data">
+                            <Form.Label for="file" className="formLabel">Imagen de perfil</Form.Label>
+                            <Form.Control name="imgPath" type="file" onChange={(e) => this.handleFileUpload(e)} />
+                        </Form.Group >
+                        <Button type="submit" variant="secondary">Regístrate</Button>
+                    </Form>
 
-            </Container>
+                </Container>
+            </div>
         )
     }
 }

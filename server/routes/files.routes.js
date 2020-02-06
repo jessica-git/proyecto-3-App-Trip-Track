@@ -16,7 +16,8 @@ router.post("/upload", uploader.single("imgPath"), (req, res, next) => {
     if (req.user) {
         User.findByIdAndUpdate(req.user._id, {
             imgPath: imgPath
-        }).then(user =>
+        })
+        .then(user =>
             res.json({ secure_url: req.file.secure_url })
         );
     } else {

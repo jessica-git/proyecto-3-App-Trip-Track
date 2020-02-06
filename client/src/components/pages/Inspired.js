@@ -29,7 +29,7 @@ class Inspired extends Component {
             return (
 
                 <Col md={4}>
-                    <Card style={{ width: '18rem' }}>
+                    <Card className="oneCardTravels">
                         <Card.Img variant="top" src={imgRating} />
                         <Card.Body>
                             <Card.Title>{travel.place}</Card.Title>
@@ -44,15 +44,23 @@ class Inspired extends Component {
                     </Card>
                 </Col>
 
+
             )
         })
         return this.state.travels ? (
             <>
-                <Container>
-                    <Row className=" justify-content-center" style={{ margin: 20 }}>
-                        {cards}
-                    </Row>
-                </Container>
+
+                <div className="imgHeader">
+                    <h2>INSPÍRATE CON ESTOS VIAJES</h2>
+                </div>
+
+                <div className="backgroundPage top">
+                    <Container>
+                        <Row className=" justify-content-center">
+                            {cards}
+                        </Row>
+                    </Container>
+                </div>
             </>
         ) : "Esperando los viajes"
     }

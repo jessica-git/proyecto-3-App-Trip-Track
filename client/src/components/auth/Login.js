@@ -44,8 +44,9 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <Container className="containerLogin">
-                <Form onSubmit={this.handleSubmit}>
+            <div className="backgroundBlur">
+            <Container >
+                    <Form onSubmit={this.handleSubmit} className="boxEditHeader containerLogin">
                     <Form.Group>
                         <Form.Label className="formLabel">Usuario</Form.Label>
                         <Form.Control type="text" name="username" placeholder="username" onChange={this.handleInputChange} value={this.state.username} />
@@ -74,8 +75,8 @@ class LoginForm extends Component {
                     </Toast.Header>
                     <Toast.Body>{this.state.toastText}</Toast.Body>
                 </Toast>
-
             </Container >
+            </div>
         )
     }
 }

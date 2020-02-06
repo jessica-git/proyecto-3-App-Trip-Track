@@ -39,7 +39,10 @@ class App extends Component {
   fetchUser = () => {
     if (this.state.loggedInUser === null) {
       this.AuthService.loggedin()
-        .then(theLoggedInUserFromTheServer => this.setState({ loggedInUser: theLoggedInUserFromTheServer.data }))
+        .then(theLoggedInUserFromTheServer => {
+          this.setState({ loggedInUser: theLoggedInUserFromTheServer.data })
+        })
+        
         .catch(err => {
           this.setState({ loggedInUser: false })
 

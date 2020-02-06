@@ -1,8 +1,9 @@
 const passport = require('passport')
 const session = require('express-session')
-require('./passport.config')
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose")
+
+require('./passport.config')
 
 module.exports = app => {
 

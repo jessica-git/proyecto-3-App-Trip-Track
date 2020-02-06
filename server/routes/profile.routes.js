@@ -14,8 +14,8 @@ router.get("/", ensureLogin.ensureLoggedIn('/auth/login'), (req, res) => res.ren
 router.get("/profile", (req, res) => {
     userId = req.user._id
     userId.findById(userId)
-        .then(profile => {
-            res.json(profile)
+    .then(profile => {
+        res.json(profile)
         })
         .catch(err => { res.json(err) })
 })

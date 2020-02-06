@@ -124,7 +124,7 @@ class TravelFormDays extends Component {
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label >Comparte tus mejores viajes:</Form.Label>
+                    <Form.Label >Comparte tus mejores fotos:</Form.Label>
                     <Form.Control name="imgPath" type="file" onChange={(e) => this.handleFileUpload(e)}></Form.Control>
                 </Form.Group>
 

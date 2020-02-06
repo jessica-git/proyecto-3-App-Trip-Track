@@ -10,7 +10,7 @@ export default class TravelService {
 
     }
 
-        getAllTravels = () => this._service.get("/all")
+    getAllTravels = () => this._service.get("/all")
     getOneTravelByID = id => this._service.get(`/travel/${id}`)      
     getOneTravelDayByID = id => this._service.get(`/travel/day/${id}`)      
 

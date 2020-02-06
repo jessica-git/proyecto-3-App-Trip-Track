@@ -3,6 +3,7 @@ import { Card, Col, Row, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import TravelService from "../../service/Travel.service"
+import "../../styelsheets/Pages.css"
 
 class AllTravelsCard extends Component {
     constructor(props) {
@@ -12,7 +13,6 @@ class AllTravelsCard extends Component {
             place: "",
             user: "",
             duration: "",
-            // rating: 0
         }
     }
 
@@ -21,6 +21,7 @@ class AllTravelsCard extends Component {
 
         this.travelAPI.getTravelByCity(place)
             .then(apiResponse => {
+                console.log("dame la ciudad", apiResponse.data)
                 const filteredCities = apiResponse.data
                 this.setState({ filteredCities })
 
@@ -28,34 +29,37 @@ class AllTravelsCard extends Component {
             .catch(err => console.log("Error get travel by city", err))
     }
 
-    printTravels() {
-        this.getTravelByCity()
-    }
 
+    
     componentDidMount() {
-        this.printTravels()
+        this.getTravelByCity()
+        
+
     }
 
     render() {
-
+        let title = this.props.match.params.place
+        title = title.toUpperCase()
+        
         const arrayCities = this.state.filteredCities
         if (!arrayCities) {
             return "Esperando los datos..."
         }
 
         return (
+           
             <>
                 <div className="imgHeader">
-                    <h2>{this.props.match.params.place}</h2>
+                    <h2>{title}</h2>
                 </div>
+                <div className="backgroundPage top">
 
-                {
-                    arrayCities.map(city => {
-                        return (
-                            <Container >
-                                <Row md={4}>
-                                    <Col>
-                                        <Card style={{ width: '18rem', margin: 20 }}>
+                    <Container >
+                        <Row>
+                            {arrayCities.map(city => {
+                                return (
+                                    <Col md={4} className="allTravelCard">
+                                        <Card className="oneCardTravels"> 
                                             <Card.Body>
                                                 <Card.Title><strong>{city.place}</strong></Card.Title>
                                                 <Card.Text>{city.duration} días</Card.Text>
@@ -64,15 +68,17 @@ class AllTravelsCard extends Component {
                                             </Card.Body>
                                         </Card>
                                     </Col>
-                                </Row>
-                            </Container>
-                        )
-                    })
-                }
+
+                                )
+                            })}
+                        </Row>
+                    </Container>
+
+                </div>
             </>
         )
     }
 
 }
 
-export default AllTravelsCard 
+export default AllTravelsCard

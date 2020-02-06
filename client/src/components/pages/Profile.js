@@ -1,10 +1,12 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
+
 import "../../styelsheets/Pages.css"
 
 
 const Profile = props => {
+        console.log(`quiero saber las props de profile ${props.loggedInUser.imgPath}`)
 
     return (
         <>

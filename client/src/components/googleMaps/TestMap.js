@@ -12,7 +12,7 @@ Geocode.enableDebug()
 
 class MainMap extends Component {
     constructor(props) {
-        
+
         super(props)
         this.TravelService = new TravelService();
         this.state = {
@@ -41,8 +41,8 @@ class MainMap extends Component {
         }
     }
 
-    onMapClick(...args) {
-        console.log('onClick args: ', args)
+    onMapClick(...maps) {
+        console.log('onClick maps: ', maps)
     }
 
     componentDidMount() {
@@ -72,9 +72,9 @@ class MainMap extends Component {
         return (
             <>
 
-                <LoadScript id="script-loader" 
+                <LoadScript id="script-loader"
                     googleMapsApiKey={`${process.env.REACT_APP_KEY}`}>
-                    <GoogleMap 
+                    <GoogleMap
                         id='example-map'
                         mapContainerStyle={{
                             height: "400px",

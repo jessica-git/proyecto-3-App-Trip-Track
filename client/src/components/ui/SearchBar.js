@@ -17,6 +17,9 @@ class SearchBar extends Component {
     }
 
     handleOnClick = e => {
+        console.log(e)
+        this.setState({ searchValue: ""})
+        
     }
 
     render() {

@@ -19,6 +19,7 @@ authRoutes.post('/upload', uploader.single("imgPath"), (req, res, next) => {
 
 authRoutes.post('/signup', (req, res, next) => {
     const { username, password, email, imgPath } = req.body
+    console.log("datos dle user en authroutes", req.body)
 
     if (!username || !password) {
         res.status(400).json({ message: 'Provide username and password' });
@@ -106,7 +107,10 @@ authRoutes.get('/loggedin', (req, res, next) => {
         res.status(200).json(req.user);
         return;
     }
-    res.status(403).json({ message: 'Unauthorized' });
+    //res.status(403).json({ message: 'Unauthorized' });
+    res.status(status).json(obj)
+   
+    
 });
 
 module.exports = authRoutes;
