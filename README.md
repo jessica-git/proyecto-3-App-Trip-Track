@@ -11,7 +11,9 @@ Proyecto creado ante la necesidad de planificar un viaje sin tener que abrir mil
 
 ## Instalación
 
-1. Cambia el nombre del fichero `server/.env.sample` a `server/.env` y `client/.env.sample` a `client/.env`
+1. Copia el fichero y renombra los siguientes ficheros: `server/.env.sample` a `server/.env` y `client/.env.sample` a `client/.env`
 
-2. 
+2. Ahora tenemos que ejecuar una serie de scripts para inicializar la base de datos: 
+    - Desde la carpeta `server` ejecuta `node bin/initDatabase.js` para iniciar una base de datos vacia.
+    - Desde la carpeta `server` ejecuta `node bin/seedsTravel.js` para inicializar la base de datos con datos de prueba. Gracias a esto, tendremos un usuario de prueba generado. Los datos de acceso son, usuario `jess@jess.com` y contraseña `1234`
 

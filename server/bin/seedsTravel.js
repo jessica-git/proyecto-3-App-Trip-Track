@@ -1,20 +1,18 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
-const bcrypt = require('bcryptjs');
 
-mongoose.connect("mongodb+srv://Jessica-Iron:WjuR7RZg24hNpes5@cluster0-0fjka.mongodb.net/proyectoTravel?retryWrites=true&w=majority");
+mongoose
+    .connect(`${process.env.DB}`, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
+    .catch(err => console.error('Error connecting to mongo', err));
 
 //importante el orden de requerimiento para que aparezca en la DB
-const User = require("../models/User.model.js");
-const TravelDays = require("../models/TravelDays.model");
+const User = require('../models/User.model');
 const Travel = require("../models/Travel.model");
-
-require("dotenv").config();
+const TravelDays = require("../models/TravelDays.model");
+const bcrypt = require('bcryptjs');
 
 const salt = bcrypt.genSaltSync(10);
-
-User.collection.drop()
-Travel.collection.drop()
-TravelDays.collection.drop()
 
 const user = {
     _id: mongoose.Types.ObjectId(),
