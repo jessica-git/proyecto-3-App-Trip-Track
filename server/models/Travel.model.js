@@ -13,6 +13,5 @@ const travelSchema = new Schema({
     timestamps: true
 })
 
-
 const Travel = mongoose.model('Travel', travelSchema)
 module.exports = Travel

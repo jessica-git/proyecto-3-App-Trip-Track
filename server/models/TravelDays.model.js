@@ -18,4 +18,3 @@ const detailsSchema = new Schema({
 
 const TravelDays = mongoose.model('TravelDays', detailsSchema)
 module.exports = TravelDays
-
