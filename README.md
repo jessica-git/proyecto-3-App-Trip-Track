@@ -8,3 +8,10 @@ Proyecto creado ante la necesidad de planificar un viaje sin tener que abrir mil
 - Crear nuestro viaje  y compartirlo con la comunidad
 - Viajar con el itinerario y la planificación hecha por los demás aventureros
 - Puntúa la creación de viajes de la comunidad 
+
+## Instalación
+
+1. Cambia el nombre del fichero `server/.env.sample` a `server/.env` y `client/.env.sample` a `client/.env`
+
+2. 
+
